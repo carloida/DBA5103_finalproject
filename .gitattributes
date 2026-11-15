@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Preserve dataset bytes so the published SHA-256 remains reproducible.
+*.csv -text
+*.gz binary
+*.png binary
+*.jpg binary
+*.pdf binary

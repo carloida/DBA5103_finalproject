@@ -1,0 +1,4 @@
+destination_quality,trips,median_duration_min,over_24_hours,over_24_hours_share
+End ID present in source,106286,6.390816666666666,1,9.408576858664359e-06
+End ID recovered by exact name,49,5.4860500000000005,0,0.0
+Unresolved end ID,282,64.07994166666667,35,0.12411347517730496

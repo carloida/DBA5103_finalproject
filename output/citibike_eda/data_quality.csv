@@ -1,0 +1,14 @@
+column,raw_dtype,missing_count,missing_pct,unique_nonmissing,whitespace_changed
+ride_id,string,0,0.0,106628,0
+rideable_type,string,0,0.0,2,0
+started_at,string,0,0.0,106625,0
+ended_at,string,0,0.0,106560,0
+start_station_name,string,0,0.0,108,0
+start_station_id,string,0,0.0,108,0
+end_station_name,string,284,0.26634655062460144,222,0
+end_station_id,string,333,0.312300709007015,222,0
+start_lat,string,0,0.0,108,0
+start_lng,string,0,0.0,108,0
+end_lat,string,333,0.312300709007015,221,0
+end_lng,string,333,0.312300709007015,222,0
+member_casual,string,0,0.0,2,0

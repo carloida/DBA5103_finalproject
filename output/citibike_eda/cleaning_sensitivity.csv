@@ -1,0 +1,5 @@
+scenario,september_starts,local_departures,local_arrivals,sum_absolute_monthly_station_net,unresolved_september_arrivals
+"Primary: valid events, name recoveries, long trips retained",106617,106617,106070,2493,284
+Exclude >24-hour trips (review scenario),106581,106581,106069,2482,248
+No station-ID recovery,106617,106617,106021,2522,333
+September starts only (drops carry-in arrivals),106617,106617,106061,2498,282

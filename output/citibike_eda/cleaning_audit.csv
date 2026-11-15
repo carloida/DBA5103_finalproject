@@ -1,0 +1,19 @@
+check,count
+Raw records,106628
+Exact duplicate rows removed,0
+Invalid/conflicting/missing-ID records excluded from time analysis,0
+Unparseable or missing timestamps,0
+Nonpositive trip durations,0
+Coordinate strings that fail numeric parsing,0
+Invalid latitude/longitude ranges,0
+Valid September departures,106617
+Valid starts outside September,11
+Valid September arrivals from pre-month starts,11
+Missing destination IDs before recovery,333
+Destination IDs recovered by unique exact name,49
+Destination IDs still unresolved,284
+Trips over 24 hours retained and flagged,37
+Trips under one minute flagged,0
+Straight-line speed over 50 km/h flagged,0
+Station IDs with multiple observed names,0
+Station names mapping to multiple IDs,0

@@ -1,0 +1,9 @@
+hey team, just done with the EDA.
+
+attached a summary here if you don't want to check it on GitHub.
+
+what i noticed is that it's mainly usage and logistical data. there's no financial data like bike purchase costs, maintenance, replacement parts, staff, security or data usage costs. revenue and profit aren't included either.
+
+some public reports have these figures, but we need to check if they apply to our case. if we can gather them, we'd have more realistic constraints and a stronger business case.
+
+hope this gives everyone more ideas before our meeting. i'll upload this to GitHub in the meantime. thanks!

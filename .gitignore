@@ -1,0 +1,27 @@
+# This repository tracks only the Citi Bike project within the course workspace.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/requirements.txt
+!/docs/
+!/CitiBike_JC_202609_EDA.py
+!/CitiBike_JC_202609_EDA.ipynb
+!/JC-202609-citibike-tripdata.csv/
+/JC-202609-citibike-tripdata.csv/*
+!/JC-202609-citibike-tripdata.csv/JC-202609-citibike-tripdata.csv
+!/output/
+/output/*
+!/output/citibike_eda/
+!/output/pdf/
+
+# A compressed, lossless copy of this large derived table is tracked instead.
+/output/citibike_eda/cleaned_september_trips.csv
+**/__pycache__/
+**/.ipynb_checkpoints/
+**/*.pyc
+**/*.log
+**/__MACOSX/
+**/._*
+.env
+.env.*

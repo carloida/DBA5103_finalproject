@@ -1,0 +1,58 @@
+{
+  "source_relative_path": "JC-202609-citibike-tripdata.csv\\JC-202609-citibike-tripdata.csv",
+  "source_sha256": "7dceac4be4b3aec02a292a28ebfb5360bc4f8908a41b631689cc3aa8faebec1c",
+  "raw_rows": 106628,
+  "valid_september_starts": 106617,
+  "columns": [
+    "ride_id",
+    "rideable_type",
+    "started_at",
+    "ended_at",
+    "start_station_name",
+    "start_station_id",
+    "end_station_name",
+    "end_station_id",
+    "start_lat",
+    "start_lng",
+    "end_lat",
+    "end_lng",
+    "member_casual"
+  ],
+  "observed_origin_stations": 108,
+  "observed_destination_stations": 222,
+  "service_domain_stations": 108,
+  "missing_end_ids_raw": 333,
+  "recovered_end_ids": 49,
+  "unresolved_end_ids": 284,
+  "outside_domain_arrivals": 274,
+  "long_trips": 37,
+  "out_of_month_starts": 11,
+  "recorded_timestamp_timezone": "Unspecified in CSV; analyzed as recorded local clock time",
+  "analysis_month_start": "2026-09-01 00:00:00",
+  "analysis_month_end_exclusive": "2026-10-01 00:00:00",
+  "peak_windows_hours": {
+    "Morning (07\u201309)": [
+      7,
+      8,
+      9
+    ],
+    "Evening (16\u201318)": [
+      16,
+      17,
+      18
+    ]
+  },
+  "september_weekdays": 22,
+  "september_weekend_days": 8,
+  "station_hours": 77760,
+  "morning_evening_reversal_stations": 96,
+  "member_share_pct": 73.89815883020532,
+  "electric_share_pct": 59.656527570650084,
+  "median_duration_min": 6.402916666666667,
+  "python": "3.12.10",
+  "pandas": "3.1.1",
+  "numpy": "2.5.4",
+  "matplotlib": "3.11.2",
+  "seaborn": "0.13.2",
+  "validation": "All reconciliation assertions passed"
+}

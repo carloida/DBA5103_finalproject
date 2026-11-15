@@ -1,0 +1,3 @@
+method,station_hour_MAE,station_hour_RMSE,bias_predicted_minus_actual,test_station_hours
+Station + hour average,0.9692476851851852,1.6631464560462677,0.22447916666666667,25920
+Station + day type + hour average,0.8994653880070546,1.4953435319088577,0.25121068489124043,25920

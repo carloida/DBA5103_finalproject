@@ -1,48 +1,44 @@
-# Project status - 15 November 2026
+# Project status - 17 November 2026
+
+Following the 16 November meeting, the modeling work focuses on SF Bay Area Bike Share. The earlier Citi Bike EDA remains as background. A 34-station SF subset is shared for review; publication does not mean every modeling assumption has been agreed.
 
 ## Completed
 
-- Audited and analyzed the supplied September 2026 JC/HB Citi Bike file.
-- Saved the Python script, executed notebook, cleaning audit, manifest, flow tables and forecast baselines.
-- Generated 13 original figure panels and a four-picture phone summary.
-- Identified data limitations and possible LP, network-flow, time-expanded and integer-programming extensions.
-- Fixed terminal chart warnings, terminal narrative display and data lookup from other working directories.
-- No redistribution optimizer, truck-route solver, profit model or measured shortage estimate has been implemented yet.
+- Original Citi Bike notebook, code, charts, audit tables and findings retained.
+- Full SF audit/EDA: 669,959 trips, 70 stations, 71,984,434 status snapshots and 3,665 weather location-days; saved notebook, 14 chart panels and reports.
+- Candidate: 34 SF stations, 9 February-19 April 2015, 57,120 station-hours in a roughly 0.247 MB Parquet file.
+- History-length, hourly-pattern, station-priority, coverage and outlier checks.
+- Updated poster, initial report and cited cost-formula proposal.
+- Raw Citi Bike CSV and complete cleaned trip copy removed from current repository files. Full SF sources and local database are excluded; Git history remains intact.
 
-## Initial direction
+## Objective
 
-Use observed station flows to motivate a budget-limited bicycle redistribution model. Compare no redistribution, a rule-based/greedy policy and an optimized policy under common assumptions. Examine costs, inventory pressure and robustness across days.
+Choose how many bikes to move, where and when, to maximize additional trip contribution minus additional redistribution cost relative to no rebalancing, under bike conservation, inventory, dock, timing and truck limits. Bicycle/dock purchases are outside the operational scope.
 
-## Dataset decision remains open
+## Roles and dependencies
 
-The team suggested SF Bay Area Bike Share as a candidate for its reported historical station-status and capacity information, with weather as a possible additional input. These details still need verification against the actual downloaded files. No SF data are included yet.
+| Person | Responsibility | Needs |
+| --- | --- | --- |
+| Carlo | Scope, EDA, quality checks, data handoff and consistency edit | Input format/model requirements from Fu Yan, Joohee and Hong Jin |
+| Fu Yan | Demand estimation and scenarios | Observed flows and valid exposure from Carlo |
+| Jason | Cost/revenue evidence and literature | Vehicle scenario and accounting scope, with Carlo/Fu Yan |
+| Joohee | Mathematical formulation and method | Agreed data definitions, demand and cost assumptions |
+| Hong Jin | Implementation, baselines and results | Agreed data, demand, parameters and formulation |
 
-If that dataset is suitable, retain Citi Bike as descriptive motivation and use SF data for modeling. Keep the systems, periods and financial assumptions clearly separated. Empty/full station observations improve visibility of availability, but do not directly measure unmet customer demand.
+## Still required
 
-Supply Chain Logistics Problem Dataset (Brunel/Kaggle) was raised as a backup topic. It has not been selected or evaluated here.
+1. Confirm stations, dates, hourly slots and boundary-flow rules. The candidate is a pilot, not evidence that other periods are redundant.
+2. Finish focused subset EDA; agree on four/eight-week estimation and later evaluation dates.
+3. Fit/validate demand correction, including uncertainty and zero-exposure handling.
+4. Review capacities/opening stock and conserve bikes across trips, returns and transit.
+5. Verify vehicle, staffing, handling, travel and revenue inputs; label proxies and assumptions.
+6. Compare no moves, a simple rule and optimization using identical information/initial states.
+7. Test demand, costs, capacity, rain/extremes and break-even conditions.
 
-## Monday evening meeting - 16 November 2026, Singapore time
+No optimized plan, measured recovered demand or profit gain is established. Current validation dates have already been examined and are exploratory, not a sealed final test.
 
-1. Choose the dataset: retain Citi Bike, use SF Bay Area Bike Share, or pursue another option.
-2. Confirm the exact question and decision horizon: initial redistribution, repeated hourly moves, or a capacity investment decision.
-3. Audit coverage: timestamps, station identifiers, capacities, status gaps, outages and alignment between trip/status records.
-4. Decide how to estimate rental/return demand during empty/full periods; distinguish observations from assumptions.
-5. Select a manageable station subset and define stocks, dock limits, relocation budgets and transfer timing.
-6. Collect cost inputs or agree on transparent ranges for relocation, labor, vehicles, maintenance and additional equipment.
-7. Specify policy baselines, a chronological evaluation split and sensitivity scenarios.
-8. Assign model, data, implementation and writing tasks after scope is agreed.
+## Timeline from the supplied minutes
 
-No exact meeting time has been recorded.
+Data/EDA target: 17 November. Demand/model review: 18 November. Coding: tentatively 19-20 November. Consolidation: 21 November. Submission: 22 November; resolve issues before Carlo's evening travel.
 
-## Course requirements to address
-
-Based on the supplied DBA5103 project guideline:
-
-- Explain motivation, the practical problem, the data/process and the assumptions.
-- Define a mathematical model, objective, decision variables and every constraint.
-- Identify the problem class and explain the algorithm/methodology and course connections.
-- Explain results, policy implications, sensitivity and limitations; cite relevant sources.
-- Attach implementation code as an appendix and write a focused, consistently formatted report.
-- The guideline suggests roughly 8-14 narrative pages, but prioritizes a clear point over length and imposes no strict page limit. Its suggested formatting is 12-point Times, double spacing and one-inch margins; other consistent, clear formats are allowed.
-
-The original course PDFs remain in the local course folder and are not redistributed here.
+See the [initial report](SF_Bikeshare_Initial_Report.md), [cost revision](SF_Bikeshare_Cost_Formula_Revision.md), [subset guide](../output/sf_bikeshare/subset_assessment/README.md) and [poster](../output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png).

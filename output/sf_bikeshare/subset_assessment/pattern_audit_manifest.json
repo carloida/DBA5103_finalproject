@@ -1,0 +1,20 @@
+{
+  "reference": "Same 34 SF stations; complete weeks [2013-09-02,2015-08-31), excluding candidate dates",
+  "candidate": "[2015-02-09,2015-04-20)",
+  "method": "Descriptive comparisons, not an equivalence test or final policy validation",
+  "outlier_method": "Daily completed departures flagged outside weekday/weekend-specific reference Q1-1.5*IQR and Q3+1.5*IQR; retained, not removed",
+  "date_caveat": "Recorded local clock; source DST ambiguity unresolved",
+  "duration_audit": {
+    "relevant_trips": 63974,
+    "duration_over_24h": 13,
+    "duration_clock_mismatch": 0,
+    "max_duration_seconds": 350903
+  },
+  "no_rows_removed_for_extreme_usage": true,
+  "limitations": [
+    "Reference covers changing seasons and operations",
+    "Candidate was not selected by an optimization of representativeness",
+    "This descriptive audit uses validation dates; it is not a sealed test",
+    "No equivalence of profit or latent demand established"
+  ]
+}

@@ -1,0 +1,246 @@
+[
+  {
+    "title": "1. What this dataset lets the team study",
+    "paragraphs": [
+      "Working project: compare no bicycle redistribution, a rule-based/greedy policy and an optimized policy under the same operating assumptions. This report assesses the data needed for that comparison; no optimization has been solved.",
+      "The supplied four CSV files contain 669,959 completed trips, 70 stations, 700 observed bicycle identifiers, 71,984,434 status snapshots and 3,665 weather location-days. Trip starts run from 2013-08-29 09:08:00 to 2015-08-31 23:26:00.",
+      "Compared with the Jersey City Citi Bike file, this is a material improvement: it supplies historical available-bike/free-dock observations, a static station-capacity field, bicycle IDs and daily weather. It does not directly supply unsuccessful customer requests, staff movements, procurement, maintenance, fare transactions, revenue or profit.",
+      "Subscriber rides account for 84.6% of completed trips. Median reported duration is 8.62 minutes. Stations are empty for 0.74% and full for 0.45% of valid observed time under the bounded interval rule.",
+      "Recommended direction: retain the redistribution topic and use one city or a small station subset for an initial model, subject to the coverage and capacity audit. Use observed availability to diagnose service exposure; estimate latent demand separately. Present economics as a transparent scenario study until system- and period-matched financial inputs are available."
+    ],
+    "table": [
+      [
+        "Question",
+        "Assessment"
+      ],
+      [
+        "Can files be linked?",
+        "Yes, using audited IDs and an explicit weather mapping."
+      ],
+      [
+        "Can stock constraints be studied?",
+        "Yes, with coverage and capacity qualifications."
+      ],
+      [
+        "Are unfulfilled orders observed?",
+        "No. Only availability and completed trips are observed."
+      ],
+      [
+        "Are costs, revenue and profit observed?",
+        "No. These financial gaps remain."
+      ]
+    ],
+    "figure": null,
+    "caption": null
+  },
+  {
+    "title": "2. Database design and safe joins",
+    "paragraphs": [
+      "station_id identifies station rows. trip_id identifies rides; start_station_id and end_station_id separately reference station. bike_id identifies the observed-bike dimension. The logical status key is (station_id, observed_at). Weather is keyed by (weather_zip_code, weather_date).",
+      "All 669,959 trip IDs are unique and every trip endpoint matches station. The full status scan found 0 repeated composite-key groups. Any identical copies are collapsed for exposure analysis; conflicting states sharing a key are quarantined. Inspect the saved audit rather than assuming a key from column names.",
+      "The trip postal field is retained as rider_zip_code. It is not the station location and must not be joined to weather. An explicit analyst mapping links each city to one available weather location; this is a city-level proxy, not a source-provided station ZIP or proof of local microclimate.",
+      "Aggregate trip events and status exposure to a shared station-hour before joining facts. Joining trips and snapshots on station alone would multiply rows. Weather joins use city mapping plus date and are checked as many-to-one.",
+      "The delivered DuckDB database contains full raw status data, normalized small tables and derived panels. Small-table unique indexes enforce uniqueness; the raw status composite key is fully audited rather than indexed with a large primary-key structure. Foreign-key relationships are checked by anti-joins; they are logical/audited relationships rather than declared foreign-key constraints."
+    ],
+    "table": [
+      [
+        "table name",
+        "rows",
+        "distinct keys"
+      ],
+      [
+        "station",
+        "70",
+        "70"
+      ],
+      [
+        "trip",
+        "669959",
+        "669,959"
+      ],
+      [
+        "bike",
+        "700",
+        "700"
+      ],
+      [
+        "weather",
+        "3665",
+        "3,665"
+      ],
+      [
+        "status",
+        "71984434",
+        "71,984,434"
+      ],
+      [
+        "status_hourly",
+        "1204554",
+        "1,204,554"
+      ]
+    ],
+    "figure": "02_database_relationships.png",
+    "caption": "Logical relationships. Two trip endpoints refer to the same station dimension; weather requires a city/date proxy."
+  },
+  {
+    "title": "3. Data quality that changes the modeling assumptions",
+    "paragraphs": [
+      "The raw status table contains 0 missing/unparseable records, 0 unknown station references and 0 negative-count records. States with no available bikes and no free docks occur in 240 records; these are not classified as both rental stockouts and full-station return failures.",
+      "There are 3,403,916 snapshots where available bikes plus free docks differs from static dock_count. Differences may reflect disabled docks/bikes, capacity changes, maintenance, inconsistent records or other operational effects. They do not uniquely reveal the cause. The static table is not a time-varying physical-capacity history.",
+      "Across the installation-based reference calendar, 98.88% of station-hours are covered by valid short-gap intervals. Absence can reflect missing capture, outages, installation/retirement or other causes. It is not evidence of either service availability or zero demand.",
+      "The primary exposure calculation carries the previous state only to the next valid observation if the gap is positive and at most 90 seconds. Intervals are split at hour boundaries. Gaps over 90 seconds and final unpaired observations contribute no inferred duration. Long gaps are never forward-filled.",
+      "Trip duration is reported in seconds but endpoint timestamps have minute precision. 15 rides differ by over 60 seconds between the two measures. 296 rides exceed 24 hours and are retained with a review flag. 4 station IDs have start-name aliases or a mismatch with the station display name. Identifier joins take precedence over name joins.",
+      "Bicycle sequences contain 49 overlapping consecutive-trip pairs beyond one minute and 125,505 cases where the next origin differs from the previous destination. These suggest identifier/timing issues or unrecorded movement, but do not establish staff relocation counts, truck routes or maintenance events.",
+      "Weather contains 143 trace-precipitation entries (T). The main measurable-rain rule treats T as below the measurement threshold, retains a trace flag and repeats the regression with trace counted as rain. Blank events is not automatically treated as a weather outage."
+    ],
+    "table": null,
+    "figure": "08_status_coverage_and_capacity.png",
+    "caption": "Coverage and capacity diagnostics use the entire status file. A recorded static dock count is not automatically a reliable historical constraint."
+  },
+  {
+    "title": "4. Usage patterns and operational implications",
+    "paragraphs": [
+      "Daily/monthly counts show system usage over the observed period. Boundary dates are partial or potentially incomplete. Seasonality, station additions, holidays and changes in operation can all affect these counts; a trend plot does not identify their separate effects.",
+      "Weekday and weekend profiles are normalized by calendar-day frequency. The three highest average weekday departure hours are 08:00, 17:00, 09:00. This supports explicit peak-period analysis while leaving trip purpose unobserved.",
+      "62 of 70 stations reverse the sign of average morning versus evening customer net flow. Small reversals count. Net flow uses departures and arrivals at their own timestamps; it is not actual station inventory because staff actions and unavailable equipment also matter.",
+      "City and OD patterns provide a practical way to choose a pilot region. Customer corridors do not determine a redistribution truck route: that decision still needs road travel times, depots, truck capacity and shifts. Cross-city operations may introduce substantial dead travel.",
+      "Bicycle IDs support usage counts and follow-on sequence audits. They do not reveal the age of the fleet, maintenance intervals, the owner of a repair cost or how frequently the same customer rides. A large subscriber ride share cannot establish the number or value of paid memberships."
+    ],
+    "table": null,
+    "figure": "06_station_activity_and_reversal.png",
+    "caption": "Activity and directional reversals identify where time-dependent transfers may be useful. All quantities are based on completed customer movements."
+  },
+  {
+    "title": "5. Availability exposure and what it does not measure",
+    "paragraphs": [
+      "Primary results: 1,195,874.8 valid observed station-hours; empty exposure 0.735%; full exposure 0.454%. Rates weight time correctly rather than averaging station percentages or counting duplicate snapshots as additional independent evidence.",
+      "A positive exposure share establishes that a station was recorded without a rentable bike or a return dock during valid observed intervals. It does not reveal whether any customer arrived then, whether a customer used a neighboring station, or how much money the operator lost.",
+      "The exposure-only problem is identifiable from status; the number of failed orders is not. A later demand model can estimate lost rentals as expected attempted rentals during empty intervals and failed returns during full intervals. This requires assumptions about arrival rates, censoring, nearby substitution and operator interventions. Validate any such model using artificial censoring or other observable benchmarks.",
+      "The reported block intervals resample complete seven-day blocks of system-day numerator/denominator totals. Stations remain together within days, preserving common shocks. These intervals characterize historical process variability under the block assumptions, not measurement errors or proof that missing status periods are representative.",
+      "Repeat exposure analysis under 50%, 75% and 90% daily coverage screens and 60/75/90/120-second gap rules. Changes in results and denominators are substantive sensitivity findings, not reasons to select the most favorable policy outcome."
+    ],
+    "table": [
+      [
+        "measure",
+        "pct",
+        "ci low",
+        "ci high"
+      ],
+      [
+        "Empty time",
+        "0.74",
+        "0.68",
+        "0.79"
+      ],
+      [
+        "Full time",
+        "0.45",
+        "0.41",
+        "0.50"
+      ]
+    ],
+    "figure": "09_empty_full_exposure.png",
+    "caption": "Denominator: valid observed time. Empty/full exposure must not be relabeled lost-customer percentages."
+  },
+  {
+    "title": "6. Inferential findings and their limits",
+    "paragraphs": [
+      "Weekday comparison: use a fixed cohort of 34 SF stations installed by the first trip day. Exclude the file boundary dates and pair each complete week's mean weekday count with its mean weekend count. Across 104 full weeks, the mean difference is 655.4 completed trips/day. A 2,000-replicate contiguous four-week moving-block bootstrap gives a 95% interval of 597.8 to 717.9.",
+      "Weather model: OLS of log(1 + daily completed SF-cohort trips), using 731 days and 77 measurable-rain days. Controls are weekday, calendar month, year, linear time trend, mean temperature and wind. A 28-lag Bartlett/Newey-West HAC covariance yields a rain association of -21.6% in trips+1, with an asymptotic 95% interval of -30.4% to -11.7%.",
+      "The transformed percentage describes the conditional geometric mean of trips+1. It is an approximate count comparison for large counts, not an estimated causal price/demand elasticity. Weekday schedules, rain and existing service are not randomized. Holiday effects, changes in travel behavior, outages and other omitted factors may remain.",
+      "The block bootstrap does not assume individual trips or minute snapshots are independent. Nevertheless, finite-period nonstationarity and correlation longer than the chosen blocks can affect coverage. HAC results are also model- and lag-dependent; the saved 7- versus 28-day and trace-rain sensitivities expose some of this uncertainty.",
+      "All comparisons are exploratory. No multiple-testing-adjusted confirmatory claim or p-value threshold is used. The data describe this historical system; transfer to present-day Citi Bike or other cities requires new evidence."
+    ],
+    "table": null,
+    "figure": "13_weather_association.png",
+    "caption": "Raw weather differences are confounded. Adjusted intervals and sensitivity checks help quantify an association without making it causal."
+  },
+  {
+    "title": "7. Financial gaps and the business-case boundary",
+    "paragraphs": [
+      "Cost and revenue gaps from Citi Bike remain largely open. These four files have no purchase prices, useful lives, wages, labor schedules, loading times, truck costs, maintenance work orders, part replacements, theft/loss valuations, insurance/security or platform/connectivity expenses.",
+      "subscription_type is a usage category, not a billing account. There are no actual charges, subscriber identifiers, passes, discounts, refunds, taxes, sponsorship or subsidy ledgers. Duration plus a public tariff cannot reconstruct realized revenue without account-level rules and applicable historical rates. Current NYC/NJ Citi Bike prices must not be treated as 2013-2015 SF fares.",
+      "Collect period- and system-matched operator reports, procurement records or published research assumptions. Record each parameter's unit, source, scope and uncertainty. If unavailable, use clearly labeled low/base/high ranges; the accompanying input template deliberately contains no invented dollar values.",
+      "Keep perspectives separate. Customer fares are operator revenue and a transfer in a combined social-cost view. Do not count them twice. Distinguish capex, depreciation and cash operating expenses; when estimating incremental policy value, avoid allocating all fixed overhead as if it were a marginal relocation cost.",
+      "A credible first business case can compare how much modeled service exposure/target shortfall changes per relocation budget. A profit or ROI claim needs additional evidence linking served demand to incremental contribution, while retaining membership and capital-accounting assumptions."
+    ],
+    "table": [
+      [
+        "Input",
+        "Current evidence"
+      ],
+      [
+        "Inventory / docks",
+        "Observed status and static station counts; temporal gaps remain."
+      ],
+      [
+        "Failed rental / return counts",
+        "Not observed; requires a censored-demand model."
+      ],
+      [
+        "Relocation labor / trucks / routes",
+        "Not observed; use evidence or labeled scenarios."
+      ],
+      [
+        "Bike/dock capex and maintenance",
+        "Not observed; procurement/work-order data needed."
+      ],
+      [
+        "Customer payments / memberships",
+        "No transactions or unique subscription accounts."
+      ],
+      [
+        "Revenue / contribution / profit",
+        "Unavailable without additional financial evidence."
+      ]
+    ],
+    "figure": null,
+    "caption": null
+  },
+  {
+    "title": "8. Recommended OR scope and evaluation design",
+    "paragraphs": [
+      "Start with one city and a documented station subset. Prefer periods with high status coverage and review effective versus listed capacity before selecting capacity values. Choose a clear horizon: opening allocation or a small number of peak-window transfers. Document which snapshots initialize the plan and what earlier evidence supplies forecasts.",
+      "A defensible first LP decides simultaneous transfers x_ij >= 0 and target shortfalls s_i >= 0. Given observed/assumed opening stock I_i, reviewed capacity C_i and training-derived target b_i: J_i = I_i + inbound transfers - outbound transfers; 0 <= J_i <= C_i; J_i + s_i >= b_i; outbound transfers <= I_i; total relocated bikes <= B. Minimize transfer cost plus a shortfall penalty.",
+      "Here s_i is target shortfall, not measured unmet demand. Targets must be checked against capacities. A time-expanded extension uses hourly stock conservation and transfer lead times. If rental/return service is simulated, connect OD demand, travel lags, accepted rentals/returns and boundary flows so that the same customer trip does not create or destroy bicycles.",
+      "Compare no moves, a budget-matched greedy rule and optimized moves using identical initial states, capacities, transfer costs, information and uncertainty scenarios. Train targets and any latent-demand model on earlier days; keep later days unseen. Use paired day/week comparisons and block intervals for policy differences.",
+      "The exploratory forecast holds out the final 60 calendar days from 2015-07-03 00:00:00. Station+hour MAE is 0.539; adding day type gives 0.445. Peak errors are 1.194 and 1.051. These forecast results do not establish an improvement from redistribution.",
+      "Sensitivity priorities: relocation cost and budget, starting stock, capacity interpretation, coverage/gap rules, demand censoring/substitution and travel/loading times. Add binary truck decisions or routing only after the basic service and data definitions are stable. Report solver status, bounds/gaps where relevant, runtime and limitations."
+    ],
+    "table": [
+      [
+        "Claim we can make now",
+        "Claim requiring more work"
+      ],
+      [
+        "Availability is sometimes constrained.",
+        "How many requests failed or how much profit was lost."
+      ],
+      [
+        "Usage has directional and calendar structure.",
+        "That a particular plan causes better service."
+      ],
+      [
+        "Transparent forecasting baselines are testable.",
+        "That a policy earns a positive ROI."
+      ]
+    ],
+    "figure": null,
+    "caption": null
+  },
+  {
+    "title": "9. Sources, reproducibility and review checklist",
+    "paragraphs": [
+      "Empirical source: the four supplied local CSV files. Full source SHA-256 hashes, byte counts, build signature and software versions are in source_manifest.json. All empirical numbers in this report are computed locally; no external operating or financial observations were merged.",
+      "Dataset description: Ben Hamner, SF Bay Area Bike Share, Kaggle. The publisher describes a transformed Bay Area Bike Share open dataset. Original source rows remain unchanged. The relational audit and bounded time intervals are implemented in the delivered Python builders.",
+      "Relevant methodological evidence: Liu, X. and Pelechrinis, K. (2021), Excess demand prediction for bike sharing systems, PLOS ONE 16(6), e0252894, https://pmc.ncbi.nlm.nih.gov/articles/PMC8211247/. The paper distinguishes observed trip/status information from unrecorded excess demand and proposes an estimation method. It motivates a possible later model; that method is not fitted here.",
+      "Dataset link: https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share. Source and method pages were checked on 15 November 2026. Weather-city mapping is an explicit analyst proxy and should be reviewed before a station-level weather model is used.",
+      "Course connection: transportation/network flow for transfers; LP duality and sensitivity for resource values; time-expanded networks for delayed movements and inventories; integer programming for indivisible trucks or capacity; scenarios for uncertain flows. The supplied project guideline requires a clear problem, mathematical model, methodology, interpretation, references and code appendix. This EDA is preparatory evidence, not the completed term paper.",
+      "Review checklist before modeling: inspect duplicate/conflicting keys, capacity ranges and monthly gaps; choose the modeling region and dates; verify the weather proxy; define lost-demand assumptions; collect or label costs; freeze a chronological holdout; and agree on identical policy information and budgets.",
+      "Deliverables: executable EDA script and executed notebook; full local DuckDB database; SQL schema and relationship guide; 14 figures with question/caption index; cleaning, coverage, exposure, regression and forecast tables; financial-input template; this report in Markdown and PDF. Database files and raw 2 GB CSVs are kept out of Git by default."
+    ],
+    "table": null,
+    "figure": null,
+    "caption": null
+  }
+]

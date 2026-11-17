@@ -1,0 +1,6 @@
+gap_group,intervals,elapsed_seconds
+91 seconds to 5 minutes,232856,28344025.0
+5 to 60 minutes,1425,1344073.0
+Within 90 seconds,71749237,4305163604.0
+Over 60 minutes,846,16196559.0
+Last observation,70,

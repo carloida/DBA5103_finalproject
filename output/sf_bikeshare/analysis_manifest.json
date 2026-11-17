@@ -1,0 +1,175 @@
+{
+  "raw_trip_rows": 669959,
+  "valid_trips": 669959,
+  "stations": 70,
+  "bicycles": 700,
+  "weather_rows": 3665,
+  "status_rows": 71984434,
+  "start": "2013-08-29 09:08:00",
+  "end": "2015-08-31 23:26:00",
+  "days": 733,
+  "subscriber_share_pct": 84.59413187971204,
+  "median_duration_minutes": 8.616666666666667,
+  "long_trips": 296,
+  "duration_clock_mismatches": 15,
+  "top_weekday_hours": [
+    8,
+    17,
+    9
+  ],
+  "reversal_stations": 62,
+  "status_static_capacity_mismatch_rows": 3403916,
+  "status_both_zero_rows": 240,
+  "status_coverage_pct": 98.87708020520522,
+  "observed_station_hours": 1195874.7791666666,
+  "empty_pct": 0.7350287642353618,
+  "full_pct": 0.45369101208653695,
+  "weekday_inference": {
+    "cohort_stations": 34,
+    "complete_weeks": 104,
+    "mean_difference": 655.4124999999999,
+    "ci_low": 597.8384374999999,
+    "ci_high": 717.8798076923078,
+    "block_weeks": 4
+  },
+  "weather_regression": {
+    "trace_treated_as_rain": false,
+    "lag_days": 28,
+    "days": 731,
+    "rain_days": 77,
+    "rain_log_coefficient": -0.24350624329636172,
+    "hac_standard_error": 0.060986343382099004,
+    "rain_association_pct": -21.612541794433053,
+    "ci_low_pct": -30.44410251552242,
+    "ci_high_pct": -11.659631660985157,
+    "r_squared": 0.769123598716121
+  },
+  "forecast_cutoff": "2015-07-03 00:00:00",
+  "forecast_metrics": [
+    {
+      "method": "Station + hour",
+      "MAE": 0.5388669180516058,
+      "RMSE": 1.260000852998269,
+      "bias": -0.07517737748603279,
+      "peak_MAE": 1.1939766704592598,
+      "test_station_hours": 100800,
+      "fallback_rows": 0
+    },
+    {
+      "method": "Station + day type + hour",
+      "MAE": 0.4451605689388972,
+      "RMSE": 1.019334086732316,
+      "bias": -0.08144136695920849,
+      "peak_MAE": 1.0511209830375288,
+      "test_station_hours": 100800,
+      "fallback_rows": 0
+    }
+  ],
+  "validation": {
+    "trip_rows_preserved": true,
+    "all_trip_station_keys_resolved": true,
+    "no_train_test_timestamp_overlap": true,
+    "nonnegative_availability_rates": true,
+    "empty_full_disjoint": true,
+    "coverage_never_exceeds_reference": true,
+    "weather_rows_do_not_multiply_daily_records": true,
+    "dense_departures_reconcile": true,
+    "dense_arrivals_reconcile": true,
+    "all_figure_topics_saved": true
+  },
+  "source_keys": [
+    {
+      "table_name": "station",
+      "key_columns": "station_id",
+      "rows": 70,
+      "distinct_keys": 70.0
+    },
+    {
+      "table_name": "trip",
+      "key_columns": "trip_id",
+      "rows": 669959,
+      "distinct_keys": 669959.0
+    },
+    {
+      "table_name": "bike",
+      "key_columns": "bike_id",
+      "rows": 700,
+      "distinct_keys": 700.0
+    },
+    {
+      "table_name": "weather",
+      "key_columns": "weather_zip_code + weather_date",
+      "rows": 3665,
+      "distinct_keys": 3665.0
+    },
+    {
+      "table_name": "status",
+      "key_columns": "station_id + observed_at",
+      "rows": 71984434,
+      "distinct_keys": 71984434.0
+    },
+    {
+      "table_name": "status_hourly",
+      "key_columns": "station_id + hour_start",
+      "rows": 1204554,
+      "distinct_keys": 1204554.0
+    }
+  ],
+  "availability_intervals": [
+    {
+      "measure": "Empty time",
+      "pct": 0.7350287642353618,
+      "ci_low": 0.6782153472027098,
+      "ci_high": 0.7934286077443078,
+      "block_days": 7
+    },
+    {
+      "measure": "Full time",
+      "pct": 0.45369101208653695,
+      "ci_low": 0.4141580506061441,
+      "ci_high": 0.49832872350181995,
+      "block_days": 7
+    }
+  ],
+  "top_unavailability_stations": [
+    {
+      "station_id": 54,
+      "station_name": "Embarcadero at Bryant",
+      "city": "San Francisco",
+      "unavailable_pct": 4.302730038821495,
+      "coverage": 0.9886554494467182
+    },
+    {
+      "station_id": 60,
+      "station_name": "Embarcadero at Sansome",
+      "city": "San Francisco",
+      "unavailable_pct": 4.0725452406360265,
+      "coverage": 0.9886554494467182
+    },
+    {
+      "station_id": 73,
+      "station_name": "Grant Avenue at Columbus Avenue",
+      "city": "San Francisco",
+      "unavailable_pct": 3.9693491760006356,
+      "coverage": 0.9824859468950533
+    },
+    {
+      "station_id": 70,
+      "station_name": "San Francisco Caltrain (Townsend at 4th)",
+      "city": "San Francisco",
+      "unavailable_pct": 3.9262215142072963,
+      "coverage": 0.9886535546460512
+    },
+    {
+      "station_id": 48,
+      "station_name": "Embarcadero at Vallejo",
+      "city": "San Francisco",
+      "unavailable_pct": 3.3716670678629983,
+      "coverage": 0.9886554494467182
+    }
+  ],
+  "trace_weather_rows": 143,
+  "pandas": "3.1.1",
+  "numpy": "2.5.4",
+  "duckdb": "2.0.0"
+}

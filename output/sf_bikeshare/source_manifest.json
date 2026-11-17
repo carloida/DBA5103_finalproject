@@ -1,0 +1,49 @@
+{
+  "build_version": 1,
+  "signature": {
+    "station": {
+      "bytes": 5647,
+      "mtime_ns": 1794737856482936400
+    },
+    "trip": {
+      "bytes": 80208848,
+      "mtime_ns": 1794737867047502800
+    },
+    "weather": {
+      "bytes": 438063,
+      "mtime_ns": 1794737867058508400
+    },
+    "status": {
+      "bytes": 1989696383,
+      "mtime_ns": 1794737866533752500
+    }
+  },
+  "files": {
+    "station": {
+      "filename": "station.csv",
+      "bytes": 5647,
+      "sha256": "5ac5301bda0e6e4c0e9c49d71924e528b776bc0a0b5f9e772d108a8d2a2c02b2"
+    },
+    "trip": {
+      "filename": "trip.csv",
+      "bytes": 80208848,
+      "sha256": "70b3469032ba2c3b8150826710b8eb62ec364719bed8b03cf05572f6a63059d2"
+    },
+    "weather": {
+      "filename": "weather.csv",
+      "bytes": 438063,
+      "sha256": "c85f05e93690ddd94adea3a929446343e25ed8682ed24b818c3a5d6936cdc396"
+    },
+    "status": {
+      "filename": "status.csv",
+      "bytes": 1989696383,
+      "sha256": "f6ca360c2fcbeff75913e6356f7f843d8cf6e44fa2cee0cfd1940cf90bc71431"
+    }
+  },
+  "database": "sf_bikeshare.duckdb",
+  "duckdb_version": "2.0.0",
+  "status_duplicate_key_groups": 0,
+  "interval_rule": "Carry previous state only to next observation if gap is positive and <=90 seconds; split at hour boundaries; no long-gap fill.",
+  "weather_join": "Explicit analyst city-to-weather-ZIP map; never rider ZIP.",
+  "validation": "All database reconciliation assertions passed"
+}

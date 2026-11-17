@@ -1,0 +1,12 @@
+parameter,unit,value,evidence_source
+relocation_cost_per_bike,USD/bike,,Required: evidence or explicitly labeled scenario assumption
+truck_activation_cost,USD/shift,,Required: evidence or explicitly labeled scenario assumption
+truck_capacity,bikes,,Required: evidence or explicitly labeled scenario assumption
+loading_time,minutes/bike,,Required: evidence or explicitly labeled scenario assumption
+bike_purchase_cost,USD/bike,,Required: evidence or explicitly labeled scenario assumption
+dock_purchase_cost,USD/dock,,Required: evidence or explicitly labeled scenario assumption
+annual_maintenance_cost,USD/bike/year,,Required: evidence or explicitly labeled scenario assumption
+lost_rental_penalty,USD/request,,Required: evidence or explicitly labeled scenario assumption
+marginal_paid_trip_contribution,USD/trip,,Required: evidence or explicitly labeled scenario assumption
+starting_bikes,bikes/station,,Required: evidence or explicitly labeled scenario assumption
+historical_capacity_override,docks/station,,Required: evidence or explicitly labeled scenario assumption

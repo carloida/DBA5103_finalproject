@@ -1,0 +1,7 @@
+table_name,key_columns,rows,distinct_keys
+station,station_id,70,70.0
+trip,trip_id,669959,669959.0
+bike,bike_id,700,700.0
+weather,weather_zip_code + weather_date,3665,3665.0
+status,station_id + observed_at,71984434,71984434.0
+status_hourly,station_id + hour_start,1204554,1204554.0

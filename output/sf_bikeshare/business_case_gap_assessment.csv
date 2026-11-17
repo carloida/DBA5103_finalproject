@@ -1,0 +1,12 @@
+input,assessment,evidence_or_gap
+Station capacity,Partly closed,"Static dock_count exists, but availability totals may differ. Historical capacity/outage series remains absent."
+Historical inventory,Partly closed,"Available-bike and free-dock snapshots exist; coverage gaps, disabled equipment and operator interventions remain."
+Unfulfilled orders,Still missing,"Zero bikes/docks reveal availability exposure, not how many customers arrived and left. Latent demand must be estimated."
+Bike identity,Improved,"bike_id links trips, but contains no purchase dates, maintenance history, retirement or customer identity."
+Maintenance and parts,Still missing,"No inspection schedule, work order, repair cost, downtime reason or spare-part inventory."
+Rebalancing operations,Still missing,"No staff move log, truck/depot, loading time, fuel, wage or capacity record."
+Capital expenditure,Still missing,"No bike/dock procurement prices, useful lives, financing or replacement schedule."
+Revenue and profit,Still missing,"No charged fare, subscription account, payment, refunds, tax, sponsorship, subsidy or local profit statement."
+Weather,Improved,Daily proxy observations exist; city mapping and trace-rain treatment are explicit assumptions.
+Travel costs,Still missing,"Coordinates support distance lower bounds, not road times, truck costs or feasible routes."
+Security and technology,Still missing,"No theft/loss value, insurance/security, connectivity, platform or data costs."

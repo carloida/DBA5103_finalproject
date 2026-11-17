@@ -1,0 +1,71 @@
+station_id,station_name,city,dock_count,departures,arrivals,net_inflow
+2,San Jose Diridon Caltrain Station,San Jose,27,9558.0,9415.0,-143.0
+4,Santa Clara at Almaden,San Jose,11,3861.0,3705.0,-156.0
+8,San Salvador at 1st,San Jose,15,1692.0,1707.0,15.0
+10,San Jose City Hall,San Jose,15,2393.0,1658.0,-735.0
+12,SJSU 4th at San Carlos,San Jose,19,1170.0,1437.0,267.0
+16,SJSU - San Salvador at 9th,San Jose,15,1473.0,1473.0,0.0
+25,Stanford in Redwood City,Redwood City,15,503.0,517.0,14.0
+28,Mountain View Caltrain Station,Mountain View,23,6544.0,6719.0,175.0
+30,Evelyn Park and Ride,Mountain View,15,1667.0,1370.0,-297.0
+31,San Antonio Shopping Center,Mountain View,15,1818.0,1832.0,14.0
+32,Castro Street and El Camino Real,Mountain View,11,2035.0,1815.0,-220.0
+37,Cowper at University,Palo Alto,11,1374.0,1210.0,-164.0
+38,Park at Olive,Palo Alto,15,750.0,801.0,51.0
+48,Embarcadero at Vallejo,San Francisco,15,10592.0,12313.0,1721.0
+49,Spear at Folsom,San Francisco,19,11949.0,11512.0,-437.0
+51,Embarcadero at Folsom,San Francisco,19,14054.0,13532.0,-522.0
+54,Embarcadero at Bryant,San Francisco,15,14811.0,13144.0,-1667.0
+55,Temporary Transbay Terminal (Howard at Beale),San Francisco,23,26089.0,23080.0,-3009.0
+60,Embarcadero at Sansome,San Francisco,15,27713.0,30796.0,3083.0
+61,2nd at Townsend,San Francisco,27,25837.0,28529.0,2692.0
+62,2nd at Folsom,San Francisco,19,15940.0,9654.0,-6286.0
+63,Howard at 2nd,San Francisco,19,13163.0,14009.0,846.0
+64,2nd at South Park,San Francisco,15,18496.0,16843.0,-1653.0
+67,Market at 10th,San Francisco,27,20272.0,17864.0,-2408.0
+76,Market at 4th,San Francisco,19,20165.0,19915.0,-250.0
+77,Market at Sansome,San Francisco,27,24172.0,28033.0,3861.0
+80,Santa Clara County Civic Center,San Jose,15,863.0,859.0,-4.0
+83,Mezes Park,Redwood City,15,341.0,285.0,-56.0
+84,Ryland Park,San Jose,15,1747.0,1441.0,-306.0
+5,Adobe on Almaden,San Jose,19,1257.0,1169.0,-88.0
+9,Japantown,San Jose,15,1910.0,2200.0,290.0
+11,MLK Library,San Jose,19,2034.0,2508.0,474.0
+21,Franklin at Maple,Redwood City,15,224.0,254.0,30.0
+22,Redwood City Caltrain Station,Redwood City,25,1554.0,1255.0,-299.0
+26,Redwood City Medical Center,Redwood City,15,311.0,452.0,141.0
+36,California Ave Caltrain Station,Palo Alto,15,1026.0,1138.0,112.0
+39,Powell Street BART,San Francisco,19,18378.0,19898.0,1520.0
+42,Davis at Jackson,San Francisco,15,9957.0,10469.0,512.0
+45,Commercial at Montgomery,San Francisco,15,11888.0,11299.0,-589.0
+50,Harry Bridges Plaza (Ferry Building),San Francisco,23,32934.0,33193.0,259.0
+58,San Francisco City Hall,San Francisco,19,4535.0,3400.0,-1135.0
+68,Yerba Buena Center of the Arts (3rd @ Howard),San Francisco,19,11251.0,12140.0,889.0
+71,Powell at Post (Union Square),San Francisco,19,12496.0,8606.0,-3890.0
+74,Steuart at Market,San Francisco,23,24838.0,25025.0,187.0
+3,San Jose Civic Center,San Jose,15,1594.0,1786.0,192.0
+6,San Pedro Square,San Jose,15,2917.0,3163.0,246.0
+7,Paseo de San Antonio,San Jose,15,2233.0,2498.0,265.0
+13,St James Park,San Jose,15,1680.0,1488.0,-192.0
+14,Arena Green / SAP Center,San Jose,19,1496.0,1368.0,-128.0
+24,Redwood City Public Library,Redwood City,15,213.0,277.0,64.0
+27,Mountain View City Hall,Mountain View,15,2984.0,3284.0,300.0
+29,San Antonio Caltrain Station,Mountain View,23,1990.0,2074.0,84.0
+33,Rengstorff Avenue / California Street,Mountain View,15,1129.0,1091.0,-38.0
+34,Palo Alto Caltrain Station,Palo Alto,23,2111.0,1819.0,-292.0
+35,University and Emerson,Palo Alto,11,1512.0,1823.0,311.0
+41,Clay at Battery,San Francisco,15,9994.0,9936.0,-58.0
+56,Beale at Market,San Francisco,19,15709.0,12173.0,-3536.0
+57,5th at Howard,San Francisco,15,13526.0,14849.0,1323.0
+66,South Van Ness at Market,San Francisco,19,12880.0,11153.0,-1727.0
+73,Grant Avenue at Columbus Avenue,San Francisco,15,16306.0,9208.0,-7098.0
+82,Broadway St at Battery St,San Francisco,15,10310.0,9358.0,-952.0
+23,San Mateo County Center,Redwood City,15,287.0,350.0,63.0
+46,Washington at Kearney,San Francisco,15,5764.0,7233.0,1469.0
+47,Post at Kearney,San Francisco,19,9463.0,9269.0,-194.0
+59,Golden Gate at Polk,San Francisco,23,7342.0,5986.0,-1356.0
+65,Townsend at 7th,San Francisco,15,23724.0,26637.0,2913.0
+69,San Francisco Caltrain 2 (330 Townsend),San Francisco,23,33742.0,35117.0,1375.0
+70,San Francisco Caltrain (Townsend at 4th),San Francisco,19,49092.0,63179.0,14087.0
+72,Civic Center BART (7th at Market),San Francisco,23,14102.0,14339.0,237.0
+75,Mechanics Plaza (Market at Battery),San Francisco,19,12224.0,12027.0,-197.0

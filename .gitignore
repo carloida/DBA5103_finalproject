@@ -1,22 +1,32 @@
-# This repository tracks only the Citi Bike project within the course workspace.
+# Publish project code, reports and small derived outputs only.
 /*
 !/.gitignore
 !/.gitattributes
 !/README.md
 !/requirements.txt
 !/docs/
+!/sf_bikeshare/
 !/CitiBike_JC_202609_EDA.py
 !/CitiBike_JC_202609_EDA.ipynb
-!/JC-202609-citibike-tripdata.csv/
-/JC-202609-citibike-tripdata.csv/*
-!/JC-202609-citibike-tripdata.csv/JC-202609-citibike-tripdata.csv
 !/output/
 /output/*
 !/output/citibike_eda/
+!/output/sf_bikeshare/
 !/output/pdf/
 
-# A compressed, lossless copy of this large derived table is tracked instead.
-/output/citibike_eda/cleaned_september_trips.csv
+# Raw Citi Bike data and the complete cleaned trip copy stay local.
+/JC-202609-citibike-tripdata.csv/
+/output/citibike_eda/cleaned_september_trips.csv*
+
+# Never publish the full SF source files, databases or bulk exports.
+**/trip.csv
+**/status.csv
+**/station.csv
+**/weather.csv
+*.parquet
+!/output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet
+*.zip
+*.7z
 **/__pycache__/
 **/.ipynb_checkpoints/
 **/*.pyc
@@ -25,3 +35,13 @@
 **/._*
 .env
 .env.*
+*.duckdb
+*.duckdb.wal
+/output/sf_bikeshare/duckdb_temp/
+/output/sf_bikeshare/status_intervals*
+/output/sf_bikeshare/station_hour_panel.csv
+
+# Local draft messages and the superseded tall poster PDF.
+/output/sf_bikeshare/WhatsApp_Team_Message.txt
+/output/sf_bikeshare/whatsapp/*.txt
+/output/pdf/SF_Bikeshare_Subset_Poster.pdf

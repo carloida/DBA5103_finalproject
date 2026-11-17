@@ -1,0 +1,34 @@
+{
+  "release_date": "2026-11-17",
+  "status": "Candidate subset shared for team review; no optimized results",
+  "files": [
+    {
+      "path": "output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet",
+      "bytes": 247473,
+      "sha256": "4fd7cb352727670cf0cba8ebae9d1644f52e35991469ad29d328bcbf98a9f1c9"
+    },
+    {
+      "path": "output/sf_bikeshare/subset_assessment/candidate_stations.csv",
+      "bytes": 2928,
+      "sha256": "3cb608ab816150067999be1f738a5ebdb056fb85b4352df528dcf954098fcf04"
+    },
+    {
+      "path": "output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png",
+      "bytes": 531245,
+      "sha256": "1a13fa9728147d77c86f1b40723f174b1486a62a626bcc4a16628c51248f23c0"
+    }
+  ],
+  "rows": 57120,
+  "stations": 34,
+  "training_rows": 45696,
+  "validation_rows": 11424,
+  "original_data_included": false,
+  "database_included": false,
+  "source_manifest": "output/sf_bikeshare/source_manifest.json",
+  "notes": [
+    "Only named hourly subset and station details are distributed as model data",
+    "Poster is the latest 1800x3200 portrait PNG",
+    "Full raw sources, complete cleaned Citi Bike trip copy and databases are excluded",
+    "This release does not rewrite existing Git history"
+  ]
+}

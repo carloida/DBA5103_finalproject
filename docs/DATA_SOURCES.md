@@ -1,6 +1,19 @@
 # Data provenance and evidence gaps
 
-## Current source: supplied Citi Bike CSV
+The modeling work now uses an SF Bay Area pilot. The earlier Citi Bike EDA remains separate background analysis.
+
+## SF sources and shared subset
+
+- Source: [Ben Hamner, SF Bay Area Bike Share, Kaggle](https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share), using the four supplied local CSVs: station, trip, status and weather.
+- Full audit: 70 stations, 669,959 completed trips, 71,984,434 status snapshots and 3,665 weather location-days. Original byte counts and SHA-256 hashes are in [source_manifest.json](../output/sf_bikeshare/source_manifest.json).
+- Shared candidate: 34 SF stations installed by 29 August 2013, 9 February-19 April 2015, 57,120 station-hour rows. See the [subset guide](../output/sf_bikeshare/subset_assessment/README.md) and [release manifest](../output/sf_bikeshare/subset_assessment/release_manifest.json).
+- Data is scoped, aggregated and compressed; unusual usage days are retained. Trips crossing the cohort boundary remain in endpoint counts. Weather is a city/date proxy, not a station measurement.
+- The file contains observed counts/exposure, not fitted true demand, truck routes, actual costs, payments or profit. Opening inventory and reviewed physical capacity require additional inputs.
+- Full raw SF files, the approximately 1.57 GB database and bulk exports are excluded from Git. The roughly 0.247 MB named subset is the only permitted Parquet export. Source paths and mtimes in manifests describe the analyst's local build, not downloadable raw files.
+
+## Earlier Citi Bike CSV (not shared)
+
+The raw CSV and complete cleaned trip copy have been removed from current repository files. The notebook, analysis code, charts and summary/audit tables remain. Original files stay unchanged locally; earlier commits remain in Git history.
 
 - File: `JC-202609-citibike-tripdata.csv/JC-202609-citibike-tripdata.csv`.
 - Analysis window: September 2026 starts, with September arrivals handled separately for station-event accounting.
@@ -38,7 +51,7 @@ These are references and candidates, not data merged into the current EDA:
 - Citi Bike operating reports: https://citibikenyc.com/system-data/operating-reports.
 - NYC DOT 2025 financial report: https://home4.nyc.gov/html/dot/downloads/pdf/2025-report-bike-share-financial-data.pdf. It includes JC/Hoboken within combined program accounts, without a separate local profit statement. It is not a September 2026 JC/HB financial dataset.
 - NJ pricing change effective 29 May 2026: https://citibikenyc.com/pricechange. Use the applicable date, geography and subscription rules when constructing a pricing scenario.
-- SF Bay Area Bike Share candidate: https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share. Download, inspect actual tables, check terms and audit trip/status/capacity alignment before adopting it.
+- SF Bay Area Bike Share: https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share. The supplied files have now been analyzed separately in `sf_bikeshare/`; no SF observations are merged into the Citi Bike EDA. Review its status/capacity audits and source terms before adopting the final modeling scope.
 
 Public operating reports can contain preliminary figures and aggregate activity rather than individual work orders. Cost allocation assumptions must be documented; a system average is not an observed marginal relocation cost.
 

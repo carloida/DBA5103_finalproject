@@ -1,0 +1,73 @@
+{
+  "output": "output\\sf_bikeshare\\whatsapp\\SF_Bikeshare_Subset_Poster.png",
+  "pixels": [
+    1800,
+    3200
+  ],
+  "aspect_ratio": "9:16 portrait",
+  "graph_count": 5,
+  "layout_checks": [
+    {
+      "block": "intro",
+      "bottom": 361,
+      "limit": 376
+    },
+    {
+      "block": "process 0",
+      "bottom": 645,
+      "limit": 668
+    },
+    {
+      "block": "process 1",
+      "bottom": 645,
+      "limit": 668
+    },
+    {
+      "block": "process 2",
+      "bottom": 645,
+      "limit": 668
+    },
+    {
+      "block": "process 3",
+      "bottom": 645,
+      "limit": 668
+    },
+    {
+      "block": "process note",
+      "bottom": 742,
+      "limit": 752
+    },
+    {
+      "block": "size chart",
+      "bottom": 1230,
+      "limit": 1241
+    },
+    {
+      "block": "hourly chart",
+      "bottom": 1876,
+      "limit": 1890
+    },
+    {
+      "block": "comparison chart",
+      "bottom": 2469,
+      "limit": 2480
+    },
+    {
+      "block": "table",
+      "bottom": 2834,
+      "limit": 2853
+    },
+    {
+      "block": "next steps",
+      "bottom": 2958,
+      "limit": 2990
+    },
+    {
+      "block": "closing note",
+      "bottom": 3083,
+      "limit": 3100
+    }
+  ],
+  "source": "Saved full-data and subset audit results",
+  "output_format": "One PNG image; previous PDF not regenerated"
+}

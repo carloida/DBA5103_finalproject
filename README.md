@@ -1,99 +1,98 @@
-# DBA5103 Final Project: Bike Redistribution
+# DBA5103: SF Bike Share redistribution
 
-**Status: EDA complete; final dataset and model scope still under discussion.**
+This project studies where and when to move bikes between stations so that the extra trips served justify the moving cost. It follows the problem discussed at our meeting and recorded by Joohee:
 
-This repository saves the Citi Bike project work from the `Operations research` course folder. The initial idea is to use operations research to plan bicycle redistribution between stations and compare **no redistribution, a rule-based/greedy policy, and an optimized policy**.
+> Given estimated demand at each station and time, how many bikes should we move, where should they go, and when should we move them to earn the highest additional operating contribution, within station and truck limits?
 
-The current analysis uses the supplied **September 2026 Jersey City/Hoboken Citi Bike trip file**. The team may change the modeling dataset. A meeting is planned for **Monday evening, 16 November 2026 (Singapore time)** to finalize the direction, or at least the dataset choice.
+**Status:** full-data EDA and audits are complete. A small SF subset, preliminary checks and a poster are available. Final modeling scope and demand/cost assumptions still need team agreement. No optimized plan or financial gain has been calculated.
 
 ## Start here
 
-- [EDA notebook](CitiBike_JC_202609_EDA.ipynb): analysis, explanations and the original charts.
-- [Findings and project options](output/citibike_eda/EDA_Findings_and_Project_Options.md): the detailed written summary.
-- Phone summaries: [1. Data and usage](output/citibike_eda/whatsapp/CitiBike_EDA_1_of_4.png), [2. Bike movements](output/citibike_eda/whatsapp/CitiBike_EDA_2_of_4.png), [3. Timing](output/citibike_eda/whatsapp/CitiBike_EDA_3_of_4.png), [4. Business case](output/citibike_eda/whatsapp/CitiBike_EDA_4_of_4.png).
-- [Current project status and meeting decisions](docs/PROJECT_STATUS.md).
-- [Data sources, scope and missing inputs](docs/DATA_SOURCES.md).
+- **[SF subset](output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet)** and [station details](output/sf_bikeshare/subset_assessment/candidate_stations.csv).
+- **[Subset guide and field definitions](output/sf_bikeshare/subset_assessment/README.md)**: contents, splits, limitations and loading instructions.
+- **[Latest portrait poster](output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png)**: processing steps, file size and pattern comparisons.
+- [Initial project report](docs/SF_Bikeshare_Initial_Report.md).
+- [Cost-formula revision and references](docs/SF_Bikeshare_Cost_Formula_Revision.md).
+- [Project status, responsibilities and next steps](docs/PROJECT_STATUS.md).
+- [Data sources and publishing policy](docs/DATA_SOURCES.md).
 
-## Initial problem
+## Shared dataset
 
-**How much can a budget-limited redistribution plan reduce peak-period inventory pressure, and how sensitive is its performance to uncertain flows and operating assumptions?**
+The pilot keeps **34 San Francisco stations installed by 29 August 2013**, over **9 February-19 April 2015**. Each row represents one station during one hour.
 
-A starting model is a transportation/min-cost-flow LP that chooses bike transfers between stations. A time-expanded model can represent hourly inventory balances. Integer decisions can represent truck activation, additional bikes or docks; routing is a possible later extension. These are proposed models, not implemented optimization results.
+| Measure | Full source / hourly table | Shared subset |
+| --- | ---: | ---: |
+| Stations | 70 in 5 cities | 34 in San Francisco |
+| Hourly rows | 1,209,456 | 57,120 (4.72%) |
+| Relevant completed trips | 669,959 | 63,974 (9.55%) |
+| Storage | 2,070.35 MB raw CSVs | 0.247 MB Parquet |
 
-The intended comparison uses the same initial stocks, station capacities, demand scenarios and operating budget for every policy. Evaluate service proxies, relocation volume and operating cost, then vary uncertain assumptions.
+Relevant trips have at least one selected endpoint event during the study window and are counted once in the trip figure. The file stores hourly counts, not individual journeys. Storage reduction includes smaller scope, aggregation and compression; it does not measure the percentage of observations used.
 
-## What the EDA found
+The table contains pickups, returns, valid observed time, time with no bikes/free docks, average availability and city-level weather. Net flow can be calculated as pickups minus returns. Features have not been normalized or standardized.
 
-| Measure | Current result |
-| --- | --- |
-| Source records | 106,628 |
-| Valid September-start trips | 106,617 |
-| Observed JC/HB origin stations | 108 |
-| Member / electric-bike ride shares | 73.9% / 59.7% |
-| Median trip duration | 6.40 minutes |
-| Three busiest average weekday hours | 17:00, 18:00, 08:00 |
-| Stations with opposite AM/PM average net-flow signs | 96 of 108 |
-| Missing end IDs recovered / still unresolved | 49 / 284 |
+- **8 weeks for estimates:** 9 February-5 April, 45,696 rows labeled `training`.
+- **2 weeks for exploratory checks:** 6-19 April, 11,424 rows labeled `validation`.
 
-The main insight is that monthly totals hide intraday direction changes. For example, Grove St PATH gains an average of 72.8 bikes in weekday mornings and loses 63.9 in weekday evenings. This is consistent with commuting patterns, but trip purpose is not observed. Small reversals are included in the 96-station count.
+The full SF source files and local database are **not included**. The Citi Bike raw CSV and complete cleaned trip copy have been removed from current repository files; the original EDA is retained below. Git history has not been rewritten.
 
-**Completed trips are observed usage, not all potential demand.** The file does not record failed rentals/returns, historical station inventories, dock capacities, staff redistribution or financial transactions. Cumulative customer net flow is not actual station stock, and it cannot establish actual lost demand or profit.
+## Preliminary findings
 
-## Dataset choice is open
+The selected dates were compared with the other 94 complete weeks for the **same 34 stations**. Both show weekday peaks around 8 am and 5 pm, but operating conditions differ.
 
-The team has proposed [SF Bay Area Bike Share on Kaggle](https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share) as an alternative because its advertised station/status data may support inventory and capacity analysis. It has **not been downloaded, audited or selected in this repository**. The existing Citi Bike EDA can remain as motivation if the modeling data change.
+| Measure | Other 94 weeks | Selected 10 weeks |
+| --- | ---: | ---: |
+| Weekday pickups/day | 985 | 1,116 |
+| Valid observed time with no bikes | 1.16% | 1.85% |
+| Unusual daily totals flagged | 46 of 658 days | 1 of 70 days |
 
-An observed empty/full station indicates an availability constraint; it does **not** directly count customers who wanted to rent/return. Lost demand would still require an estimation model. Citi Bike prices should not be transferred to historical San Francisco data as if they were observed fares.
+All unusual-usage days were kept. Only six stations overlap in the two top-10 empty/full-pressure lists. Similar broad peaks do not establish that every season or station risk is interchangeable. Four- and eight-week histories gave similar average completed-trip forecast errors, but equivalent optimization results have not been established. See [the full checks](output/sf_bikeshare/subset_assessment/Pattern_Check_Findings.md).
 
-## Repository contents
+## Load the subset without the original data
 
-```text
-CitiBike_JC_202609_EDA.py          Run the full EDA or its VS Code cells
-CitiBike_JC_202609_EDA.ipynb       Notebook with saved analysis outputs
-JC-202609-citibike-tripdata.csv/
-  JC-202609-citibike-tripdata.csv  Original supplied raw CSV, unchanged
-docs/                            Project status, data provenance and limitations
-output/citibike_eda/
-  figures/                       All 13 original EDA PNG figure panels
-  whatsapp/                      Four shorter phone-friendly summary pictures
-  *.csv                          Cleaning, flow, station and forecast tables
-  cleaned_september_trips.csv.gz  Lossless compressed derived trip table
-  analysis_manifest.json         Raw-data SHA-256, counts and software versions
-  EDA_Findings_and_Project_Options.md
-  build_mobile_poster.py          Source for the long summary poster
-  split_whatsapp_poster.py        Source for its four-picture version
-  WhatsApp_Team_Message.txt       Draft team update, not sent automatically
-output/pdf/                      Original long poster in PNG/JPG/PDF formats
-requirements.txt                 EDA dependencies
-```
-
-The compressed derived table preserves the full exported CSV while keeping the Git repository smaller. Running the EDA recreates the uncompressed local CSV. The source directory happens to end in `.csv`; the actual data file is inside it.
-
-Course lecture slides, assignments, solutions, reference books, private chat transcripts, environment files and temporary previews are excluded.
-
-## Run the EDA
-
-Use Python 3.12 and a virtual environment. For example, from the repository root in Windows PowerShell:
+Use Python 3.12 and install `duckdb` and `pandas` in a fresh environment:
 
 ```powershell
 py -3.12 -m venv .venv
-& ./.venv/Scripts/python.exe -m pip install -r requirements.txt
-& ./.venv/Scripts/python.exe CitiBike_JC_202609_EDA.py
+& ./.venv/Scripts/python.exe -m pip install duckdb pandas
 ```
 
-Alternatively, open the notebook and choose the same environment as its kernel. The script locates the raw file relative to its own location, writes tables under `output/citibike_eda/`, and saves plots under `figures/`. Notebook cells show charts inline; a terminal run saves them to disk.
+From the repository root:
 
-To rebuild the optional posters, also install `pillow`, `reportlab` and `pypdfium2`, then run:
+```python
+import duckdb
 
-```powershell
-& ./.venv/Scripts/python.exe output/citibike_eda/build_mobile_poster.py
-& ./.venv/Scripts/python.exe output/citibike_eda/split_whatsapp_poster.py
+path = "output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet"
+df = duckdb.sql(f"SELECT * FROM read_parquet('{path}')").df()
+training = df[df["split"] == "training"].copy()
+validation = df[df["split"] == "validation"].copy()
+training["net_outflow"] = training["departures"] - training["arrivals"]
+print(df.shape)  # 57,120 rows
+print(df.groupby("split").size())
 ```
 
-The poster builders currently use Windows Arial font files. Their full reproducibility on another operating system requires changing the font paths.
+Use training dates to estimate profiles and select priorities. Validation dates have already been explored, so agree on a later policy-evaluation period too. No raw CSV or database is needed to read this shared file.
 
-## Validation and next steps
+## Demand, cost and optimization work
 
-The full EDA ran successfully and all reconciliation assertions passed. They check source-row accounting, the complete station-hour grid, event counts, net-flow identities and separation of forecast training/test timestamps. The forecasting exercise trains on 1-20 September and tests on 21-30 September; it is an exploratory baseline, not evidence of annual generalization.
+Completed trips are served requests, not all attempted demand. Fu Yan will estimate missed requests during empty/full periods using matching available-time exposure and explicit assumptions. Zero exposure needs a pooled fallback. The [cost revision](docs/SF_Bikeshare_Cost_Formula_Revision.md) covers vehicle activation, crew/vehicle time, fuel, mileage and fees, with sources and remaining gaps. Actual relocation expenses and customer payments are absent from the data.
 
-Next: choose and audit the modeling dataset, define one clear optimization problem, collect or label missing inputs, implement the three policy baselines, and report sensitivity, limitations and practical implications. See [the meeting checklist](docs/PROJECT_STATUS.md).
+Compare **no rebalancing, a simple rule and an optimized plan** under identical starting inventory, demand scenarios, capacities and operating assumptions. Report service, bikes moved, cost and additional contribution. Historical inventories reflect existing operations and cannot automatically serve as a no-rebalancing baseline. Advanced machine learning is optional; reliable inputs and stress tests are still needed.
+
+Remaining inputs include reviewed capacities, exact opening stocks, travel/transfer timing, boundary flows and suitable financial assumptions. Hourly mean inventory is not opening stock. Only five measurable-rain days occur in the eight training weeks, limiting detailed rain estimates. Bicycle/dock capital purchases are outside the operational scope.
+
+## Original EDA preserved
+
+- [SF executed notebook](sf_bikeshare/SF_Bay_Area_Bikeshare_EDA.ipynb), [analysis code](sf_bikeshare/SF_Bay_Area_Bikeshare_EDA.py) and [full analysis guide](sf_bikeshare/README.md).
+- [SF inferential report](output/sf_bikeshare/SF_Bikeshare_Inferential_Report.pdf) and [report with figures](output/sf_bikeshare/SF_Bikeshare_Inferential_Report.md).
+- [Original Citi Bike notebook](CitiBike_JC_202609_EDA.ipynb), [code](CitiBike_JC_202609_EDA.py) and [findings](output/citibike_eda/EDA_Findings_and_Project_Options.md). Its saved charts and summary/audit tables remain in `output/citibike_eda/`.
+
+Citi Bike's September 2026 Jersey City/Hoboken analysis is earlier background, separate from historical SF data. Saved notebooks can be viewed without source files. Re-running either full EDA requires obtaining the originals separately and can create large ignored local outputs.
+
+To reproduce SF analysis, follow [the full-data instructions](sf_bikeshare/README.md). To recreate only the current poster, install `sf_bikeshare/requirements.txt` and run `sf_bikeshare/make_subset_poster_portrait.py`; it uses Windows Arial font paths.
+
+## Publishing limits
+
+Shared: code, saved EDA, reports, small summary tables, the named subset and the latest poster. Excluded: raw sources, complete cleaned trip copies, databases, bulk exports, temporary files, lecture PDFs, assignments and reference books. Only the named subset Parquet is permitted. [Release hashes](output/sf_bikeshare/subset_assessment/release_manifest.json) identify the shared files without distributing the originals.
+
+SF source: [Ben Hamner's Kaggle dataset](https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share). Source terms still apply; no new license over original data is asserted here.

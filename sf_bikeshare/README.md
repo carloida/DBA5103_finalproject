@@ -83,6 +83,8 @@ The notebook generator executes with the same Python environment that runs it, u
 
 ## Next model
 
-Start with one city, reviewed capacities and high-coverage dates. Compare no moves, a budget-matched greedy rule and an LP/network-flow transfer plan. Collect or label initial-stock, travel-time, relocation-cost and financial assumptions. Estimate censored demand separately before claiming lost orders or profit recovered. Link accepted OD trips and inventories consistently in any time-expanded simulation.
+The approved pilot and [V3 model-input handoff](../output/sf_bikeshare/model_inputs_v3/README.md) now supply observed rider splits, opening stocks, capacity diagnostics, OD/boundary/transit records, current road distances and separate historical tariffs/revenue scenarios. Rebuild with `python sf_bikeshare/enrich_model_inputs.py`; optionally fetch/cache one current driving matrix using `--fetch-road-matrix`. The source database and V2 subset are preserved. See [V1-V5 progression](../docs/SF_Bikeshare_Dataset_Iterations.md).
+
+Compare no moves, a budget-matched rule and a time-expanded integer allocation model, with a route-feasibility/cost extension. Finalize effective-capacity, vehicle, timing, economic and boundary assumptions. Fu Yan estimates censored demand separately before claiming missed requests recovered. Link accepted OD trips and later arrivals consistently in any counterfactual simulation. No shared Google Doc was edited.
 
 Source description: [Kaggle SF Bay Area Bike Share](https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share). A relevant methodological reference is [Liu and Pelechrinis (2021), Excess demand prediction for bike sharing systems](https://pmc.ncbi.nlm.nih.gov/articles/PMC8211247/). No externally sourced financial observations are merged into the EDA.

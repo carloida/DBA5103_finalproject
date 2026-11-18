@@ -23,6 +23,8 @@
 **/status.csv
 **/station.csv
 **/weather.csv
+# Scoped derived station dimension in the V3 handoff; raw station.csv stays excluded.
+!/output/sf_bikeshare/model_inputs_v3/station.csv
 *.parquet
 !/output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet
 *.zip

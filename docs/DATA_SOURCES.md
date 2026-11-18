@@ -8,8 +8,29 @@ The modeling work now uses an SF Bay Area pilot. The earlier Citi Bike EDA remai
 - Full audit: 70 stations, 669,959 completed trips, 71,984,434 status snapshots and 3,665 weather location-days. Original byte counts and SHA-256 hashes are in [source_manifest.json](../output/sf_bikeshare/source_manifest.json).
 - Shared candidate: 34 SF stations installed by 29 August 2013, 9 February-19 April 2015, 57,120 station-hour rows. See the [subset guide](../output/sf_bikeshare/subset_assessment/README.md) and [release manifest](../output/sf_bikeshare/subset_assessment/release_manifest.json).
 - Data is scoped, aggregated and compressed; unusual usage days are retained. Trips crossing the cohort boundary remain in endpoint counts. Weather is a city/date proxy, not a station measurement.
-- The file contains observed counts/exposure, not fitted true demand, truck routes, actual costs, payments or profit. Opening inventory and reviewed physical capacity require additional inputs.
-- Full raw SF files, the approximately 1.57 GB database and bulk exports are excluded from Git. The roughly 0.247 MB named subset is the only permitted Parquet export. Source paths and mtimes in manifests describe the analyst's local build, not downloadable raw files.
+- The original V2 file contains observed counts/exposure, not fitted true demand, truck routes, actual costs, payments or profit. V3 now supplies separate opening-stock and capacity-audit tables; effective versus physical-capacity treatment remains a model decision.
+- Full raw SF files, the approximately 1.57 GB source database, the separate V3 database and bulk full-system exports are excluded from Git. The roughly 0.247 MB named subset remains the only permitted Parquet export. V3 additionally supplies compact, scoped CSV/GZIP model-input exports. Source paths and mtimes in manifests describe the analyst's local build, not downloadable raw files.
+
+## V3 enrichment - 18 November 2026
+
+See the [dataset progression table](SF_Bikeshare_Dataset_Iterations.md), [handoff guide](../output/sf_bikeshare/model_inputs_v3/README.md) and [V3 manifest](../output/sf_bikeshare/model_inputs_v3/manifest.json). The builder opens the original database read-only and preserves the V2 Parquet checksum.
+
+V3 working physical measurements use metric units: km/m, degrees Celsius, km/h, mm, litres and litres/100 km. Distance and fuel costs use USD/km and USD/litre. Original-unit source references are retained only in provenance/conversion notes; V1/V2 files remain unchanged. The manifest records conversion formulas and the data dictionary records field units.
+
+| Input | Provenance | Interpretation |
+| --- | --- | --- |
+| Rider-split flows, OD/temporal/cohort boundary fields | Existing trip records and endpoint timestamps | Observed completed service; no customer, pass or payment identity |
+| Opening inventory and effective capacity | Latest preceding selected status snapshot, maximum accepted age 90 seconds | Historical bikes/free docks; stale/invalid latest state produces NULL; static dock count retained separately |
+| Matched demand-estimation numerators | Endpoint events matched to valid status intervals, same positive <=90-second gap rule as V2 exposure | Numerators and denominators refer to matching intervals; not an estimate of latent demand |
+| Road distance and driving duration | One cached public [OSRM Table request](https://project-osrm.org/docs/v5.24.0/api/#table-service), 18 Nov 2026, 34 coordinates | Current directed driving estimates; not 2015 traffic, actual truck operations, a truck-access guarantee or depot travel |
+| Historical membership/usage schedule | [SFMTA October 2013 board, PDF page 4](https://www.sfmta.com/sites/default/files/projects/10.16.2013%20Bike%20Share%20Open%20House%20Boards.pdf) | Historical tariff evidence; exact 2015 applicability and complete fee terms remain assumptions/review items |
+| 2015 annual/day/trial pass prices | [Air District release 2015-022](https://www.baaqmd.gov/~/media/files/communications-and-outreach/publications/news-releases/2015/2015-022-babs-500000-041315.pdf), PDF pages 1-2 | Release dated 16 Apr 2015 despite filename; confirms $88 annual, $9 daily and $29.95 trial options, not individual receipts |
+| Allocated revenue scenarios | Jason's proposed frequencies in the shared DBA5103 Project document, read 18 Nov | Annual price divided by assumed annual trips, or daily price divided by assumed daily trips; not observed marginal revenue |
+| Operating-cost register | Existing cited cost revision plus explicit unknown entries | Three California 2015 gasoline proxies retain their prior verification date; unagreed vehicle/labor/handling values remain blank |
+
+External PDFs were downloaded, extracted and visually checked locally; the manifest records their hashes. Public road-cache coordinates/order and response hashes are recorded. The shared project document was read only. Carlo will transfer information to Google Docs manually.
+
+The local journey supplement contains one extreme-duration trip spanning the full pilot window in addition to the unchanged 63,974 endpoint-relevant journeys. Long-trip and duration-mismatch flags remain available in OD/transit outputs. Recorded-clock DST ambiguity is retained and flagged rather than silently repaired.
 
 ## Earlier Citi Bike CSV (not shared)
 
@@ -30,6 +51,8 @@ All fields begin as strings. Station IDs remain identifiers. Blank strings are t
 Recorded timestamps have no explicit timezone metadata and are analyzed as recorded local clock time. No Singapore conversion is applied. The service domain is the 108 observed JC/HB origin IDs; it is not an inferred city boundary. The network remains open to external destinations and potentially unobserved incoming trips.
 
 ## Missing inputs
+
+The following table describes the earlier Citi Bike trip-only workflow. For current SF V3 gaps, use the [model decision register](../output/sf_bikeshare/model_inputs_v3/model_decisions_required.csv) and [operating parameter register](../output/sf_bikeshare/model_inputs_v3/operating_parameter_register.csv); SF historical status and opening inventories are now available.
 
 | Needed input | Status in the trip CSV | Potential treatment |
 | --- | --- | --- |

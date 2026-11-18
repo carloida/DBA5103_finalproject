@@ -1,0 +1,13 @@
+boundary_at,start_station_id,end_station_id,subscription_type,departures_at_boundary,arrivals_at_boundary
+2015-02-10 00:00:00,70,39,Subscriber,1,0
+2015-02-17 00:00:00,63,47,Subscriber,0,1
+2015-02-18 00:00:00,63,69,Subscriber,0,1
+2015-02-26 00:00:00,47,69,Subscriber,2,0
+2015-03-05 00:00:00,60,74,Subscriber,0,1
+2015-03-15 00:00:00,67,77,Subscriber,1,0
+2015-03-17 00:00:00,70,39,Subscriber,1,0
+2015-03-24 00:00:00,82,70,Subscriber,1,0
+2015-03-25 00:00:00,69,59,Subscriber,1,0
+2015-03-31 00:00:00,70,39,Subscriber,1,0
+2015-04-04 00:00:00,67,57,Customer,1,0
+2015-04-09 00:00:00,63,51,Customer,0,1

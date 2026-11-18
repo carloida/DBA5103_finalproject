@@ -4,10 +4,11 @@ This project studies where and when to move bikes between stations so that the e
 
 > Given estimated demand at each station and time, how many bikes should we move, where should they go, and when should we move them to earn the highest additional operating contribution, within station and truck limits?
 
-**Status:** full-data EDA and audits are complete. A small SF subset, preliminary checks and a poster are available. Final modeling scope and demand/cost assumptions still need team agreement. No optimized plan or financial gain has been calculated.
+**Status (18 November):** full-data EDA and audits are complete. Joohee approved the 34-station, 10-week, hourly pilot. The local V3 handoff now adds rider splits, opening inventories, capacity/OD/boundary diagnostics, current road distances and separate tariff/revenue assumptions. Demand and operating assumptions remain to be finalized. No optimized plan or financial gain has been calculated. Shared Google Docs were read only; Carlo will upload information manually.
 
 ## Start here
 
+- **[V3 enriched model-input handoff](output/sf_bikeshare/model_inputs_v3/README.md)** and **[V1-V5 dataset progression](docs/SF_Bikeshare_Dataset_Iterations.md)**: new inputs, teammate requirements, verification and remaining decisions.
 - **[SF subset](output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet)** and [station details](output/sf_bikeshare/subset_assessment/candidate_stations.csv).
 - **[Subset guide and field definitions](output/sf_bikeshare/subset_assessment/README.md)**: contents, splits, limitations and loading instructions.
 - **[Latest portrait poster](output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png)**: processing steps, file size and pattern comparisons.
@@ -79,7 +80,7 @@ Completed trips are served requests, not all attempted demand. Fu Yan will estim
 
 Compare **no rebalancing, a simple rule and an optimized plan** under identical starting inventory, demand scenarios, capacities and operating assumptions. Report service, bikes moved, cost and additional contribution. Historical inventories reflect existing operations and cannot automatically serve as a no-rebalancing baseline. Advanced machine learning is optional; reliable inputs and stress tests are still needed.
 
-Remaining inputs include reviewed capacities, exact opening stocks, travel/transfer timing, boundary flows and suitable financial assumptions. Hourly mean inventory is not opening stock. Only five measurable-rain days occur in the eight training weeks, limiting detailed rain estimates. Bicycle/dock capital purchases are outside the operational scope.
+V3 now provides observed opening stocks, capacity diagnostics, boundary/OD flows and current road distances. Remaining decisions include effective versus physical capacity, travel/transfer and within-hour timing, depot/vehicle configuration, external-flow failure rules and suitable financial assumptions. Hourly mean inventory is not opening stock. Only five measurable-rain days occur in the eight training weeks, limiting detailed rain estimates. Bicycle/dock capital purchases are outside the operational scope.
 
 ## Original EDA preserved
 
@@ -93,6 +94,6 @@ To reproduce SF analysis, follow [the full-data instructions](sf_bikeshare/READM
 
 ## Publishing limits
 
-Shared: code, saved EDA, reports, small summary tables, the named subset and the latest poster. Excluded: raw sources, complete cleaned trip copies, databases, bulk exports, temporary files, lecture PDFs, assignments and reference books. Only the named subset Parquet is permitted. [Release hashes](output/sf_bikeshare/subset_assessment/release_manifest.json) identify the shared files without distributing the originals.
+The repository provides code, saved EDA, reports, small summary tables, the named V2 subset, scoped V3 CSV/GZIP inputs and the latest poster. Excluded: raw sources, complete cleaned trip copies, databases, bulk full-system exports, temporary files, lecture PDFs, assignments and reference books. Only the named subset Parquet is permitted. [V2 release hashes](output/sf_bikeshare/subset_assessment/release_manifest.json) and the [V3 manifest](output/sf_bikeshare/model_inputs_v3/manifest.json) identify the corresponding files without distributing the originals.
 
 SF source: [Ben Hamner's Kaggle dataset](https://www.kaggle.com/datasets/benhamner/sf-bay-area-bike-share). Source terms still apply; no new license over original data is asserted here.

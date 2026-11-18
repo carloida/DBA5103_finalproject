@@ -4,6 +4,8 @@ Following the 16 November meeting, the modeling work focuses on SF Bay Area Bike
 
 ## Completed
 
+- [Pipeline report](SF_Bikeshare_Project_Pipeline_Report.md) and [9:16 portrait poster](../output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png), covering responsibilities, Stage 1/2, fair comparisons, robustness and the writing plan.
+- [Five separate robustness cases](../output/sf_bikeshare/robustness_testing/README.md): San Jose alongside the main dates, plus both cities in June-August 2014 and April-June 2015. Total 194,880 added station-hours; exact V3 core schemas, metric units, 325 passed build checks and 90 export readbacks. This is observed-data preparation, not completed policy testing. Main V3 remains unchanged.
 - Original Citi Bike notebook, code, charts, audit tables and findings retained.
 - Full SF audit/EDA: 669,959 trips, 70 stations, 71,984,434 status snapshots and 3,665 weather location-days; saved notebook, 14 chart panels and reports.
 - Candidate: 34 SF stations, 9 February-19 April 2015, 57,120 station-hours in a roughly 0.247 MB Parquet file.
@@ -31,7 +33,7 @@ Choose how many bikes to move, where and when, to maximize additional trip contr
 ## Still required
 
 1. Scope confirmed by Joohee; agree boundary-flow failure rules, within-hour ordering, operating horizon and depot. The pilot does not establish that other periods are redundant.
-2. Finish focused subset EDA; agree on four/eight-week estimation and later evaluation dates.
+2. Finish focused subset EDA. The prepared cases retain eight training weeks and two retrospective evaluation weeks; agree the final protocol, freeze estimator/policy settings and resolve unusable opening-stock rules before policy evaluation. These dates are not sealed holdouts.
 3. Fit/validate demand correction, including uncertainty and zero-exposure handling.
 4. Resolve capacity interpretation and flagged DST/long-trip timing cases; propagate inventory and accepted-trip returns consistently. Opening stocks and OD/boundary/transit inputs are now extracted.
 5. Finalize vehicle, staffing, handling and incremental trip-value inputs. Historical tariffs and Jason's allocated-revenue scenarios are recorded separately; allocations are not measured marginal receipts. Current road estimates are not historical truck logs.

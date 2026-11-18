@@ -1,0 +1,254 @@
+table,column,sql_type,unit,meaning
+boundary_flows_hourly,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+boundary_flows_hourly,hour_start,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+boundary_flows_hourly,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+boundary_flows_hourly,subscriber_outflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+boundary_flows_hourly,customer_outflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+boundary_flows_hourly,subscriber_inflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+boundary_flows_hourly,customer_inflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+boundary_flows_hourly,total_outflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+boundary_flows_hourly,total_inflows,INTEGER,completed events,Observed external-cohort boundary endpoints by arrival/departure hour
+customer_events_at_day_boundaries,boundary_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_events_at_day_boundaries,start_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_events_at_day_boundaries,end_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_events_at_day_boundaries,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+customer_events_at_day_boundaries,departures_at_boundary,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_events_at_day_boundaries,arrivals_at_boundary,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_in_transit_day_boundaries,boundary_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_in_transit_day_boundaries,start_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_in_transit_day_boundaries,end_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_in_transit_day_boundaries,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+customer_in_transit_day_boundaries,boundary_type,VARCHAR,category,internal: both endpoints in cohort; outbound/inbound: one endpoint outside cohort
+customer_in_transit_day_boundaries,origin_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_in_transit_day_boundaries,destination_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_in_transit_day_boundaries,arrival_hour,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_in_transit_day_boundaries,observed_trips_in_transit,INTEGER,trips,Observed trips strictly spanning boundary; arrivals/departures exactly at boundary are separate
+customer_in_transit_day_boundaries,long_trips,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_in_transit_day_boundaries,duration_clock_mismatches,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,trip_id,BIGINT,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_journeys_observed,start_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_journeys_observed,end_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_journeys_observed,started_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_journeys_observed,ended_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_journeys_observed,departure_hour,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_journeys_observed,arrival_hour,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_journeys_observed,arrival_slot_offset_hours,BIGINT,recorded-clock hours,Arrival-hour index minus departure-hour index; zero means both events fall in same clock hour
+customer_journeys_observed,duration_seconds,BIGINT,seconds,Observed time or duration; missing availability remains NULL
+customer_journeys_observed,elapsed_clock_seconds,BIGINT,seconds,Observed time or duration; missing availability remains NULL
+customer_journeys_observed,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+customer_journeys_observed,long_trip,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,duration_clock_mismatch,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,over_30_minutes,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,origin_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,destination_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,departure_in_window,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,arrival_in_window,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_journeys_observed,boundary_type,VARCHAR,category,internal: both endpoints in cohort; outbound/inbound: one endpoint outside cohort
+customer_od_hourly_observed,start_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_od_hourly_observed,end_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+customer_od_hourly_observed,departure_hour,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_od_hourly_observed,arrival_hour,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+customer_od_hourly_observed,arrival_slot_offset_hours,BIGINT,recorded-clock hours,Arrival-hour index minus departure-hour index; zero means both events fall in same clock hour
+customer_od_hourly_observed,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+customer_od_hourly_observed,boundary_type,VARCHAR,category,internal: both endpoints in cohort; outbound/inbound: one endpoint outside cohort
+customer_od_hourly_observed,origin_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_od_hourly_observed,destination_in_cohort,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_od_hourly_observed,departure_in_window,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_od_hourly_observed,arrival_in_window,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_od_hourly_observed,observed_trips,INTEGER,completed trips,Observed OD aggregate count; latent unmet requests are not included
+customer_od_hourly_observed,mean_reported_duration_seconds,DOUBLE,seconds,Observed time or duration; missing availability remains NULL
+customer_od_hourly_observed,long_trips,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+customer_od_hourly_observed,duration_clock_mismatches,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+day_boundary_calendar,boundary_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+external_sources,source_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,source_title,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,source_url,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,source_date,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,checked_on,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,evidence_status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+external_sources,limitations,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_calendar,hour_start,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+model_calendar,service_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_calendar,hour,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_calendar,iso_weekday,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_calendar,day_type,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_calendar,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+model_calendar,dst_transition_date_flag,BOOLEAN,boolean,"Relevant US DST transition date; recorded-clock grid retained, not a timezone repair"
+model_decisions_required,decision,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_decisions_required,owner,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_decisions_required,status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+model_decisions_required,reason,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+observed_trip_events,trip_id,BIGINT,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+observed_trip_events,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+observed_trip_events,other_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+observed_trip_events,event_at,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+observed_trip_events,hour_start,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+observed_trip_events,event_type,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+observed_trip_events,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+observed_trip_events,boundary_type,VARCHAR,category,internal: both endpoints in cohort; outbound/inbound: one endpoint outside cohort
+observed_trip_events,source_snapshot_time,TIMESTAMP,recorded local timestamp,Preceding status timestamp used for the opening/event match
+observed_trip_events,in_valid_exposure,BOOLEAN,boolean,Event lies in a valid status interval whose next-observation gap is positive and <=90 seconds
+observed_trip_events,in_bike_available_exposure,BOOLEAN,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+observed_trip_events,in_dock_available_exposure,BOOLEAN,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+observed_trip_events,snapshot_timestamp_tie,BOOLEAN,boolean,Minute-rounded trip endpoint equals status timestamp; ordering within minute is unknown
+opening_inventory_daily,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+opening_inventory_daily,service_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_daily,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+opening_inventory_daily,source_snapshot_time,TIMESTAMP,recorded local timestamp,Preceding status timestamp used for the opening/event match
+opening_inventory_daily,snapshot_age_seconds,BIGINT,seconds,Boundary time minus preceding snapshot time
+opening_inventory_daily,snapshot_bikes,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_daily,snapshot_docks,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_daily,snapshot_effective_capacity,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_daily,static_dock_count,INTEGER,docks,Original station.csv listed dock count; status mismatches are retained and flagged
+opening_inventory_daily,inventory_quality,VARCHAR,category,Quality of latest preceding snapshot; no future lookup or silent fallback
+opening_inventory_daily,opening_bikes,INTEGER,bikes,Latest preceding valid snapshot within 90 seconds; NULL when invalid/stale; historical stock only
+opening_inventory_daily,opening_available_docks,INTEGER,docks,Free usable docks in accepted preceding snapshot; not necessarily static capacity minus bikes
+opening_inventory_daily,usable_with_static_bike_bounds,BOOLEAN,boolean,Fresh valid stock is at most listed dock_count; does not certify all effective-capacity assumptions
+opening_inventory_daily,static_capacity_mismatch,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_daily,snapshot_at_boundary_flag,BOOLEAN,boolean,Snapshot recorded exactly at modeled boundary; order relative to tied trip events is unresolved
+opening_inventory_hourly,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+opening_inventory_hourly,hour_start,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+opening_inventory_hourly,service_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_hourly,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+opening_inventory_hourly,source_snapshot_time,TIMESTAMP,recorded local timestamp,Preceding status timestamp used for the opening/event match
+opening_inventory_hourly,snapshot_age_seconds,BIGINT,seconds,Boundary time minus preceding snapshot time
+opening_inventory_hourly,snapshot_bikes,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_hourly,snapshot_docks,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_hourly,snapshot_effective_capacity,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_hourly,static_dock_count,INTEGER,docks,Original station.csv listed dock count; status mismatches are retained and flagged
+opening_inventory_hourly,inventory_quality,VARCHAR,category,Quality of latest preceding snapshot; no future lookup or silent fallback
+opening_inventory_hourly,opening_bikes,INTEGER,bikes,Latest preceding valid snapshot within 90 seconds; NULL when invalid/stale; historical stock only
+opening_inventory_hourly,opening_available_docks,INTEGER,docks,Free usable docks in accepted preceding snapshot; not necessarily static capacity minus bikes
+opening_inventory_hourly,usable_with_static_bike_bounds,BOOLEAN,boolean,Fresh valid stock is at most listed dock_count; does not certify all effective-capacity assumptions
+opening_inventory_hourly,static_capacity_mismatch,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+opening_inventory_hourly,snapshot_at_boundary_flag,BOOLEAN,boolean,Snapshot recorded exactly at modeled boundary; order relative to tied trip events is unresolved
+operating_parameter_register,parameter,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,value,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,unit,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,price_year,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,source_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,evidence_status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,owner,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+operating_parameter_register,notes,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,subscription_type,VARCHAR,category,Original Subscriber/Customer label; no customer or pass identity
+revenue_allocation_scenarios,scenario,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,pass_price_usd,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,assumed_trips_per_pass,DOUBLE,trips/pass,"Jason proposed scenario assumption, not estimated customer usage"
+revenue_allocation_scenarios,allocated_revenue_usd_per_trip,DOUBLE,USD/trip,Team pass-price/trips-per-pass allocation; not observed or incremental cash revenue
+revenue_allocation_scenarios,allocation_period,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,source_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,evidence_status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+revenue_allocation_scenarios,use_as_marginal_cash_revenue,BOOLEAN,boolean,False: allocation does not identify additional cash receipts from serving one more trip
+station,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station,station_name,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station,latitude,DOUBLE,decimal degrees,"Station.csv coordinate; OSRM request order is longitude,latitude"
+station,longitude,DOUBLE,decimal degrees,"Station.csv coordinate; OSRM request order is longitude,latitude"
+station,dock_count,INTEGER,docks,Original station.csv listed dock count; status mismatches are retained and flagged
+station,city,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station,installation_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station_capacity_audit,station_name,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,latitude,DOUBLE,decimal degrees,"Station.csv coordinate; OSRM request order is longitude,latitude"
+station_capacity_audit,longitude,DOUBLE,decimal degrees,"Station.csv coordinate; OSRM request order is longitude,latitude"
+station_capacity_audit,dock_count,INTEGER,docks,Original station.csv listed dock count; status mismatches are retained and flagged
+station_capacity_audit,city,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,installation_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,valid_snapshot_count,BIGINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,capacity_mismatch_count,BIGINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,min_effective_capacity,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,max_effective_capacity,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,mode_effective_capacity,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_capacity_audit,candidate_static_model_capacity,INTEGER,docks,"Listed station.csv dock count, preserved pending review; not a calibrated override"
+station_capacity_audit,capacity_review_status,VARCHAR,category,Whether valid selected snapshots disagree with listed dock count
+station_capacity_audit,capacity_basis,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station_day_quality,service_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+station_day_quality,station_hours,BIGINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,pickups,HUGEINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,returns,HUGEINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,status_coverage_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_day_quality,empty_exposure_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_day_quality,full_exposure_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_day_quality,hours_with_capacity_mismatch,BIGINT,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,opening_inventory_quality,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_day_quality,opening_bikes,INTEGER,bikes,Latest preceding valid snapshot within 90 seconds; NULL when invalid/stale; historical stock only
+station_day_quality,opening_available_docks,INTEGER,docks,Free usable docks in accepted preceding snapshot; not necessarily static capacity minus bikes
+station_day_quality,dst_transition_date_flag,BOOLEAN,boolean,"Relevant US DST transition date; recorded-clock grid retained, not a timezone repair"
+station_distances,from_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station_distances,to_station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station_distances,great_circle_km,DOUBLE,kilometres,"Haversine distance, mean Earth radius 6371.0088 km; not road-route length"
+station_distances,road_distance_km,DOUBLE,kilometres,Directed current OSRM driving leg; NULL if not obtained; not historical truck access
+station_distances,driving_minutes,DOUBLE,minutes,"Current OSRM driving duration / 60; excludes stop setup, handling and historical congestion"
+station_distances,origin_snap_distance_metres,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,destination_snap_distance_metres,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,road_source_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,road_profile,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,road_data_version,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,road_accessed_at_utc,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_distances,distance_quality,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,station_id,INTEGER,identifier,Original dataset identifier; external endpoints may be outside the 34-station cohort
+station_hour_observed,city,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,hour_start,TIMESTAMP,recorded local timestamp,"Naive source clock, no Singapore conversion; DST ambiguity retained"
+station_hour_observed,day_type,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,hour,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,departures,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,arrivals,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,observed_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,empty_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,full_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,low_bike_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,low_dock_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,mean_bikes_available,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,mean_effective_capacity,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,static_capacity_mismatch_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,weather_zip_code,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,trace_precipitation,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,temperature_c,DOUBLE,degrees Celsius,Existing city-level mean temperature converted as (source Fahrenheit - 32) * 5 / 9; NULL preserved
+station_hour_observed,wind_kmh,DOUBLE,kilometres/hour,Existing city-level mean wind speed multiplied by 1.609344; NULL preserved
+station_hour_observed,precipitation_mm,DOUBLE,millimetres,Existing city-level daily precipitation multiplied by 25.4; trace flag retained; NULL preserved
+station_hour_observed,service_date,DATE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,iso_weekday,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,split,VARCHAR,category,First eight weeks training; last two weeks validation for retrospective robustness evaluation; not a sealed test
+station_hour_observed,dst_transition_date_flag,BOOLEAN,boolean,"Relevant US DST transition date; recorded-clock grid retained, not a timezone repair"
+station_hour_observed,subscriber_pickups,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,subscriber_pickups_valid_exposure,INTEGER,completed events,Class endpoint count restricted to same valid <=90-second status intervals used for observed_seconds
+station_hour_observed,subscriber_pickups_available_exposure,INTEGER,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+station_hour_observed,subscriber_returns,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,subscriber_returns_valid_exposure,INTEGER,completed events,Class endpoint count restricted to same valid <=90-second status intervals used for observed_seconds
+station_hour_observed,subscriber_returns_available_exposure,INTEGER,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+station_hour_observed,customer_pickups,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,customer_pickups_valid_exposure,INTEGER,completed events,Class endpoint count restricted to same valid <=90-second status intervals used for observed_seconds
+station_hour_observed,customer_pickups_available_exposure,INTEGER,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+station_hour_observed,customer_returns,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,customer_returns_valid_exposure,INTEGER,completed events,Class endpoint count restricted to same valid <=90-second status intervals used for observed_seconds
+station_hour_observed,customer_returns_available_exposure,INTEGER,completed events,Class endpoint count matched to valid nonempty-bike (pickup) or nonfull-dock (return) intervals; use matching available seconds
+station_hour_observed,unknown_pickups,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,unknown_returns,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,internal_pickups,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,boundary_pickups,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,internal_returns,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,boundary_returns,INTEGER,completed events,Endpoint count in recorded local station-hour; zero-filled only for observed trip counts
+station_hour_observed,timestamp_tied_events,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+station_hour_observed,net_outflow,INTEGER,bikes/hour,Completed pickups minus returns; not automatically required relocation volume
+station_hour_observed,status_coverage_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_hour_observed,bike_available_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,dock_available_seconds,HUGEINT,seconds,Observed time or duration; missing availability remains NULL
+station_hour_observed,empty_exposure_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_hour_observed,full_exposure_fraction,DOUBLE,fraction 0-1,Ratio using stated valid observed-time denominator; NULL when denominator absent
+station_hour_observed,status_exposure_missing,BOOLEAN,boolean,No valid status exposure in hour; does not mean no demand
+station_hour_observed,capacity_mismatch_flag,BOOLEAN,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,tariff_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,value_usd,DOUBLE,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,billing_unit,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,included_minutes,INTEGER,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,source_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,evidence_status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+tariff_reference,interpretation,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,requirement_id,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,person,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,source,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,request_summary,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,response_tables,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,status,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links
+teammate_requirements,remaining_action,VARCHAR,see field name / source,Preserved source field or explicitly named diagnostic; see README and source_id links

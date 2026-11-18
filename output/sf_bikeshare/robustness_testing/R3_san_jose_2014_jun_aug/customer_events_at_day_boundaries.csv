@@ -1,0 +1,2 @@
+boundary_at,start_station_id,end_station_id,subscription_type,departures_at_boundary,arrivals_at_boundary
+2014-07-03 00:00:00,14,4,Subscriber,1,0

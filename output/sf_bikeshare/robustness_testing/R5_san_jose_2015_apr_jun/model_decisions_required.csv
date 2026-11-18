@@ -1,0 +1,12 @@
+decision,owner,status,reason
+Activation billing period and avoidable cost scope,Joohee/Jason,pending_agreement,Hourly activation is not equivalent to daily hire
+Capacity basis and overrides,Carlo/Joohee,pending_review,Snapshot effective capacity can differ from listed physical docks
+"Daily horizon, end inventory and stock carry-forward",Joohee/Hong Jin,pending_agreement,"Daily historical resets describe independent experiments, not a continuous counterfactual"
+Demand estimator and fallback for zero exposure,Fu Yan,not_fitted,Observed trips omit attempted requests that could not be served
+Economic interpretation of rider values,Joohee/Jason,pending_agreement,Allocated pass revenue is not measured incremental cash revenue
+Fixed external-flow failure/overflow rule,Joohee,pending_agreement,A fixed observed flow can be infeasible under changed station stock
+Later policy-evaluation dates and information available,Team,pending_agreement,"Existing validation dates are exploratory, not a sealed test"
+Robustness case economic applicability,Jason/Joohee,pending_agreement,Do not treat frozen 2015 tariffs or gasoline entries as case-matched costs; values remain scenarios or unselected
+"Truck depot, starting load and return rules",Joohee/Jason,pending_agreement,No depot is identified in station.csv; do not invent one
+Unusable daily opening rule,Carlo/Joohee,pending_agreement,Retain all observed rows and flags; agree common fallback or complete-day exclusion before policy evaluation
+Within-hour trip/transfer order and lead times,Joohee/Hong Jin,pending_agreement,Net hourly balance can conceal temporary stockouts

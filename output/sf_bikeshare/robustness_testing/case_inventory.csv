@@ -1,0 +1,6 @@
+case_id,city,interval,station_hours,stations,checks,export_readbacks,purpose
+R1_san_jose_2015_feb_apr,San Jose,"[2015-02-09, 2015-04-20)",26880,16,65,18,ROBUSTNESS TESTING ONLY
+R2_sf_2014_jun_aug,San Francisco,"[2014-06-02, 2014-08-11)",57120,34,65,18,ROBUSTNESS TESTING ONLY
+R3_san_jose_2014_jun_aug,San Jose,"[2014-06-02, 2014-08-11)",26880,16,65,18,ROBUSTNESS TESTING ONLY
+R4_sf_2015_apr_jun,San Francisco,"[2015-04-20, 2015-06-29)",57120,34,65,18,ROBUSTNESS TESTING ONLY
+R5_san_jose_2015_apr_jun,San Jose,"[2015-04-20, 2015-06-29)",26880,16,65,18,ROBUSTNESS TESTING ONLY

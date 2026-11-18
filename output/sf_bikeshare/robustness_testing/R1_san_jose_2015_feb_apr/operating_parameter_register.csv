@@ -1,0 +1,18 @@
+parameter,value,unit,price_year,source_id,evidence_status,owner,notes
+average_truck_load,,bikes,2015,,not_yet_agreed,Joohee,Stage 1 distance allocation assumption; distinct from capacity
+crew_loaded_hourly_cost,,USD/crew-hour,2015,,not_yet_agreed,Jason,Use period-consistent wage and benefits evidence
+distance_cost_per_truck_km,,USD/km,2015,,not_yet_agreed,Jason,"Document included fuel, wages and vehicle charges"
+fixed_truck_activation,,USD/activated period,2015,,not_yet_agreed,Jason/Joohee,Choose hour/shift/day billing period and avoid duplicate hire charges
+gasoline_2015_02,,USD/litre,2015,eia_2015_california_gas,reference_only_case_value_unselected,Jason,California regular gasoline; source 2.706 USD/US gallon divided by 3.785411784 litres/US gallon Frozen V3 reference value was 0.7148495736811497 USD/litre. No case-matched value is selected; agree a common-price benchmark or obtain period-specific evidence.
+gasoline_2015_03,,USD/litre,2015,eia_2015_california_gas,reference_only_case_value_unselected,Jason,California regular gasoline; source 3.338 USD/US gallon divided by 3.785411784 litres/US gallon Frozen V3 reference value was 0.8818063107714994 USD/litre. No case-matched value is selected; agree a common-price benchmark or obtain period-specific evidence.
+gasoline_2015_04,,USD/litre,2015,eia_2015_california_gas,reference_only_case_value_unselected,Jason,California regular gasoline; source 3.210 USD/US gallon divided by 3.785411784 litres/US gallon Frozen V3 reference value was 0.8479922880696564 USD/litre. No case-matched value is selected; agree a common-price benchmark or obtain period-specific evidence.
+handling_cost_per_relocated_bike,,USD/bike,2015,,not_yet_agreed,Jason/Joohee,"Count load and unload, and do not duplicate labor in route hours"
+hourly_relocation_throughput,,bikes/hour,2015,,not_yet_agreed,Joohee,Capacity alone does not establish throughput or route feasibility
+incremental_customer_trip_contribution,,USD/additional served trip,2015,,not_yet_agreed,Jason/Joohee,No payment/pass identifier; additional pass purchases are unobserved
+incremental_subscriber_trip_contribution,,USD/additional served trip,2015,,not_yet_agreed,Jason/Joohee,Allocated annual fees are not marginal receipts
+loading_minutes_per_bike,,minutes/load operation,2015,,not_yet_agreed,Jason,Literature scenarios must remain labeled assumptions
+stop_setup_minutes,,minutes/visit,2015,,not_yet_agreed,Jason,Parking/access time excluding handling
+truck_capacity,,bikes onboard,2015,,not_yet_agreed,Jason/Joohee,Vehicle and packing configuration must be specified
+unloading_minutes_per_bike,,minutes/unload operation,2015,,not_yet_agreed,Jason,Separate operation from loading
+vehicle_fuel_consumption,,litres/100km,2015,,not_yet_agreed,Jason,Specific vehicle and operating cycle needed; fuel litres = distance km times consumption / 100
+vehicle_incremental_hourly_cost,,USD/vehicle-hour,2015,,not_yet_agreed,Jason,Exclude any hours already included in fixed hire

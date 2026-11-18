@@ -1,0 +1,14 @@
+{
+  "case_id": "R1_san_jose_2015_feb_apr",
+  "purpose": "ROBUSTNESS TESTING ONLY",
+  "city": "San Jose",
+  "start": "2015-02-09",
+  "end_exclusive": "2015-04-20",
+  "training_end_exclusive": "2015-04-06",
+  "station_count": 16,
+  "hourly_schema": "exactly the 51 V3 columns and SQL types",
+  "reference_case": "D0: output/sf_bikeshare/model_inputs_v3",
+  "evaluation_status": "data_prepared_no_policy_results",
+  "opening_rule_status": "flags preserved; no fallback or evaluation-day exclusions applied",
+  "economic_status": "historical benchmark references only; case-matched operating values unselected"
+}

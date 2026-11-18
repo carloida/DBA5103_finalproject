@@ -1,0 +1,448 @@
+{
+  "version": "robustness_v1",
+  "case_id": "R2_sf_2014_jun_aug",
+  "purpose": "ROBUSTNESS TESTING ONLY",
+  "city": "San Francisco",
+  "training_end_exclusive": "2014-07-28",
+  "revision": "same_v3_metric_schema",
+  "prepared_on": "2026-11-18",
+  "created_at_utc": "2026-11-18T13:43:33.089796+00:00",
+  "source_database": "output/sf_bikeshare/sf_bikeshare.duckdb",
+  "source_database_opened_read_only": true,
+  "source_database_bytes": 1565274112,
+  "source_manifest_sha256": "3365c31fe7b8a1967f117190fd867671aaf2797c187b743936032c39f499040a",
+  "v2_sha256_unchanged": "4fd7cb352727670cf0cba8ebae9d1644f52e35991469ad29d328bcbf98a9f1c9",
+  "script_sha256": "a548a971000e09a88a34bbbafa30ade0b64a22e89f8b9d03707963ca61a59353",
+  "duckdb_version": "2.0.0",
+  "interval": "[2014-06-02, 2014-08-11)",
+  "opening_snapshot_max_age_seconds": 90,
+  "working_units": {
+    "distance": "kilometres",
+    "snapping_distance": "metres",
+    "temperature": "degrees Celsius",
+    "wind_speed": "kilometres/hour",
+    "precipitation": "millimetres",
+    "fuel": "litres",
+    "fuel_consumption": "litres/100km",
+    "money": "USD",
+    "time": "seconds/minutes/hours as labeled",
+    "coordinates": "decimal degrees"
+  },
+  "unit_conversion_rules": {
+    "temperature_c": "(temperature_f - 32) * 5 / 9",
+    "wind_kmh": "wind_mph * 1.609344",
+    "precipitation_mm": "precipitation_numeric_inches * 25.4",
+    "fuel_price_usd_per_litre": "source USD/US gallon / 3.785411784",
+    "road_distance_km": "OSRM metres / 1000"
+  },
+  "opening_rule": "Latest snapshot at or before boundary; invalid/latest stale state yields NULL; no future lookup or fallback imputation",
+  "trip_exposure_rule": "Endpoint matched to preceding valid status interval, positive gap <=90 seconds; numerator uses same intervals as denominator",
+  "transit_rule": "started_at < boundary_at < ended_at; exact-boundary events exported separately for event-order review",
+  "road_matrix": {
+    "status": "fetched",
+    "coordinate_sha256": "d9d099d30dc2a5707012360fdc5c742a2d75534f987ef5a97cbf89a5968027df",
+    "response_sha256": "6ad709246a013f85ea37c56af6e7e5a27c01ae96cd520f02d2daa337d67e6fb8",
+    "url": "https://router.project-osrm.org/table/v1/driving/-122.4084330,37.7838710;-122.3999700,37.7950010;-122.3984360,37.7972800;-122.4029230,37.7942310;-122.4047670,37.7954250;-122.4034520,37.7889750;-122.3985250,37.7999530;-122.3906370,37.7903020;-122.3942030,37.7953920;-122.3910340,37.7914640;-122.3880130,37.7871520;-122.3946430,37.7897560;-122.3970860,37.7922510;-122.4051270,37.7817520;-122.4182350,37.7786500;-122.4186030,37.7813320;-122.4032340,37.8047700;-122.3902880,37.7805260;-122.3962360,37.7852990;-122.3981080,37.7869780;-122.3927380,37.7822590;-122.4027170,37.7710580;-122.4189540,37.7748140;-122.4173850,37.7766190;-122.4010140,37.7848780;-122.3954700,37.7766000;-122.3952600,37.7766170;-122.4084990,37.7884460;-122.4117480,37.7810390;-122.4072450,37.7985220;-122.3944340,37.7941390;-122.3990510,37.7913000;-122.4049660,37.7863050;-122.4008110,37.7896250?annotations=distance,duration",
+    "accessed_at_utc": "2026-11-18T05:53:23.992368+00:00",
+    "station_order": [
+      39,
+      41,
+      42,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77
+    ],
+    "data_version": null,
+    "profile": "driving",
+    "interpretation": "Current default driving estimates; not historical 2015 traffic or truck-access certification"
+  },
+  "summary": {
+    "stations": 34,
+    "station_hours": 57120,
+    "observed_journeys": 61753,
+    "endpoint_relevant_journeys": 61753,
+    "supplemental_horizon_spanning_journeys": 0,
+    "long_journeys": 9,
+    "journey_types": [
+      {
+        "boundary_type": "inbound",
+        "trips": 1009
+      },
+      {
+        "boundary_type": "internal",
+        "trips": 59875
+      },
+      {
+        "boundary_type": "outbound",
+        "trips": 869
+      }
+    ],
+    "rider_totals": [
+      {
+        "subscriber_pickups": 51016,
+        "customer_pickups": 9725,
+        "subscriber_returns": 51126,
+        "customer_returns": 9757,
+        "boundary_pickups": 869,
+        "boundary_returns": 1009
+      }
+    ],
+    "daily_opening_quality": [
+      {
+        "inventory_quality": "stale_over_90_seconds",
+        "station_days": 4
+      },
+      {
+        "inventory_quality": "valid_within_90_seconds",
+        "station_days": 2376
+      }
+    ],
+    "hourly_opening_quality": [
+      {
+        "inventory_quality": "stale_over_90_seconds",
+        "station_hours": 85
+      },
+      {
+        "inventory_quality": "valid_within_90_seconds",
+        "station_hours": 57035
+      }
+    ],
+    "capacity_review": [
+      {
+        "capacity_review_status": "static_capacity_has_mismatches_review_required",
+        "stations": 34,
+        "mismatching_snapshots": 119306
+      }
+    ],
+    "daily_static_capacity_mismatches": 32,
+    "matched_event_quality": [
+      {
+        "event_type": "pickup",
+        "events": 60741,
+        "in_valid_exposure": 60729,
+        "snapshot_timestamp_ties": 14
+      },
+      {
+        "event_type": "return",
+        "events": 60883,
+        "in_valid_exposure": 60870,
+        "snapshot_timestamp_ties": 28
+      }
+    ],
+    "road_pairs_available": 1156,
+    "road_max_snap_metres": 61.86772817
+  },
+  "validation_checks_passed": 65,
+  "export_row_count_readbacks_passed": 18,
+  "tables": [
+    {
+      "table": "boundary_flows_hourly",
+      "rows": 57120,
+      "columns": 9,
+      "key": "station_id, hour_start",
+      "export": "boundary_flows_hourly.csv.gz"
+    },
+    {
+      "table": "customer_events_at_day_boundaries",
+      "rows": 10,
+      "columns": 6,
+      "key": "all grouping dimensions",
+      "export": "customer_events_at_day_boundaries.csv"
+    },
+    {
+      "table": "customer_in_transit_day_boundaries",
+      "rows": 118,
+      "columns": 11,
+      "key": "all grouping dimensions",
+      "export": "customer_in_transit_day_boundaries.csv"
+    },
+    {
+      "table": "customer_journeys_observed",
+      "rows": 61753,
+      "columns": 19,
+      "key": "trip_id",
+      "export": "local_database_only"
+    },
+    {
+      "table": "customer_od_hourly_observed",
+      "rows": 52645,
+      "columns": 15,
+      "key": "all grouping dimensions",
+      "export": "customer_od_hourly_observed.csv.gz"
+    },
+    {
+      "table": "day_boundary_calendar",
+      "rows": 71,
+      "columns": 1,
+      "key": "boundary_at",
+      "export": "local_database_only"
+    },
+    {
+      "table": "external_sources",
+      "rows": 5,
+      "columns": 7,
+      "key": "source_id",
+      "export": "external_sources.csv"
+    },
+    {
+      "table": "model_calendar",
+      "rows": 1680,
+      "columns": 7,
+      "key": "hour_start",
+      "export": "model_calendar.csv"
+    },
+    {
+      "table": "model_decisions_required",
+      "rows": 11,
+      "columns": 4,
+      "key": "decision",
+      "export": "model_decisions_required.csv"
+    },
+    {
+      "table": "observed_trip_events",
+      "rows": 121624,
+      "columns": 13,
+      "key": "trip_id, event_type",
+      "export": "local_database_only"
+    },
+    {
+      "table": "opening_inventory_daily",
+      "rows": 2380,
+      "columns": 15,
+      "key": "station_id, service_date",
+      "export": "opening_inventory_daily.csv"
+    },
+    {
+      "table": "opening_inventory_hourly",
+      "rows": 57120,
+      "columns": 16,
+      "key": "station_id, hour_start",
+      "export": "opening_inventory_hourly.csv.gz"
+    },
+    {
+      "table": "operating_parameter_register",
+      "rows": 17,
+      "columns": 8,
+      "key": "parameter",
+      "export": "operating_parameter_register.csv"
+    },
+    {
+      "table": "revenue_allocation_scenarios",
+      "rows": 6,
+      "columns": 9,
+      "key": "subscription_type, scenario",
+      "export": "revenue_allocation_scenarios.csv"
+    },
+    {
+      "table": "station",
+      "rows": 34,
+      "columns": 7,
+      "key": "station_id",
+      "export": "station.csv"
+    },
+    {
+      "table": "station_capacity_audit",
+      "rows": 34,
+      "columns": 15,
+      "key": "station_id",
+      "export": "station_capacity_audit.csv"
+    },
+    {
+      "table": "station_day_quality",
+      "rows": 2380,
+      "columns": 14,
+      "key": "station_id, service_date",
+      "export": "station_day_quality.csv"
+    },
+    {
+      "table": "station_distances",
+      "rows": 1156,
+      "columns": 12,
+      "key": "from_station_id, to_station_id",
+      "export": "station_distances.csv"
+    },
+    {
+      "table": "station_hour_observed",
+      "rows": 57120,
+      "columns": 51,
+      "key": "station_id, hour_start",
+      "export": "station_hour_observed.csv.gz"
+    },
+    {
+      "table": "tariff_reference",
+      "rows": 7,
+      "columns": 7,
+      "key": "tariff_id",
+      "export": "tariff_reference.csv"
+    },
+    {
+      "table": "teammate_requirements",
+      "rows": 12,
+      "columns": 7,
+      "key": "requirement_id",
+      "export": "teammate_requirements.csv"
+    }
+  ],
+  "files": [
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/boundary_flows_hourly.csv.gz",
+      "bytes": 153540,
+      "sha256": "3a0e69f0409b60886b8ecf9e8c249cdb41da9677cfd5d04d1188199bfab49eb6"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/case_definition.json",
+      "bytes": 620,
+      "sha256": "be0ab22667cb2a10d6102a2d528d5ef2325e404b22660c7d16dc19cb47ed7375"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/customer_events_at_day_boundaries.csv",
+      "bytes": 514,
+      "sha256": "ae48f18286120e3220c9ae8296ec00a45d959c3b8803ed6c7ab9e7a8b70febc9"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/customer_in_transit_day_boundaries.csv",
+      "bytes": 9739,
+      "sha256": "a738e262db5d929fb872b083db097b9940eae212cd440bbc6c52b64571420ab3"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/customer_od_hourly_observed.csv.gz",
+      "bytes": 473925,
+      "sha256": "a779165406fe6dd7916cf1d55e60c74976b9c3f71c2c72c642619af8131778cc"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/data_dictionary.csv",
+      "bytes": 38177,
+      "sha256": "3ed2a31b1bb7758b22fe7ba1a52b694f30f23f1723a4d7ece2380e05bc6cd606"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/external_sources.csv",
+      "bytes": 2652,
+      "sha256": "474759fbcb43e6d2442bb95333501cf0b72aa38b8dce85d8b80780dca6099a53"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/model_calendar.csv",
+      "bytes": 99173,
+      "sha256": "c8cf4d6eb5f8dfdde52eaac9848673007b483ee483f07f1eedb8d31303c91974"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/model_decisions_required.csv",
+      "bytes": 1625,
+      "sha256": "ec055ddf53df5245e2a560148c2dfed7113efc965db26a57d75211ace275ce6d"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/opening_inventory_daily.csv",
+      "bytes": 246194,
+      "sha256": "5f53abe6891272daebba6439f7f3b1ee02461aeb6bd7b24cc5190e52ed7859ea"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/opening_inventory_hourly.csv.gz",
+      "bytes": 407690,
+      "sha256": "952e984ab23c679e3b41bc02a505ce3859a3ce376d5fdce7ed5fd511617c2c5f"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/operating_parameter_register.csv",
+      "bytes": 2983,
+      "sha256": "421d8cd5534c2bcdbe82295d21d8ecd9fe498a4505db5d2e3e6e1c72560bdc6a"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/revenue_allocation_scenarios.csv",
+      "bytes": 832,
+      "sha256": "eb93e0404557cd0a09f8e38ff4ab61fffb6317b46824ce6550768f6e2419d007"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/station.csv",
+      "bytes": 2893,
+      "sha256": "0a1667a3599579d6ea00231ea49929f361aadc75806239c1b16d777e21e14db9"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/station_capacity_audit.csv",
+      "bytes": 8854,
+      "sha256": "f1e567ccba4eeaebf673e3c020b61b803a031c398084d8bbe9aa600bbc4b8865"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/station_day_quality.csv",
+      "bytes": 213729,
+      "sha256": "92e62f6c3bf0535c13823d7b4992f713362df4fc126af645cc62264b3b99efd4"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/station_distances.csv",
+      "bytes": 211190,
+      "sha256": "08d4a0a23c3d6d7c9245adb792de4236673f5b96d756ffc7c0b238759f8cd125"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/station_hour_observed.csv.gz",
+      "bytes": 827027,
+      "sha256": "833853bd317f69131bc6b5308b9ae82ecab5dc804c7959f612cd11992b8c7124"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/table_inventory.csv",
+      "bytes": 1625,
+      "sha256": "d8f708c1b70cc51bab0539b0e72b357cf131ffba9521b28b607976e5bd346a05"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/tariff_reference.csv",
+      "bytes": 2191,
+      "sha256": "80aef90c7056c53a684504964ae1f49a3841e984db178f07eecaccb48a631aaf"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/teammate_requirements.csv",
+      "bytes": 4342,
+      "sha256": "8dc3d6ab3bb6cca91c9f70c980c335114ee70ed88a817f4ebafe4c6dd76c77f8"
+    },
+    {
+      "path": "output/sf_bikeshare/robustness_testing/R2_sf_2014_jun_aug/validation_checks.csv",
+      "bytes": 3266,
+      "sha256": "9ff5cffd76ed32890caebf5e484fac279562238a1f2b5600035b753db828c037"
+    }
+  ],
+  "verified_external_pdf_files": [
+    {
+      "filename": "baaqmd_memberships_2015.pdf",
+      "bytes": 141341,
+      "sha256": "90216d0a8d4dd00eeca0e246079cb4563bd6abfc672b94badc991232863e8c6f"
+    },
+    {
+      "filename": "sfmta_pricing_2013.pdf",
+      "bytes": 2934098,
+      "sha256": "e04f38960c2d9438e76c4aa2d6a7ac6cbb7ed8e5cf6323c1d35157691253f3cd"
+    }
+  ],
+  "limitations": [
+    "Recorded local-clock grid; relevant US DST dates are flagged, not repaired without source timezone evidence",
+    "Status snapshots are historical operations, not counterfactual baseline inventory paths",
+    "Static dock count retained; effective-capacity discrepancies require review, no invented overrides",
+    "Matched endpoint/exposure statistics inherit minute-rounded trip times and snapshot timestamp ties",
+    "Observed OD journeys are not latent attempted OD demand; counterfactual served trips must generate consistent later returns",
+    "Revenue allocations are team assumptions; no actual payments or incremental contribution inferred",
+    "Tariff/allocation tables are historical benchmark references; case-specific price/date applicability and operating values remain unselected",
+    "No depot, historical truck route, optimized plan or profit result is created"
+  ]
+}

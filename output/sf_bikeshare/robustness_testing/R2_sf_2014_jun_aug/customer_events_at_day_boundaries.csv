@@ -1,0 +1,11 @@
+boundary_at,start_station_id,end_station_id,subscription_type,departures_at_boundary,arrivals_at_boundary
+2014-06-07 00:00:00,61,57,Subscriber,0,1
+2014-06-12 00:00:00,75,39,Subscriber,0,1
+2014-07-03 00:00:00,45,65,Subscriber,0,1
+2014-07-06 00:00:00,60,72,Subscriber,0,1
+2014-07-10 00:00:00,68,69,Subscriber,0,1
+2014-07-11 00:00:00,70,70,Subscriber,0,1
+2014-07-16 00:00:00,74,57,Subscriber,1,0
+2014-07-18 00:00:00,70,39,Subscriber,0,1
+2014-07-19 00:00:00,73,77,Customer,0,1
+2014-08-07 00:00:00,66,42,Subscriber,0,1

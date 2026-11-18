@@ -7,3 +7,6 @@
 *.jpg binary
 *.pdf binary
 *.parquet binary
+
+# Preserve robustness metadata bytes used by release checksums.
+/output/sf_bikeshare/robustness_testing/**/*.json -text

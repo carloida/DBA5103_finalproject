@@ -8,10 +8,12 @@ This project studies where and when to move bikes between stations so that the e
 
 ## Start here
 
+- **[Project pipeline report](docs/SF_Bikeshare_Project_Pipeline_Report.md)** ([PDF](output/pdf/SF_Bikeshare_Project_Pipeline_Report.pdf)) and **[portrait workflow poster](output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png)**: team responsibilities, two-stage modeling, evaluation and report-writing plan.
+- **[Robustness testing datasets](output/sf_bikeshare/robustness_testing/README.md)**: five separate observed-data cases, explicitly for robustness testing; same 51 hourly features and 21 core schemas as V3. All 325 build checks and 90 export readbacks passed. Experiments and results remain pending.
 - **[V3 enriched model-input handoff](output/sf_bikeshare/model_inputs_v3/README.md)** and **[V1-V5 dataset progression](docs/SF_Bikeshare_Dataset_Iterations.md)**: new inputs, teammate requirements, verification and remaining decisions.
 - **[SF subset](output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet)** and [station details](output/sf_bikeshare/subset_assessment/candidate_stations.csv).
 - **[Subset guide and field definitions](output/sf_bikeshare/subset_assessment/README.md)**: contents, splits, limitations and loading instructions.
-- **[Latest portrait poster](output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png)**: processing steps, file size and pattern comparisons.
+- **[Earlier subset poster](output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png)**: processing steps, file size and pattern comparisons.
 - [Initial project report](docs/SF_Bikeshare_Initial_Report.md).
 - [Cost-formula revision and references](docs/SF_Bikeshare_Cost_Formula_Revision.md).
 - [Project status, responsibilities and next steps](docs/PROJECT_STATUS.md).

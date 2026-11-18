@@ -1,0 +1,7 @@
+subscription_type,scenario,pass_price_usd,assumed_trips_per_pass,allocated_revenue_usd_per_trip,allocation_period,source_id,evidence_status,use_as_marginal_cash_revenue
+Customer,base,9.0,2.0,4.5,24-hour pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false
+Customer,high,9.0,1.0,9.0,24-hour pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false
+Customer,low,9.0,4.0,2.25,24-hour pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false
+Subscriber,base,88.0,100.0,0.88,annual pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false
+Subscriber,high,88.0,50.0,1.76,annual pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false
+Subscriber,low,88.0,150.0,0.5866666666666667,annual pass,team_revenue_assumptions,proposed_allocated_revenue_scenario,false

@@ -80,6 +80,10 @@ Public operating reports can contain preliminary figures and aggregate activity 
 
 ## Generated artifacts
 
+### Separate robustness inputs - 18 November 2026
+
+[Five derived cases](../output/sf_bikeshare/robustness_testing/README.md) were prepared from the existing source database opened read-only. They use two cities and three periods with the main V3 case, retain the same features and metric working units, and are explicitly for robustness testing. The main V3 package and original sources remain unchanged. Case manifests record source provenance, coordinates/order, checksums and validation. Current San Jose OSRM driving estimates were fetched once on 18 November 2026; the existing SF cache was reused. These are current road proxies, not historical truck observations. Historical tariff/allocation tables are reference benchmarks; case gasoline values are NULL until an economic scenario or period-matched source is agreed. The [pipeline report](SF_Bikeshare_Project_Pipeline_Report.md) explains the planned evaluation; no policy results have been generated.
+
 The manifest records source hash, software versions and reconciliation status. The cleaning audit, flagged records, aliases, coordinate checks and sensitivity tables retain the cleaning trail. Forecast outputs are exploratory completed-trip predictions, not unconstrained demand forecasts.
 
 The original long poster and its four-picture version summarize the EDA. They are communication artifacts, not additional data sources. The saved WhatsApp text is a draft; no messages were sent automatically.

@@ -1,0 +1,66 @@
+check,expected,actual,passed
+expected station count,34,34,True
+1680 recorded calendar hours,1680,1680,True
+complete dense station hours,57120,57120,True
+station hour keys unique,0,0,True
+complete station-day opening grid,2380,2380,True
+hourly opening keys unique,0,0,True
+daily opening keys unique,0,0,True
+journey keys unique,0,0,True
+endpoint keys unique,0,0,True
+rider splits reconcile row by row,0,0,True
+no unexpected rider labels,0,0,True
+internal plus boundary reconciles,0,0,True
+all departures match original source scope,0,0,True
+all arrivals match original source scope,0,0,True
+original exposure fields unchanged,0,0,True
+temperature_c round-trip values and missingness,0,0,True
+wind_kmh round-trip values and missingness,0,0,True
+precipitation_mm round-trip values and missingness,0,0,True
+working columns use metric measurements,0,0,True
+operating parameter units metric,0,0,True
+OD trips reconcile,0,0,True
+endpoint-relevant journeys match original trip records,0,0,True
+OD departure endpoints reconcile,0,0,True
+OD arrival endpoints reconcile,0,0,True
+boundary class splits reconcile,0,0,True
+Subscriber pickup totals match source trip records,0,0,True
+Subscriber return totals match source trip records,0,0,True
+Customer pickup totals match source trip records,0,0,True
+Customer return totals match source trip records,0,0,True
+bounded exposure,0,0,True
+subscriber pickups matched numerators bounded,0,0,True
+subscriber returns matched numerators bounded,0,0,True
+customer pickups matched numerators bounded,0,0,True
+customer returns matched numerators bounded,0,0,True
+no future snapshot openings,0,0,True
+stale or invalid openings are NULL,0,0,True
+valid opening counts nonnegative,0,0,True
+distance pair keys unique,0,0,True
+complete directed distance pairs,1156,1156,True
+zero air-distance diagonal,0,0,True
+positive distinct-station air distances,0,0,True
+positive road values when present,0,0,True
+revenue allocation arithmetic,0,0,True
+all directed road pairs populated,0,0,True
+exact V3 schema: boundary_flows_hourly,match,match,True
+exact V3 schema: customer_events_at_day_boundaries,match,match,True
+exact V3 schema: customer_in_transit_day_boundaries,match,match,True
+exact V3 schema: customer_journeys_observed,match,match,True
+exact V3 schema: customer_od_hourly_observed,match,match,True
+exact V3 schema: day_boundary_calendar,match,match,True
+exact V3 schema: external_sources,match,match,True
+exact V3 schema: model_calendar,match,match,True
+exact V3 schema: model_decisions_required,match,match,True
+exact V3 schema: observed_trip_events,match,match,True
+exact V3 schema: opening_inventory_daily,match,match,True
+exact V3 schema: opening_inventory_hourly,match,match,True
+exact V3 schema: operating_parameter_register,match,match,True
+exact V3 schema: revenue_allocation_scenarios,match,match,True
+exact V3 schema: station,match,match,True
+exact V3 schema: station_capacity_audit,match,match,True
+exact V3 schema: station_day_quality,match,match,True
+exact V3 schema: station_distances,match,match,True
+exact V3 schema: station_hour_observed,match,match,True
+exact V3 schema: tariff_reference,match,match,True
+exact V3 schema: teammate_requirements,match,match,True

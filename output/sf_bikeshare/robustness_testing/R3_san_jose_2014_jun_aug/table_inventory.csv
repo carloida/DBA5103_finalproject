@@ -1,0 +1,22 @@
+table,rows,columns,key,export
+boundary_flows_hourly,26880,9,"station_id, hour_start",boundary_flows_hourly.csv.gz
+customer_events_at_day_boundaries,1,6,all grouping dimensions,customer_events_at_day_boundaries.csv
+customer_in_transit_day_boundaries,50,11,all grouping dimensions,customer_in_transit_day_boundaries.csv
+customer_journeys_observed,4553,19,trip_id,local_database_only
+customer_od_hourly_observed,3864,15,all grouping dimensions,customer_od_hourly_observed.csv.gz
+day_boundary_calendar,71,1,boundary_at,local_database_only
+external_sources,5,7,source_id,external_sources.csv
+model_calendar,1680,7,hour_start,model_calendar.csv
+model_decisions_required,11,4,decision,model_decisions_required.csv
+observed_trip_events,9100,13,"trip_id, event_type",local_database_only
+opening_inventory_daily,1120,15,"station_id, service_date",opening_inventory_daily.csv
+opening_inventory_hourly,26880,16,"station_id, hour_start",opening_inventory_hourly.csv.gz
+operating_parameter_register,17,8,parameter,operating_parameter_register.csv
+revenue_allocation_scenarios,6,9,"subscription_type, scenario",revenue_allocation_scenarios.csv
+station,16,7,station_id,station.csv
+station_capacity_audit,16,15,station_id,station_capacity_audit.csv
+station_day_quality,1120,14,"station_id, service_date",station_day_quality.csv
+station_distances,256,12,"from_station_id, to_station_id",station_distances.csv
+station_hour_observed,26880,51,"station_id, hour_start",station_hour_observed.csv.gz
+tariff_reference,7,7,tariff_id,tariff_reference.csv
+teammate_requirements,12,7,requirement_id,teammate_requirements.csv

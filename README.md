@@ -8,6 +8,7 @@ This project studies where and when to move bikes between stations so that the e
 
 ## Start here
 
+- **[Carlo's Section 3 draft and data-cleaning appendix](docs/SF_Bikeshare_Consolidated_Data_Preparation_Report.md)**: scoped to the shared data/demand section, with Fu Yan's estimation subsection pending. [Reference and feature review](docs/supporting/SF_Bikeshare_Reference_and_Feature_Review_2026-11-19.md) records the checks and remaining assumptions.
 - **[Project pipeline report](docs/SF_Bikeshare_Project_Pipeline_Report.md)** ([PDF](output/pdf/SF_Bikeshare_Project_Pipeline_Report.pdf)) and **[portrait workflow poster](output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png)**: team responsibilities, two-stage modeling, evaluation and report-writing plan.
 - **[Robustness testing datasets](output/sf_bikeshare/robustness_testing/README.md)**: five separate observed-data cases, explicitly for robustness testing; same 51 hourly features and 21 core schemas as V3. All 325 build checks and 90 export readbacks passed. Experiments and results remain pending.
 - **[V3 enriched model-input handoff](output/sf_bikeshare/model_inputs_v3/README.md)** and **[V1-V5 dataset progression](docs/SF_Bikeshare_Dataset_Iterations.md)**: new inputs, teammate requirements, verification and remaining decisions.

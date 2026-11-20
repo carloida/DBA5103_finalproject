@@ -1,5 +1,7 @@
 # Project status - 18 November 2026
 
+**20 November update:** see the [dated handoff](supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md) for Carlo's confirmed `dock_count` base rule, midnight-only daily initialization, provisional rental/fuel inputs and remaining demand/model checks. The data releases are unchanged. The 18 November snapshot below is retained as history where its pending statuses have since evolved.
+
 Following the 16 November meeting, the modeling work focuses on SF Bay Area Bike Share. The earlier Citi Bike EDA remains as background. Joohee approved the 34-station, 10-week, hourly scope in the comments supplied on 18 November. Vehicle, demand, revenue and timing assumptions still require agreement. The repository provides the V3 scoped exports and supporting documentation; the full databases stay local. Shared Google Docs were read only and Carlo will upload information there manually.
 
 ## Completed

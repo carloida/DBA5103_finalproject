@@ -1,6 +1,6 @@
 # Section 3: Data and demand estimation
 
-**Carlo's data contribution | Updated 19 November 2026 | Draft for integration with Fu Yan's subsection**
+**Carlo's data contribution | Updated 20 November 2026 | Draft for integration with Fu Yan's subsection**
 
 **Scope:** Section 3 has a shared two-page allowance. Subsections 3.1-3.3 below cover Carlo's data work; Fu Yan will complete 3.4. The data-cleaning appendix and internal checklist follow separately. Cost assumptions, formulation, solution methods and robustness results belong to their assigned sections.
 
@@ -22,7 +22,7 @@ For exposure calculations, valid states were defined as nonnegative, nonmissing 
 | --- | --- |
 | Rider flows | Subscriber/Customer pickups and returns, with counts matched to valid and available status intervals for demand estimation |
 | Availability and net flow | Observed, empty/full and low-inventory seconds; time-weighted mean bikes/capacity; net outflow = pickups minus returns |
-| Opening stocks and capacity | Latest preceding snapshots, accepted only if valid and at most 90 seconds old; listed dock counts and effective-capacity discrepancies retained separately |
+| Opening stocks and capacity | Observed midnight stock initializes each daily model; latest preceding snapshots are accepted only if valid and at most 90 seconds old. Base capacity uses `dock_count`; effective-capacity discrepancies support a separate sensitivity |
 | OD, boundary and transit records | Origin/destination and departure/arrival timing, including outside-cohort endpoints and trips crossing day boundaries |
 | Distance and weather | Derived great-circle distances; externally obtained current directed OSRM driving estimates; weather converted to metric units |
 
@@ -34,7 +34,7 @@ Working units are km/m, degrees Celsius, km/h, mm and litres; currency is USD. N
 
 V3 passed **43 reconciliation checks and 18 export row-count readbacks**. The main cohort records **55,179 Subscriber and 7,064 Customer pickups**. The 63,974 distinct journeys with a selected endpoint in the window are a different counting population; pickups and returns must not be summed to count journeys.
 
-All **2,380 midnight opening stocks** are fresh. However, 67 have effective/static-capacity discrepancies, and 34 hourly openings around the March DST transition remain stale/flagged. Recorded local-clock timestamps are retained; DST flags do not repair elapsed time. Long-duration journeys and unusual days were retained with diagnostics. Historical stock can initialize common experiments but is not a no-rebalancing stock path. Capacity and timestamp interpretations require explicit modeling rules.
+All **2,380 midnight opening stocks** are fresh. There are 67 station-day effective/static-capacity discrepancies, retained for a lower-capacity sensitivity whose exact definition remains to be agreed. The 34 stale hourly openings around the March DST transition are diagnostics, not initialization inputs to the daily model. Recorded local-clock timestamps remain unchanged; DST flags do not repair elapsed time. Long-duration journeys and unusual days were retained with diagnostics. Historical stock initializes separate daily experiments rather than a continuous no-rebalancing stock path.
 
 Five additional same-schema cases covering San Jose and other periods were prepared separately for **robustness evaluation**, described in Section 7. Preparing these inputs does not establish policy performance. Completed trips measure served requests; estimating attempted demand remains Fu Yan's task. The [main V3 package](https://github.com/carloida/DBA5103_finalproject/tree/main/output/sf_bikeshare/model_inputs_v3) provides the reconciled observations and matched-exposure inputs for that work.
 
@@ -57,11 +57,13 @@ The [project repository](https://github.com/carloida/DBA5103_finalproject), [mai
 
 ## Carlo's remaining checklist — internal, outside the paper text
 
-1. Finish the focused V3 EDA and select only the most useful figure/table for the shared Section 3 page budget; move detailed diagnostics to supporting material.
-2. Integrate Fu Yan's completed demand subsection, review sensitivity to the status-gap cutoff, and agree stock/capacity/DST treatment with Joohee before policy evaluation.
+1. Finish the focused V3 EDA using the [section-aligned figure plan](supporting/SF_Bikeshare_Section3_Figure_Plan.md): one compact figure combining hourly completed-trip profiles and station-level empty/full exposure, placed after 3.2. Retain the feature table and reserve space for Fu Yan; move detailed diagnostics to supporting material. The figure is planned, not yet generated.
+2. Integrate Fu Yan's completed demand subsection, review sensitivity to the status-gap cutoff, and confirm the exact lower-capacity sensitivity and flagged-day rules. Carlo confirmed `dock_count` as the base capacity on 20 November; the model uses observed midnight stock.
 3. Write Section 8 jointly with Hong Jin after results are available; its **0.5-page allowance is shared**, not a separate full conclusion from each owner.
 4. Supply the data-cleaning appendix and complete the final edit for flow, notation, units, references and formatting across the paper.
 
 The longer [technical notes](supporting/SF_Bikeshare_Data_Preparation_Technical_Notes_2026-11-19.md) retain the detailed feature inventory, formulas, Jason-input review and robustness protocol. They support the team and are not intended to be pasted wholesale into Carlo's Section 3 contribution.
 
 The [reference and feature-engineering review](supporting/SF_Bikeshare_Reference_and_Feature_Review_2026-11-19.md) records the lecture/textbook evidence, independently checked transformations and remaining assumptions. It is supporting material outside Section 3's page allowance.
+
+The [20 November handoff](supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md) records the latest confirmed data decisions, provisional cost benchmarks and outstanding model inputs. It supplements the frozen V3 exports; it does not replace them or certify all model assumptions as agreed.

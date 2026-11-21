@@ -1,0 +1,237 @@
+{
+  "purpose": "Observed minute supplement for demand estimation; no demand estimates or model code",
+  "created_at_utc": "2026-11-21T13:08:56.952888+00:00",
+  "script_sha256": "bf375c1e9a7377cfe8c30e1fcc3ade8cfd4b3a9a5df24f992348d16748ef3d26",
+  "duckdb_version": "2.0.0",
+  "source_database": "output/sf_bikeshare/sf_bikeshare.duckdb",
+  "source_database_opened_read_only": true,
+  "source_manifest_sha256": "3365c31fe7b8a1967f117190fd867671aaf2797c187b743936032c39f499040a",
+  "frozen_v3_manifest_sha256": "ca04a4903662c29dc1efd3798935b067b162edac488aabbd2296d5f41c12fcce",
+  "study_start_inclusive": "2015-02-09 00:00:00",
+  "study_end_exclusive": "2015-04-20 00:00:00",
+  "trip_event_context_start_inclusive": "2015-02-08 23:30:00",
+  "status_lower_inclusive": "2015-02-08 23:28:30",
+  "status_upper_inclusive": "2015-04-20 00:01:30",
+  "status_anchor_padding_seconds": 90,
+  "timestamp_basis": "Recorded naive local times; DST ambiguity retained; not repaired",
+  "units": {
+    "duration": "seconds",
+    "inventory": "bikes/docks",
+    "time": "recorded local time"
+  },
+  "station_ids": [
+    39,
+    41,
+    42,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77
+  ],
+  "status_invalid_rows_retained": 0,
+  "core_event_counts": [
+    {
+      "event_type": "pickup",
+      "subscription_type": "Customer",
+      "events": 7064
+    },
+    {
+      "event_type": "pickup",
+      "subscription_type": "Subscriber",
+      "events": 55179
+    },
+    {
+      "event_type": "return",
+      "subscription_type": "Customer",
+      "events": 7092
+    },
+    {
+      "event_type": "return",
+      "subscription_type": "Subscriber",
+      "events": 55234
+    }
+  ],
+  "files": {
+    "status.csv.gz": {
+      "rows": 3425160,
+      "bytes": 8969548,
+      "sha256": "fb6b32972bf532bb52b266f211f3e50cf34b979ecda690d31453c3a22f42024b",
+      "columns": [
+        "station_id",
+        "bikes_available",
+        "docks_available",
+        "time"
+      ]
+    },
+    "trip.csv.gz": {
+      "rows": 63974,
+      "bytes": 964614,
+      "sha256": "0702ee9b2e90ef99d44202767f90d32fdd1142e6175d6f67d5ded0d32ed6367e",
+      "columns": [
+        "id",
+        "duration",
+        "start_date",
+        "start_station_name",
+        "start_station_id",
+        "end_date",
+        "end_station_name",
+        "end_station_id",
+        "bike_id",
+        "subscription_type"
+      ]
+    },
+    "trip_events.csv.gz": {
+      "rows": 124569,
+      "bytes": 989859,
+      "sha256": "86a1920fd6b54da6466f4514baa167538dea82d360fd4d1daba371debcd9fd70",
+      "columns": [
+        "trip_id",
+        "station_id",
+        "other_station_id",
+        "event_at",
+        "event_type",
+        "subscription_type",
+        "in_study_window",
+        "split",
+        "boundary_type"
+      ]
+    }
+  },
+  "validation_checks": [
+    {
+      "check": "cohort_station_count",
+      "actual": 34,
+      "expected": 34,
+      "passed": true
+    },
+    {
+      "check": "snapshot_duplicate_keys",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "trip_timestamp_minute_precision",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "status.csv.gz_row_count",
+      "actual": 3425160,
+      "expected": 3425160,
+      "passed": true
+    },
+    {
+      "check": "status.csv.gz_exact_readback",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "trip.csv.gz_row_count",
+      "actual": 63974,
+      "expected": 63974,
+      "passed": true
+    },
+    {
+      "check": "trip.csv.gz_exact_readback",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "trip_events.csv.gz_row_count",
+      "actual": 124569,
+      "expected": 124569,
+      "passed": true
+    },
+    {
+      "check": "trip_events.csv.gz_exact_readback",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "core_events_exactly_match_v3",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "subscriber_pickups_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "customer_pickups_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "subscriber_returns_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "customer_returns_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "observed_seconds_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "empty_seconds_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "full_seconds_all_station_hours",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "frozen_v3_files_unchanged",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    }
+  ]
+}

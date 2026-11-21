@@ -8,6 +8,7 @@ This project studies where and when to move bikes between stations so that the e
 
 ## Start here
 
+- **[Minute status and trip supplement for V3 demand estimation](output/sf_bikeshare/demand_estimation_inputs_v3/README.md)** (21 November): same 34 stations and 70-day model window, with short preceding context and status anchors. Compressed minute observations for Fu Yan's estimator; all 18 checks passed. Frozen V3 files are unchanged; estimated demand remains pending reconciliation.
 - **[20 November model-input handoff](docs/supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md)**: confirmed data rules, provisional metric cost benchmarks, accounting corrections and outstanding inputs before locking the full model configuration.
 - **[Carlo's Section 3 draft and data-cleaning appendix](docs/SF_Bikeshare_Consolidated_Data_Preparation_Report.md)**: scoped to the shared data/demand section, with Fu Yan's estimation subsection pending. [Reference and feature review](docs/supporting/SF_Bikeshare_Reference_and_Feature_Review_2026-11-19.md) records the checks and remaining assumptions.
 - **[Project pipeline report](docs/SF_Bikeshare_Project_Pipeline_Report.md)** ([PDF](output/pdf/SF_Bikeshare_Project_Pipeline_Report.pdf)) and **[portrait workflow poster](output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png)**: team responsibilities, two-stage modeling, evaluation and report-writing plan.

@@ -1,0 +1,46 @@
+{
+  "compatible_shape": [
+    57120,
+    31
+  ],
+  "unchanged_episode_count": 3799,
+  "original_v3_fields_unchanged": true,
+  "all_70_days_load": true,
+  "independently_reconstructed_v2_values": true,
+  "maximum_episode_errors": {
+    "expected_subscriber": 5.950795411990839e-13,
+    "expected_customer": 3.934630399271555e-13,
+    "unmet_subscriber": 5.950795411990839e-13,
+    "unmet_customer": 3.934630399271555e-13
+  },
+  "maximum_hourly_errors": {
+    "missed_subscriber_pickups": 2.851052727237402e-13,
+    "missed_customer_pickups": 2.799982468104645e-13,
+    "missed_subscriber_returns": 3.3228975127030935e-13,
+    "missed_customer_returns": 1.5853984791647235e-13
+  },
+  "missing_dependency": "revised build_demand_minute.py defining run() is not supplied",
+  "short_window_validation_issues": {
+    "scored_windows": 1165,
+    "training_period_scored_windows": 939,
+    "incomplete_ten_minute_targets_scored": 39,
+    "heldout_incomplete_targets": 9,
+    "historical_benchmark_uses_target_start_hour_rate_across_boundary": true
+  },
+  "matched_policy_evaluations": 24,
+  "all_original_v2_files_unchanged": true,
+  "status": "EVIDENCE_SNAPSHOT_PROPOSED_CASES_NOT_FINAL_MODEL_INPUT_RELEASE",
+  "prepared_on": "2026-11-22",
+  "observed_data_release_commit": "2510ba7b76d4590f41037ddaa2bbf5202b508a26",
+  "case_b_supplied_files_sha256": {
+    "build_demand_hybrid.py": "c56a5b8933672c2531e5788811f1da40566fe2b7f33cc2bdb79daf9e76519db9",
+    "estimated_demand_station_hour_hybrid.csv": "2babd65715f664890b2d54dcacb5cbf2ee3633f274c1951d9e8693431a982821",
+    "horizon_test.csv": "4c8e2c5be626ccb0b754dbbbedf378a5571348fe074dd5d51d05576a128979d6",
+    "stockout_episodes_hybrid.csv": "7b5ab19c59680d5ca76b60776aedbc0321dd4f0ba52aaf60e580ef271c300232",
+    "stockout_holdout_validation_hybrid.csv": "6b5c3739b32af243d96b3a5ea9f9e0ac384e6cf2dbf4f2222740f4a979dc9ebf",
+    "stockout_holdout_validation_hybrid_summary.csv": "30f87bf4569dbcff603577d0d8d7e4acaea4fe391b7dc5cb703a0a71336fdffb"
+  },
+  "case_a_local_demand_csv_sha256": "52f6fa195c899c4d14037fd2c2dc2c0df66608070eb05d4b8ed803cfde529832",
+  "observed_hourly_csv_sha256": "63087e68502500d3c59e4230e9cb6e4433366e15e666e75c0a33e0b22e10777d",
+  "source_note": "Hashes identify audited local files; original demand files and unmerged model code are not part of this evidence snapshot."
+}

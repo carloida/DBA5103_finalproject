@@ -1,0 +1,30 @@
+{
+  "status": "PROVISIONAL_PILOT_CONFIGURATION_NOT_FINAL_COST_CALIBRATION",
+  "dates": [
+    "2015-04-06",
+    "2015-04-10",
+    "2015-04-11",
+    "2015-04-15"
+  ],
+  "horizon_hours": 24,
+  "stations": 34,
+  "capacity": "station.csv dock_count",
+  "initial_stock": "observed midnight opening_bikes; independently reset each date",
+  "fixed_usd_per_truck_day": 60.0,
+  "handling_usd_per_bike_moved": 1.0,
+  "distance_coefficient_usd_per_km": 0.3,
+  "average_load_bikes": 15,
+  "throughput_bikes_per_truck_hour": 15,
+  "max_trucks": 1,
+  "member_allocated_value_usd_per_trip": 0.88,
+  "casual_allocated_value_usd_per_trip": 4.5,
+  "failed_return_penalty_usd_per_bike": 0.88,
+  "max_destinations_per_origin": 5,
+  "time_limit_seconds_per_milp": 10,
+  "target_relative_mip_gap": 0.01,
+  "within_hour_order": "instantaneous start-of-hour transfers, pickups, then fixed returns",
+  "route_feasibility_verified": false,
+  "all_five_robustness_cases_evaluated": false,
+  "stage1_cost_formula": "sum_ijt x_ijt*(h + k*d_ij/Lbar) + F*y",
+  "interpretation": "Retrospective expected-demand scenario; allocated contribution is not marginal cash profit."
+}

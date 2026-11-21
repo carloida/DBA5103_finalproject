@@ -10,3 +10,6 @@
 
 # Preserve robustness metadata bytes used by release checksums.
 /output/sf_bikeshare/robustness_testing/**/*.json -text
+
+# Preserve the exact metadata bytes used by the demand-comparison manifest.
+/output/sf_bikeshare/demand_case_comparison_2026-11-22/*.json -text

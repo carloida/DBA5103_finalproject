@@ -1,0 +1,149 @@
+{
+  "prepared_on": "2026-11-22",
+  "status": "PROVISIONAL_DEMAND_OUTPUT_SNAPSHOTS_NOT_FINAL_TEAM_SELECTION",
+  "purpose": "Downloadable outputs from historical and hybrid demand estimation; inputs to separate optimization runs",
+  "observation_scope": "34 SF stations; [2015-02-09,2015-04-20)",
+  "training": "[2015-02-09,2015-04-06)",
+  "validation": "[2015-04-06,2015-04-20)",
+  "original_observed_v3_unchanged": true,
+  "producer_code_included": false,
+  "producer_handoff_status": "Case A trial reused audited episodes; Case B revised core module still missing",
+  "units": {
+    "demand": "expected trips/bikes",
+    "exposure": "seconds",
+    "time": "recorded naive local time",
+    "currency": "none in these CSVs"
+  },
+  "checks": [
+    "Audited source fingerprints match",
+    "57120 rows and 31 columns each",
+    "Unique station-hour keys",
+    "Required model demand finite",
+    "Plain/GZIP readback equals original values",
+    "Shared observed and key fields identical across cases"
+  ],
+  "cases": {
+    "case_a_historical": {
+      "source_filename": "historical_demand_station_hour.csv",
+      "source_sha256": "52f6fa195c899c4d14037fd2c2dc2c0df66608070eb05d4b8ed803cfde529832",
+      "rows": 57120,
+      "columns": [
+        "station_id",
+        "service_date",
+        "hour",
+        "hour_start",
+        "day_type",
+        "split",
+        "status_exposure_missing",
+        "empty_seconds",
+        "full_seconds",
+        "bike_available_seconds",
+        "dock_available_seconds",
+        "observed_subscriber_pickups",
+        "estimated_subscriber_pickups",
+        "missed_subscriber_pickups",
+        "method_subscriber_pickups",
+        "observed_customer_pickups",
+        "estimated_customer_pickups",
+        "missed_customer_pickups",
+        "method_customer_pickups",
+        "observed_subscriber_returns",
+        "estimated_subscriber_returns",
+        "missed_subscriber_returns",
+        "method_subscriber_returns",
+        "observed_customer_returns",
+        "estimated_customer_returns",
+        "missed_customer_returns",
+        "method_customer_returns",
+        "estimated_total_pickups",
+        "observed_total_pickups",
+        "estimated_total_returns",
+        "observed_total_returns"
+      ],
+      "csv": {
+        "filename": "historical_demand_station_hour.csv",
+        "bytes": 11358407,
+        "sha256": "e4afffbad120b2cf5a417bd97d0e720ab3f1c1ec15794d1d56ee25949618f9d9"
+      },
+      "gzip": {
+        "filename": "historical_demand_station_hour.csv.gz",
+        "bytes": 476793,
+        "sha256": "4943e33592d014ddbaf008b7478179d1203ecde72f5a84e087cd60ec7270ef29"
+      },
+      "source_to_publication_change": "CRLF record endings normalized to LF; parsed values unchanged",
+      "totals": {
+        "pickups": {
+          "observed": 62243.0,
+          "estimated": 64573.77477150812,
+          "added": 2330.7747715081205
+        },
+        "returns": {
+          "observed": 62326.0,
+          "estimated": 63014.1357212875,
+          "added": 688.1357212875009
+        }
+      }
+    },
+    "case_b_hybrid": {
+      "source_filename": "estimated_demand_station_hour_hybrid.csv",
+      "source_sha256": "2babd65715f664890b2d54dcacb5cbf2ee3633f274c1951d9e8693431a982821",
+      "rows": 57120,
+      "columns": [
+        "station_id",
+        "service_date",
+        "hour",
+        "hour_start",
+        "day_type",
+        "split",
+        "status_exposure_missing",
+        "empty_seconds",
+        "full_seconds",
+        "bike_available_seconds",
+        "dock_available_seconds",
+        "observed_subscriber_pickups",
+        "estimated_subscriber_pickups",
+        "missed_subscriber_pickups",
+        "method_subscriber_pickups",
+        "observed_customer_pickups",
+        "estimated_customer_pickups",
+        "missed_customer_pickups",
+        "method_customer_pickups",
+        "observed_subscriber_returns",
+        "estimated_subscriber_returns",
+        "missed_subscriber_returns",
+        "method_subscriber_returns",
+        "observed_customer_returns",
+        "estimated_customer_returns",
+        "missed_customer_returns",
+        "method_customer_returns",
+        "estimated_total_pickups",
+        "observed_total_pickups",
+        "estimated_total_returns",
+        "observed_total_returns"
+      ],
+      "csv": {
+        "filename": "estimated_demand_station_hour_hybrid.csv",
+        "bytes": 11131535,
+        "sha256": "2babd65715f664890b2d54dcacb5cbf2ee3633f274c1951d9e8693431a982821"
+      },
+      "gzip": {
+        "filename": "estimated_demand_station_hour_hybrid.csv.gz",
+        "bytes": 415825,
+        "sha256": "77ccd2654ce9b12425d2305a9730ee81a91f69a571a0817f96281d9f638d8334"
+      },
+      "source_to_publication_change": "CRLF record endings normalized to LF; parsed values unchanged",
+      "totals": {
+        "pickups": {
+          "observed": 62243.0,
+          "estimated": 66589.92358596473,
+          "added": 4346.923585964731
+        },
+        "returns": {
+          "observed": 62326.0,
+          "estimated": 63652.5205883647,
+          "added": 1326.5205883646995
+        }
+      }
+    }
+  }
+}

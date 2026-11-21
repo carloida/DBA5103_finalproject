@@ -140,6 +140,8 @@ The validation period has been explored repeatedly, overlapping targets are corr
 
 ## 8 Model integration and readiness
 
+The full [historical CSV and compressed download](../../output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md) are published as provisional output snapshots. They preserve the audited values and can be selected as the demand input for a local model run.
+
 The Case A trial has the same 57,120-row, 31-column interface as the supplied demand files. Required fields include estimated_subscriber_pickups, estimated_customer_pickups and estimated_total_returns. All 70 dates pass the existing model loader.
 
 Four illustrative daily checks compare no rebalancing, equal occupancy and optimized moves. Case A feasible additional allocated contribution is USD18.23, USD2.97, USD0 and USD42.56 on 6, 10, 11 and 15 April respectively. The first optimization reached its ten-second cap at a 3.18% gap; the others met the 1% relative-gap tolerance. These use provisional costs and unverified routes, not a final economic evaluation. [Parameters and bounds](../../output/sf_bikeshare/demand_case_comparison_2026-11-22/README.md).
@@ -151,7 +153,7 @@ To adopt Case A:
 3. Keep observed V3 files frozen; publish estimated-demand inputs as a separate, versioned product.
 4. Agree cost/model settings and rerun the required policy evaluation, routing checks and robustness cases.
 
-The local trial reused Fu Yan's audited episode table; a self-contained production command is not yet part of the shared repository. The evidence snapshot supplies results and fingerprints, not a production demand release.
+The local trial reused Fu Yan's audited episode table; a self-contained production command is not yet part of the shared repository. The downloadable demand output and supporting evidence do not complete the final producer/code handoff.
 
 ## 9 Suggested Section 3.4 wording
 

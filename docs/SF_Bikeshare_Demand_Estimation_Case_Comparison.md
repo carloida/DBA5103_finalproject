@@ -11,9 +11,10 @@ Prepared 22 November 2026. Carlo's data and integration review; final demand cas
 | [Case A detailed report](supporting/SF_Bikeshare_Demand_Case_A_Historical.md) | Historical-rate formulas, assumptions, numerical results, implementation contract and suggested Section 3.4 text |
 | [Case B detailed report](supporting/SF_Bikeshare_Demand_Case_B_Hybrid.md) | Exact hybrid rule, audit, validation corrections, results and suggested Section 3.4 text |
 | [Evidence snapshot](../output/sf_bikeshare/demand_case_comparison_2026-11-22/README.md) | Compact validation/policy tables, provisional parameters, bounds and audit fingerprints |
+| [Download both demand outputs](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md) | Full 57,120-row historical and hybrid outputs, as plain CSV and smaller CSV.gz |
 | [Frozen V3](../output/sf_bikeshare/model_inputs_v3/README.md) and [minute supplement](../output/sf_bikeshare/demand_estimation_inputs_v3/README.md) | Common observed inputs |
 
-The reports are reusable case definitions, not a newly approved V4 release. Use the selected case's method in Section 3.4 and retain the other as sensitivity in Section 7. Update implementation and results statements to the final completed run. Full trial demand CSVs, Fu Yan's incomplete producer bundle and Hong Jin's unmerged model code are outside this publication. V3, robustness packages and shared Google Docs are unchanged.
+The reports are reusable case definitions, not a newly approved V4 release. Use the selected case's method in Section 3.4 and retain the other as sensitivity in Section 7. Update implementation and results statements to the final completed run. Both full demand CSVs are now downloadable as separate provisional output snapshots. Fu Yan's incomplete producer bundle and Hong Jin's unmerged model code remain outside this publication. V3, robustness packages and shared Google Docs are unchanged.
 
 ## 2 Common data and different rate assumptions
 
@@ -141,7 +142,7 @@ Use the selected method in Section 3.4, matching model assumptions in Section 4,
 | Hong Jin | Solver/results review, final tables and sensitivity/robustness analysis |
 | Carlo | Interface/provenance checks, reconciled release, data text and final edit |
 
-Neither case is a published self-contained demand release yet: Case A's trial reused the audited episode export, and Case B needs its revised core. The reports provide complete mathematical definitions and checked evidence, while implementation handoff and team selection remain explicit tasks.
+Both output snapshots are downloadable, but a complete reproducible producer release remains pending: Case A's trial reused the audited episode export, and Case B needs its revised core. The reports provide complete mathematical definitions and checked evidence, while implementation handoff and team selection remain explicit tasks.
 
 Keep Case A as provisional base and Case B as sensitivity unless the team chooses otherwise. Observed trips can form a lower-bound demand scenario. Freeze the rule/settings before further evaluation. Apply the same fitting protocol to robustness cases without using evaluation targets for fitting; parameterise dates and audit support/missing opening stocks for each case.
 

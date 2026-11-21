@@ -13,3 +13,4 @@
 
 # Preserve the exact metadata bytes used by the demand-comparison manifest.
 /output/sf_bikeshare/demand_case_comparison_2026-11-22/*.json -text
+/output/sf_bikeshare/demand_estimation_cases_2026-11-22/*.json -text

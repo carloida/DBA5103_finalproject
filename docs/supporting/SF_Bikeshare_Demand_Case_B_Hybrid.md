@@ -98,6 +98,8 @@ The 30-minute lookback reduces sampling noise relative to 15 minutes but does no
 
 ## 6 Main-case results and compatibility
 
+The full [hybrid CSV and compressed download](../../output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md) are published as provisional output snapshots. This is the audited v2 output; publication does not resolve the missing producer module described below.
+
 | Quantity | Observed | Estimated | Added |
 | --- | ---: | ---: | ---: |
 | Pickups | 62,243 | 66,589.924 | 4,346.924 |

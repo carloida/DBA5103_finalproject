@@ -2,7 +2,7 @@
 
 Prepared 22 November 2026. This compact snapshot supports the [comparison overview](../../../docs/SF_Bikeshare_Demand_Estimation_Case_Comparison.md), [Case A Historical](../../../docs/supporting/SF_Bikeshare_Demand_Case_A_Historical.md) and [Case B Hybrid](../../../docs/supporting/SF_Bikeshare_Demand_Case_B_Hybrid.md).
 
-**This folder contains comparison results, not model-ready station-hour demand.** Frozen V3 observations are unchanged. Full trial demand exports, Fu Yan's incomplete producer bundle and Hong Jin's unmerged model code are outside this publication.
+**This folder contains comparison results, not station-hour demand.** Both full demand outputs are now [downloadable in a separate provisional snapshot](../demand_estimation_cases_2026-11-22/README.md). Frozen V3 observations are unchanged. Fu Yan's incomplete producer bundle and Hong Jin's unmerged model code remain outside this publication.
 
 ## Files
 

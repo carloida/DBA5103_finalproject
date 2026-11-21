@@ -1,0 +1,3 @@
+date,scenario,throughput,fixed,handling,km_cost,avg_load,status,gap,seconds,bikes_moved,served_pickups,failed_returns,contribution_usd
+2015-04-06,throughput_low,10.0,60.0,1.0,0.3,15.0,0,0.0006570158376617215,6.056,95.0,1097.62636,79.26473,1014.8583
+2015-04-06,throughput_high,20.0,60.0,1.0,0.3,15.0,0,0.0015961153427796932,8.619,109.0,1104.62636,72.26473,1014.763

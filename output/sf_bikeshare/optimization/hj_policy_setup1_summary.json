@@ -1,0 +1,158 @@
+{
+  "date": "2015-04-06",
+  "hours": 24,
+  "comparison": [
+    {
+      "policy": "no_rebalancing",
+      "horizon_hours": 24,
+      "demand_pickups": 1219.83271,
+      "served_pickups": 1004.45023,
+      "unmet_pickups": 215.38247,
+      "attempted_returns": 1154.23883,
+      "failed_returns": 160.36379,
+      "bikes_moved": 0.0,
+      "transfer_instructions": 0,
+      "trucks_charged": 0,
+      "trip_value_usd": 1129.8638,
+      "movement_cost_usd": 0.0,
+      "fixed_cost_usd": 0.0,
+      "return_failure_penalty_usd": 141.1201,
+      "model_contribution_usd": 988.7437,
+      "route_feasibility_checked": false,
+      "interpretation": "Same-hour aggregate inventory, fixed estimated returns; provisional cost assumptions"
+    },
+    {
+      "policy": "rule_based",
+      "horizon_hours": 24,
+      "demand_pickups": 1219.83271,
+      "served_pickups": 1038.68249,
+      "unmet_pickups": 181.15022,
+      "attempted_returns": 1154.23883,
+      "failed_returns": 133.87672,
+      "bikes_moved": 142.0,
+      "transfer_instructions": 66,
+      "trucks_charged": 1,
+      "trip_value_usd": 1167.0698,
+      "movement_cost_usd": 144.601,
+      "fixed_cost_usd": 60.0,
+      "return_failure_penalty_usd": 117.8115,
+      "model_contribution_usd": 844.6572,
+      "route_feasibility_checked": false,
+      "interpretation": "Same-hour aggregate inventory, fixed estimated returns; provisional cost assumptions",
+      "route_status": "not_certified_for_full_day",
+      "hours_not_certified": 12,
+      "increment_vs_no_rebalancing_usd": -144.0865
+    },
+    {
+      "policy": "optimized",
+      "horizon_hours": 24,
+      "demand_pickups": 1219.83271,
+      "served_pickups": 1102.62636,
+      "unmet_pickups": 117.20635,
+      "attempted_returns": 1154.23883,
+      "failed_returns": 74.26473,
+      "bikes_moved": 105.0,
+      "transfer_instructions": 38,
+      "trucks_charged": 1,
+      "trip_value_usd": 1247.3852,
+      "movement_cost_usd": 106.8374,
+      "fixed_cost_usd": 60.0,
+      "return_failure_penalty_usd": 65.353,
+      "model_contribution_usd": 1015.1949,
+      "route_feasibility_checked": false,
+      "interpretation": "Same-hour aggregate inventory, fixed estimated returns; provisional cost assumptions",
+      "route_status": "conditional_timing_capacity_precedence_pass",
+      "hours_not_certified": 0,
+      "increment_vs_no_rebalancing_usd": 26.4512
+    }
+  ],
+  "routing": {
+    "rule_based": {
+      "route_status": "not_certified_for_full_day",
+      "hours_with_transfers": 16,
+      "hours_not_certified": 12,
+      "not_certified_hours": [
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23
+      ],
+      "hours_failing_even_with_free_start": [
+        21
+      ],
+      "hours_not_certified_due_to_route_chaining": [
+        10
+      ],
+      "hours_independently_possible_but_chain_broken": [
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        23
+      ],
+      "travel_minutes_in_certified_hours_only": 194.726,
+      "handling_minutes_in_certified_hours_only": 226.0,
+      "setup_minutes_in_certified_hours_only": 98.0,
+      "assumptions": {
+        "single_truck": true,
+        "max_onboard_bikes": 25,
+        "stop_setup_minutes": 1.0,
+        "handling_minutes_per_load_or_unload": 1.0,
+        "first_location": "free first pickup (no depot)",
+        "route_windows": "all pickup/drop activities completed in assigned clock hour",
+        "interhour_position": "previous certified route end position retained",
+        "route_jobs": "one indivisible pickup-delivery load per transfer row"
+      },
+      "limits": "No depot, shift length, driver hours, parking access, station inventory at exact visit time, or customer pickup timing. Sequential hourly route selection not globally optimal; hourly failure with free start is conditional on unsplittable transfer jobs and assumed times; a chain failure alone does not prove infeasibility."
+    },
+    "optimized": {
+      "route_status": "conditional_timing_capacity_precedence_pass",
+      "hours_with_transfers": 14,
+      "hours_not_certified": 0,
+      "not_certified_hours": [],
+      "hours_failing_even_with_free_start": [],
+      "hours_not_certified_due_to_route_chaining": [],
+      "hours_independently_possible_but_chain_broken": [],
+      "travel_minutes_in_certified_hours_only": 168.825,
+      "handling_minutes_in_certified_hours_only": 210.0,
+      "setup_minutes_in_certified_hours_only": 68.0,
+      "assumptions": {
+        "single_truck": true,
+        "max_onboard_bikes": 25,
+        "stop_setup_minutes": 1.0,
+        "handling_minutes_per_load_or_unload": 1.0,
+        "first_location": "free first pickup (no depot)",
+        "route_windows": "all pickup/drop activities completed in assigned clock hour",
+        "interhour_position": "previous certified route end position retained",
+        "route_jobs": "one indivisible pickup-delivery load per transfer row"
+      },
+      "limits": "No depot, shift length, driver hours, parking access, station inventory at exact visit time, or customer pickup timing. Sequential hourly route selection not globally optimal; hourly failure with free start is conditional on unsplittable transfer jobs and assumed times; a chain failure alone does not prove infeasibility."
+    }
+  },
+  "cost_and_heuristic_parameters": {
+    "throughput": 15.0,
+    "max_neighbors": 5,
+    "fixed": 60.0,
+    "handling": 1.0,
+    "km_cost": 0.3,
+    "avg_load": 15.0,
+    "member_value": 0.88,
+    "casual_value": 4.5,
+    "failed_return_penalty": 0.88,
+    "occupancy_tolerance": 0.1
+  },
+  "important": "Routing check is a conditional pickup/delivery time-capacity check. Stage-1 start-of-hour inventory assumption remains unverified. Cost assumptions provisional."
+}

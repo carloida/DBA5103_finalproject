@@ -1,0 +1,5 @@
+gross_incremental_benefit_usd,activation_cost_break_even_usd,handling_break_even_usd_per_bike,variable_distance_component_usd,interpretation,date
+193.28857,86.45117,1.25192,1.8374,Fixed Stage-1 allocation only; reoptimization can change this threshold,2015-04-06
+116.20624,63.51664,1.06763,0.6896,Fixed Stage-1 allocation only; reoptimization can change this threshold,2015-04-10
+,,,,No truck activated in this solution,2015-04-11
+240.81122,117.60352,1.47606,2.2077,Fixed Stage-1 allocation only; reoptimization can change this threshold,2015-04-15

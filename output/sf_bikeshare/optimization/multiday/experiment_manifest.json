@@ -1,0 +1,40 @@
+{
+  "dates": [
+    "2015-04-06",
+    "2015-04-10",
+    "2015-04-11",
+    "2015-04-15"
+  ],
+  "cost_scenarios": {
+    "low": {
+      "fixed": 30.0,
+      "handling": 0.5,
+      "km_cost": 0.2,
+      "avg_load": 15.0
+    },
+    "base": {
+      "fixed": 60.0,
+      "handling": 1.0,
+      "km_cost": 0.3,
+      "avg_load": 15.0
+    },
+    "high": {
+      "fixed": 90.0,
+      "handling": 1.5,
+      "km_cost": 0.4,
+      "avg_load": 15.0
+    }
+  },
+  "base_values": {
+    "member_value": 0.88,
+    "casual_value": 4.5,
+    "failed_return_penalty": 0.88
+  },
+  "neighbors": 5,
+  "throughput": 15.0,
+  "time_limit": 35.0,
+  "stage1_only": true,
+  "sequential_conditional_routing_only": true,
+  "not_untouched_holdout": true,
+  "sources": "Joo Hee \u00a73.4 and \u00a74; Carlo V3 inputs; earlier hj_optimization_model and hj_policy_routing scripts"
+}

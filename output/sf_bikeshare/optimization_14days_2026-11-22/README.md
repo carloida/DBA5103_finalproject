@@ -2,6 +2,8 @@
 
 These are Joohee's completed runs, imported unchanged from Drive. See the [handoff review](../../../docs/JOOHEE_HANDOFF_2026-11-22.md) for file descriptions, checks, cost assumptions and dependency notes. No experiments were rerun for this upload.
 
+**Exact routing remains unverified:** this handoff contains aggregate policy tables, not the original station-pair/hour transfer plans. The [published routing evidence](../../../docs/ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) is for Carlo's different re-solved allocations and must not be used as a certificate for these reported plans. The unchanged routing fields remain False.
+
 - [Historical policies](historical_daily_policy_comparison.csv)
 - [Hybrid policies](hybrid_daily_policy_comparison.csv)
 - [Observed-trip policies](observed_daily_policy_comparison.csv)

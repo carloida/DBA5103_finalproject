@@ -1,0 +1,58 @@
+{
+  "configuration": {
+    "status": "TEMPORARY_INTEGRATION_SCENARIO_NOT_OPERATOR_OBSERVATIONS",
+    "currency": "USD",
+    "fixed_usd_per_van_day": 60.0,
+    "rental_mileage_usd_per_mile_source": 0.14,
+    "kilometres_per_mile": 1.609344,
+    "fuel_usd_per_litre": 0.882,
+    "fuel_litres_per_100km": 16.8,
+    "base_wage_usd_per_hour": 19.35,
+    "compensation_total_usd_per_hour_source": 27.55,
+    "compensation_wages_usd_per_hour_source": 18.03,
+    "adopted_loaded_wage_usd_per_hour": 29.57,
+    "load_minutes_per_bike": 1.0,
+    "unload_minutes_per_bike": 1.0,
+    "average_load_bikes": 15.0,
+    "throughput_bikes_per_truck_hour": 15.0,
+    "max_trucks": 1,
+    "truck_capacity_bikes": 25,
+    "stop_setup_minutes": 1.0,
+    "paid_time_basis": "span",
+    "additional_direct_fees_usd": 0.0,
+    "additional_direct_fees_treatment": "Excluded from scenario, not verified absent; parking/tolls/insurance unresolved.",
+    "member_allocated_value_usd": 0.88,
+    "casual_allocated_value_usd": 4.5,
+    "failed_return_penalty_usd": 0.88,
+    "nearest_destinations": 5,
+    "service_budget_usd": 120.0,
+    "sources": {
+      "rental": "https://www.fa.ufl.edu/wp-content/uploads/2019/04/Enterprise-National-Pricing-and-Age-Information.pdf",
+      "fuel": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=M&n=PET&s=EMM_EPMR_PTE_SCA_DPG",
+      "fuel_economy": "https://cdn.dealereprocess.org/cdn/brochures/ford/2015-transit.pdf",
+      "wage": "https://www.bls.gov/oes/2016/may/oes_41884.htm",
+      "compensation": "https://www.bls.gov/news.release/archives/ecec_06102015.htm",
+      "handling": "https://doi.org/10.1016/j.trc.2017.03.016"
+    },
+    "scope_notes": [
+      "The rental is a 2015 Florida contract proxy dated after the study, not an SF operator quote.",
+      "The wage is a 2016 SF occupation proxy; the benefits ratio is 2015 national occupation-group data.",
+      "Fuel price is a common March-2015 California scenario across dates; vehicle specification is a wagon proxy.",
+      "Average load, throughput, onboard capacity, setup time and service budget are scenario assumptions.",
+      "Handling is one minute per operation, two operations per relocated bicycle.",
+      "Driving labour uses each directed OSRM travel-time estimate, not an invented average speed.",
+      "No separate hourly van rent or owner maintenance is added to daily rental plus rental mileage.",
+      "The old report's 0.0087 USD/km mileage entry is corrected to 0.14/1.609344.",
+      "The old report's handling USD/hour label is corrected to USD/bike.",
+      "No mandatory end stock in base; optional sensitivity requires closing stock at least opening.",
+      "Paid-span route labour includes gaps between assigned hourly operations; overtime/shift caps are not modelled."
+    ]
+  },
+  "derived": {
+    "loaded_wage_usd_per_hour": 29.57,
+    "rental_mileage_usd_per_km": 0.08699196691322676,
+    "fuel_usd_per_km": 0.148176,
+    "vehicle_usd_per_km": 0.23516796691322678,
+    "handling_usd_per_bike": 0.9856666666666667
+  }
+}

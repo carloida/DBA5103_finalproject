@@ -13,6 +13,8 @@ python sf_bikeshare/run_project_pipeline.py
 
 The default verifies supplied files and results without rerunning experiments. Explicit rebuild options write to a separate destination.
 
+**Routing evidence correction:** the [scope clarification](docs/ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) and [saved transfer/route downloads](output/sf_bikeshare/routing_evidence_2026-11-22/README.md) distinguish Carlo's re-solved conditional checks from the unverified exact plans behind the reported USD202 gain. The 13/14 optimized passes include five no-move days. Estimated route-cost scenarios reverse the gain on the separately priced subset; these are not observed expenses.
+
 ## Current files
 
 - [Historical base and hybrid sensitivity CSVs](output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md): 57,120 rows x 31 columns each; latest Fu Yan code reproduces the published snapshots.

@@ -29,6 +29,8 @@ At penalty USD0 and USD0.30 the supplied optimizer returns no-rebalancing plans.
 
 ## Suggested replacement for the economic and routing conclusion
 
+For the full corrected route paragraph, exact schedule differences, active-day counts, cost denominator and downloadable saved route files, use the [routing evidence correction](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md). The separate re-solve's 13/14 conditional passes do not certify Joohee's reported allocations; five passes are no-move days. Its -USD703.25/-USD3,782.26 scenarios cover thirteen priced days and estimated costs, not fourteen days of the report's exact plans or actual expenses.
+
 “Under the report's approximate Stage 1 cost scenario, the historical-demand solution improves modeled contribution by USD202 over 14 retrospective evaluation days. This gain uses allocated trip values and an assumed failed-return penalty; it is not cash profit. Actual route costs, paid driving time, shift requirements and within-hour station inventory have not been certified for the supplied schedules. Separate route-cost experiments show that these assumptions can change the sign of modeled benefits.”
 
 The [project pipeline](SF_Bikeshare_Project_Pipeline_Report.md) records the agreed inputs, commands, owners and result paths. The [Joohee handoff review](JOOHEE_HANDOFF_2026-11-22.md) and [updated-cost experiment](INTEGRATION_REVIEW_2026-11-22.md) preserve the evidence for their respective scopes.

@@ -2,6 +2,8 @@
 
 The [pipeline on main](SF_Bikeshare_Project_Pipeline_Report.md) is the team's main reference, as explicitly designated by Carlo. Its supporting reviews record outstanding report/model limitations alongside the completed work.
 
+Routing update: [Carlo's saved re-solved transfer and route files](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) are published with qualified counts and estimated route-cost results. They do not verify Joohee's exact report schedules; original report flags remain False. Obtain her fixed transfer files for an exact-plan check, or use the documented conditional-evidence paragraph.
+
 The team confirmed historical demand as the base and hybrid as sensitivity. Joohee confirmed that the report uses the published historical/hybrid CSVs, plus observed trips as a lower-demand comparison. Both estimated cases subtract trips already served during outages. See the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
 ## Completed and published

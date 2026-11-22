@@ -102,13 +102,15 @@ Both published validation tables reproduce. Historical-only still has lower MAE/
 
 ## Conditional routes and cost uncertainty
 
+These checks apply to Carlo's separate re-solved allocations, not the exact plans behind Joohee's USD202.32 report result. See the [schedule differences and downloadable route evidence](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md). Historical optimized passes are 13/14 calendar days, including five no-move days (8/9 active days); the rule passes 3/14. Equal daily bike totals alone cannot verify exact report-plan identity.
+
 Only full-day conditional timing/capacity/precedence passes receive route costs. Uncertified routes have missing costs, not fictitious full-day totals. The table sums only priced days; use the priced-day count before making any cross-policy comparison.
 
 '''
     text+=markdown(route_summary)
     text+='''
 
-Paid-span costing charges labour between the first assigned hour and last completion, including waiting. Productive-time-only costing is a separate opportunity/incremental-cost assumption. Large differences reveal that average-load Stage 1 costs omit idle-span and stop effects. Stage 1 and Stage 2 costs are alternative estimates of the same operation and are not added.
+Paid-span costing charges labour between the first assigned hour and last completion, including waiting. Productive-time-only costing includes driving, handling and setup and is a separate opportunity/incremental-cost assumption. These are proxy cost scenarios, not observed expenses or certified worker shifts. Large differences reveal that average-load Stage 1 costs omit idle-span and stop effects. Stage 1 and Stage 2 costs are alternative estimates of the same operation and are not added.
 
 A long paid span does not certify a single person's shift. Driver schedules, overtime, breaks, depots, true station inventory at visit times and intra-hour customer timing are not modelled. Conditional routes therefore do not establish an implementable or profitable dispatch. Route search minimizes hourly completion time for fixed jobs, not joint global monetary cost.
 

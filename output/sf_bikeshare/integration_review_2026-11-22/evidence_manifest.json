@@ -11,10 +11,11 @@
     "daily_policy_comparison.csv": "272194e03965610a5f834f9b2af52db0bb2058aac5299667aa5392af2bc389e4",
     "matched_validation.csv": "42d25b3a29d11c7e313d4e839695776ae9df535150e1e8f66244ff6e5edbeafc",
     "post_run_checks.json": "f8d346f1bd31def8b62ca1e27def0859368901e25a676e7546c6a3c0040359f5",
-    "README.md": "c2ca731b3d89df6a53ad99c807fcad92f0e5ce3f289f700ada7c0ff2ce17e8f6",
+    "README.md": "358dcacf9f3245ae43614677c10465274237148b7a38323862dc292f413ee8e1",
     "route_cost_sensitivity.csv": "861fd0b5dc748927f2204ea77b10f8cc9c2b356df85c85d40fa7d873afe602b3",
     "run_manifest.json": "cfde2476dbbb001c8349a10f926f152c1822197dbbda8362b3b620c8145cc9b0",
     "station_pair_costs.csv": "b317c0327d4f4d0f446333b60ce50a9ecf04b02273ea83eefd5186272ee21907",
     "validation_by_origin_group.csv": "91babffbae6327e400e042bf9a4577821280be19cd003e69c8f868a22e1b06d8"
-  }
+  },
+  "release_note": "README clarified re-solve scope; source numerical tables and original run metadata unchanged."
 }

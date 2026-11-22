@@ -37,6 +37,8 @@ The [handoff review](JOOHEE_HANDOFF_2026-11-22.md) describes Joohee's completed 
 
 The [end-to-end review](PIPELINE_END_TO_END_REVIEW_2026-11-22.md) assesses objective alignment, remaining gaps and actions. The optimizer uses the full day's demand while the occupancy rule has no look-ahead, so their difference includes an information/planning advantage.
 
+**Routing clarification:** the [saved evidence and correction](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) concern a separate re-solved allocation. They do not certify Joohee's exact report schedules. The optimized conditional result is 13/14 calendar days, including five no-move days (8/9 active days); the rule passes 3/14. Estimated route-cost scenarios reverse the re-solved gain on the 13 priced days, and do not directly reprice the report's different USD202 allocation. Exact report transfer/route files remain required for a stronger claim.
+
 ### Jason's contribution and where it enters
 
 Jason owns the Introduction and Literature Review (report Sections 1–2), plus the pricing and cost evidence used in Section 3.3 and the model parameters. His contributions feed the formulation, economic objective and sensitivity analysis; they are not a separate demand-estimation stage.

@@ -1,0 +1,5 @@
+case,policy,calendar_days,active_days,no_move_days,conditional_pass_days,active_conditional_pass_days,unverified_days,stage1_gain_same_priced_days_usd,productive_activity_gain_usd,paid_span_gain_usd
+historical,optimized,14,9,5,13,8,1,135.18749999999966,-703.247549375722,-3782.261550409056
+historical,rule_based,14,14,0,3,3,11,-295.15470000000016,-707.4624538372598,-2257.5043582539265
+hybrid,optimized,14,9,5,13,8,1,262.73750000000007,-742.3372618711784,-3453.556300921179
+hybrid,rule_based,14,14,0,3,3,11,-280.9610000000001,-676.7147878782391,-2228.9851367782394

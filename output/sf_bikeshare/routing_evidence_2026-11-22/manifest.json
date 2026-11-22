@@ -1,0 +1,716 @@
+{
+  "status": "SAVED_RESOLVED_PLANS_REPLAYED_AND_ROUTE_RECHECKED_NOT_REPORT_CERTIFICATES",
+  "allocation_resolves_executed": 0,
+  "exact_report_plans_verified": 0,
+  "route_days_rechecked": 56,
+  "saved_detail_files": 168,
+  "checker_sha256": "6ba3fc8acafe9cdf86c279e53a50bacfa07de7c311e61d6dec480d80b22b00f2",
+  "source_run": "integration_review_2026-11-22; saved transfers and routes, unchanged allocation decisions",
+  "cost_caveat": "Proxy route costs; active time includes travel, loading/unloading and setup; paid span includes gaps, not a certified shift.",
+  "files": {
+    "aggregate_recheck.csv": {
+      "bytes": 565,
+      "sha256": "1d87a8f8b56576c191da5e94323b493c8eb2d9e74d0e5bce34f2475b9dbb081b"
+    },
+    "README.md": {
+      "bytes": 2796,
+      "sha256": "d962b3314e9ab62a36d3e3e9c556c349dd362dab48c1bd0236fa5d0c8dd1e58d"
+    },
+    "route_day_summary.csv": {
+      "bytes": 11693,
+      "sha256": "25e5b0ffcf6299f3be56bd313ee241a0920508acbefebe8cfdf78a5ebb988996"
+    },
+    "schedule_comparison.csv": {
+      "bytes": 6902,
+      "sha256": "c877f54ef1928a2718279b7d08ee1717ef9bb3ae7800aae013617c067948144c"
+    },
+    "source_conditional_route_comparison.csv": {
+      "bytes": 9265,
+      "sha256": "da67474880b9248c92530997d4ea8ceaa5c0f820ed4031248ab5fdad3fe04092"
+    },
+    "source_cost_configuration.json": {
+      "bytes": 3037,
+      "sha256": "a4043eb30aa88ce58bb12c7d42b885f90d1e352b3634d3040829a2d983b531df"
+    },
+    "source_daily_policy_comparison.csv": {
+      "bytes": 25921,
+      "sha256": "272194e03965610a5f834f9b2af52db0bb2058aac5299667aa5392af2bc389e4"
+    },
+    "source_run_manifest.json": {
+      "bytes": 41043,
+      "sha256": "cfde2476dbbb001c8349a10f926f152c1822197dbbda8362b3b620c8145cc9b0"
+    },
+    "historical/2015-04-06/optimized_route_events.csv": {
+      "bytes": 2870,
+      "sha256": "7387eff75364bc2e65963b18f7a0524b62eedf9f07bc19cef7ef339ae0497bf4"
+    },
+    "historical/2015-04-06/optimized_route_hours.csv": {
+      "bytes": 975,
+      "sha256": "2fbc500bd5d965fe1ba0df361257a7468001812f6066eaec8531e8df4adb87e4"
+    },
+    "historical/2015-04-06/optimized_transfers.csv": {
+      "bytes": 565,
+      "sha256": "7a13dd945329b6caa774b68fbb2bea14e2de9ebfe4f77906dd374825e89e3abb"
+    },
+    "historical/2015-04-06/rule_based_route_events.csv": {
+      "bytes": 4633,
+      "sha256": "abf7b36f64920e5a364ed8e709af77731dcd5fea51f81dd60ff6f504d249c443"
+    },
+    "historical/2015-04-06/rule_based_route_hours.csv": {
+      "bytes": 1013,
+      "sha256": "45011efeecc46ecc2ea93cdfd20d04ed256063b620c36fc7615e11fcbafc6c7a"
+    },
+    "historical/2015-04-06/rule_based_transfers.csv": {
+      "bytes": 1243,
+      "sha256": "eade363e53f6868e05f015c3e0f6508aa6631a1e20756d04da9012ec4aa4c88f"
+    },
+    "historical/2015-04-07/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "historical/2015-04-07/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "historical/2015-04-07/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "historical/2015-04-07/rule_based_route_events.csv": {
+      "bytes": 4858,
+      "sha256": "337745d1d8a7bfd4fa6025e9204f2a59817a3c29a80cb9e3a332ce5f44511e31"
+    },
+    "historical/2015-04-07/rule_based_route_hours.csv": {
+      "bytes": 984,
+      "sha256": "9eec798986cf5986cafc2ca98a3825b5a741b3a1f087075fae2cefb882eb3b3d"
+    },
+    "historical/2015-04-07/rule_based_transfers.csv": {
+      "bytes": 1289,
+      "sha256": "83446ae3c053821e9b1cf67f6d37daee881c800aaca6984d6deff688e1f26355"
+    },
+    "historical/2015-04-08/optimized_route_events.csv": {
+      "bytes": 3737,
+      "sha256": "e416e6b0b7a5458a3149eeb7d23be6a90841c05c6dfb405bc1778ff83f3b5d5e"
+    },
+    "historical/2015-04-08/optimized_route_hours.csv": {
+      "bytes": 1073,
+      "sha256": "3e97daa32ae9f73369de8674c6db4397b1d33fae28fc0bb7b5040f04b18b7ad0"
+    },
+    "historical/2015-04-08/optimized_transfers.csv": {
+      "bytes": 718,
+      "sha256": "36312d126cd65b3032d245015a02ecdc9569cfc3642da17b1fe0b4433c40e649"
+    },
+    "historical/2015-04-08/rule_based_route_events.csv": {
+      "bytes": 5348,
+      "sha256": "2b54fad59bf766c94cf72e4a53c019f3bf3b29d7009cac06738bbfe52e4e09de"
+    },
+    "historical/2015-04-08/rule_based_route_hours.csv": {
+      "bytes": 1059,
+      "sha256": "049daf5939caf4bf00f35e636b527b2982890c49211851a88d3e7b346e9a374e"
+    },
+    "historical/2015-04-08/rule_based_transfers.csv": {
+      "bytes": 1495,
+      "sha256": "0968050660d71b522134b23e0a58ce7573eea1b9498ed85690d6e00df8fc68af"
+    },
+    "historical/2015-04-09/optimized_route_events.csv": {
+      "bytes": 3031,
+      "sha256": "47691151466d88746a813d8d4ad0f40ba7633f4812b1399bd500ec5baba17567"
+    },
+    "historical/2015-04-09/optimized_route_hours.csv": {
+      "bytes": 1040,
+      "sha256": "67eada92addac57da13afa4d8f82cf5def3aaf5ab5eb9ed8b1b969c6e9e10185"
+    },
+    "historical/2015-04-09/optimized_transfers.csv": {
+      "bytes": 597,
+      "sha256": "36498f7b888b1d41d77d87c2f83a73244ed4651eeaf10f12f8eeb59fff225f35"
+    },
+    "historical/2015-04-09/rule_based_route_events.csv": {
+      "bytes": 5580,
+      "sha256": "569f9c549e7921ac9b573f4a67b5ca81652dd641523796ee7896e87099cb448d"
+    },
+    "historical/2015-04-09/rule_based_route_hours.csv": {
+      "bytes": 1150,
+      "sha256": "3f99d204904667aa379e201904455a2ad3ebf76f2175a1ad03fc5d0ccb43c3cb"
+    },
+    "historical/2015-04-09/rule_based_transfers.csv": {
+      "bytes": 1513,
+      "sha256": "0cd855026449d2ea465d120edeb5b410ede6e223e8fb5ab06eea5a078880da73"
+    },
+    "historical/2015-04-10/optimized_route_events.csv": {
+      "bytes": 2098,
+      "sha256": "6f8e1247b9b59c91b08720943975918f3a9a52c70c095cec1119557e98622a43"
+    },
+    "historical/2015-04-10/optimized_route_hours.csv": {
+      "bytes": 1004,
+      "sha256": "7f599218402279b75a06355e6cae9d6367cb6065e3b61b50b3d1538979deb740"
+    },
+    "historical/2015-04-10/optimized_transfers.csv": {
+      "bytes": 423,
+      "sha256": "e9e37624e5cf9cc6a23161a6fdbc3775c5dd178bbb99347675bce2c76ff9073e"
+    },
+    "historical/2015-04-10/rule_based_route_events.csv": {
+      "bytes": 6344,
+      "sha256": "af82c125e1f8e2a6501e2b3bd1e19b811ac2828542d61b55484af1ba3fc74a79"
+    },
+    "historical/2015-04-10/rule_based_route_hours.csv": {
+      "bytes": 1099,
+      "sha256": "5c7df1d237f9894c2a05b079c3fa343b9e048940d009f3d9ba5a6df8cd532e58"
+    },
+    "historical/2015-04-10/rule_based_transfers.csv": {
+      "bytes": 1352,
+      "sha256": "3f2c9341c516275e50965a1c9e05612c5e3cd2c19ff393614e19a86e38930da0"
+    },
+    "historical/2015-04-11/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "historical/2015-04-11/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "historical/2015-04-11/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "historical/2015-04-11/rule_based_route_events.csv": {
+      "bytes": 4433,
+      "sha256": "6f81d2ff632d7c75526d57248d5d18c367a9b7433cb6299e140d83d7082fd955"
+    },
+    "historical/2015-04-11/rule_based_route_hours.csv": {
+      "bytes": 1104,
+      "sha256": "0b234bde64901bcb9d3e36dfa313adfeab1847fccebc5299be9593837bbbb594"
+    },
+    "historical/2015-04-11/rule_based_transfers.csv": {
+      "bytes": 846,
+      "sha256": "363f81b92e0ffd3a2a0d48c3449f53c34012ad743e357a739a836225b5900770"
+    },
+    "historical/2015-04-12/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "historical/2015-04-12/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "historical/2015-04-12/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "historical/2015-04-12/rule_based_route_events.csv": {
+      "bytes": 2403,
+      "sha256": "ad43c7824eddf645c540d9b9c59d37dddce0ce142a91cc3792f01c3030d98124"
+    },
+    "historical/2015-04-12/rule_based_route_hours.csv": {
+      "bytes": 941,
+      "sha256": "6d312ef6406eeebf64846aa7eb80d2e0afd80abaade0d579ac7370be1d074ccc"
+    },
+    "historical/2015-04-12/rule_based_transfers.csv": {
+      "bytes": 599,
+      "sha256": "f330db8fe5f8f80247807c9781acf7350e11e8c449783ffab4cd5eca76dadcde"
+    },
+    "historical/2015-04-13/optimized_route_events.csv": {
+      "bytes": 3441,
+      "sha256": "6fa8a5d4847bcaa3ab711627383e7e881acbf1b45368a294180069104c394f03"
+    },
+    "historical/2015-04-13/optimized_route_hours.csv": {
+      "bytes": 1103,
+      "sha256": "8f1e3707cd977fc3640f62cfff1825cfbebee6b8ca1a5f665d6160046297569f"
+    },
+    "historical/2015-04-13/optimized_transfers.csv": {
+      "bytes": 667,
+      "sha256": "4421877b7e737ff2c93f5f915a064abe58d298e93e4da7ec98b462a07fa6a076"
+    },
+    "historical/2015-04-13/rule_based_route_events.csv": {
+      "bytes": 5269,
+      "sha256": "e5cb4646bb414839a5dab9e9c80dcdb3b0e5ed2b94574c3d99e1fecc909bb16d"
+    },
+    "historical/2015-04-13/rule_based_route_hours.csv": {
+      "bytes": 1099,
+      "sha256": "89041eeafab92293fe93529e8da41c0b3289f08b5d13b612594a27562e2398c8"
+    },
+    "historical/2015-04-13/rule_based_transfers.csv": {
+      "bytes": 1450,
+      "sha256": "a684aa30a09293b748d103ee9882b82b25f1c48aa442b95f761e9a94bde65395"
+    },
+    "historical/2015-04-14/optimized_route_events.csv": {
+      "bytes": 2189,
+      "sha256": "c7c926df4bd03f487b97ead8e32cc944f40ebee9f7c53e5da5112fe9e257afd5"
+    },
+    "historical/2015-04-14/optimized_route_hours.csv": {
+      "bytes": 1040,
+      "sha256": "c180829a69e07ae60e1f27b1f7136a3e2226b7008fbf83ee93ddf4d6bdcdde7f"
+    },
+    "historical/2015-04-14/optimized_transfers.csv": {
+      "bytes": 440,
+      "sha256": "43bdda2b56552b633d9b30118a3582dd0fe04e9c1c44f6b602de7765901c83ea"
+    },
+    "historical/2015-04-14/rule_based_route_events.csv": {
+      "bytes": 5410,
+      "sha256": "2730823e439a6b7ffde71ee016b7ad0cf6fee20458a1edf492254e7159b7ff82"
+    },
+    "historical/2015-04-14/rule_based_route_hours.csv": {
+      "bytes": 998,
+      "sha256": "563432809af708dbcb7d787fa8e44498b7d5fa347c63640823419df19410f18a"
+    },
+    "historical/2015-04-14/rule_based_transfers.csv": {
+      "bytes": 1590,
+      "sha256": "1e3fd2a04938f66dccd8b705e15d4bae7c8c6484e4b27015d0f2c63554b59f18"
+    },
+    "historical/2015-04-15/optimized_route_events.csv": {
+      "bytes": 3714,
+      "sha256": "c26c47580c343e1d430c4a78b60e9ece6664260b5bace487109f7600a3dd0104"
+    },
+    "historical/2015-04-15/optimized_route_hours.csv": {
+      "bytes": 1089,
+      "sha256": "6f6f8ba0c0bf20d7e76fc3d8402ca920c53a1a24e9e2fba1923aed75a612b2c8"
+    },
+    "historical/2015-04-15/optimized_transfers.csv": {
+      "bytes": 826,
+      "sha256": "93213f66fbea73da5690d63b914294aece0c0719bc3e642da8650623a05339fc"
+    },
+    "historical/2015-04-15/rule_based_route_events.csv": {
+      "bytes": 4908,
+      "sha256": "f58871f5faeb8063607ef3f82a1e9b78ab2fb2d3674cace575eb3323f8bbd349"
+    },
+    "historical/2015-04-15/rule_based_route_hours.csv": {
+      "bytes": 1121,
+      "sha256": "a8f21ca2457de41c21610a2758a0337b44498605afce65c878b680f7c07741ed"
+    },
+    "historical/2015-04-15/rule_based_transfers.csv": {
+      "bytes": 1563,
+      "sha256": "dae863fa6bd26a22c46b882bb1d19b6a08f78a921c2b9c197c4b72844cd1a45b"
+    },
+    "historical/2015-04-16/optimized_route_events.csv": {
+      "bytes": 3621,
+      "sha256": "b0e03f3cf3d382ef66610646caaa151bc839331cf7587a98d75877c05f625abb"
+    },
+    "historical/2015-04-16/optimized_route_hours.csv": {
+      "bytes": 1074,
+      "sha256": "60d35b63b5ace6b7b007c002a993200eb684a2747bc913a2301374ffd7cb9f50"
+    },
+    "historical/2015-04-16/optimized_transfers.csv": {
+      "bytes": 696,
+      "sha256": "bf076e14e53db1f64aa30caab09d7d0e6984ff706b3dbeb5770b11cff98b28ca"
+    },
+    "historical/2015-04-16/rule_based_route_events.csv": {
+      "bytes": 6262,
+      "sha256": "d5d0c2d57fafdbb14af509073413947398fb973adfbc28f9dac998c1207b2912"
+    },
+    "historical/2015-04-16/rule_based_route_hours.csv": {
+      "bytes": 1102,
+      "sha256": "a9169986dace20b811ba2dc68f0c557d3b229608b6958f40c1222accac7e4891"
+    },
+    "historical/2015-04-16/rule_based_transfers.csv": {
+      "bytes": 1707,
+      "sha256": "90c5e58238392ac1104c4c89ea2596f73ff9274e8212a02613201f28583aef90"
+    },
+    "historical/2015-04-17/optimized_route_events.csv": {
+      "bytes": 2585,
+      "sha256": "aa78344cf03ac0ea91c2e23799b86309fcef781327aef27ab1c33f8748842136"
+    },
+    "historical/2015-04-17/optimized_route_hours.csv": {
+      "bytes": 943,
+      "sha256": "9d1b996fd4cd97dbf7b5066a27938d36bf5bec638d2e0698219f05ab9cf822b5"
+    },
+    "historical/2015-04-17/optimized_transfers.csv": {
+      "bytes": 506,
+      "sha256": "b8a83da4b260bcc76dba68010f175cabec9e40e32531cc5757fb23ba0ad66384"
+    },
+    "historical/2015-04-17/rule_based_route_events.csv": {
+      "bytes": 3989,
+      "sha256": "d89082f1dab441265dff1f994e9fc03c60bbf91efe1e230ef5d34f2d375ab9c1"
+    },
+    "historical/2015-04-17/rule_based_route_hours.csv": {
+      "bytes": 1074,
+      "sha256": "c6e11ebf3f26f163289a2537e538218f126a8ab34aaa3957e6dae82c29aa77a6"
+    },
+    "historical/2015-04-17/rule_based_transfers.csv": {
+      "bytes": 1396,
+      "sha256": "8adc57956d25dfe3e22f164f35a1325070098684ea073d1b44af600639593c11"
+    },
+    "historical/2015-04-18/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "historical/2015-04-18/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "historical/2015-04-18/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "historical/2015-04-18/rule_based_route_events.csv": {
+      "bytes": 3903,
+      "sha256": "7845a974551ea2121706189b3cfb6e201ae19d05777cd51e1531f95ec2971949"
+    },
+    "historical/2015-04-18/rule_based_route_hours.csv": {
+      "bytes": 1035,
+      "sha256": "506f172b42234701ea23b600a57c6c57901382baa4fa7fbe2d04b59f2134b22d"
+    },
+    "historical/2015-04-18/rule_based_transfers.csv": {
+      "bytes": 757,
+      "sha256": "a338a5cfc3e04fc9030d8b00d0b9483dbb0a32d7cab6d1e1c692e18a0a0a03c6"
+    },
+    "historical/2015-04-19/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "historical/2015-04-19/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "historical/2015-04-19/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "historical/2015-04-19/rule_based_route_events.csv": {
+      "bytes": 2477,
+      "sha256": "1c3f2a85c9f0d16e272cf01714fa3dc148175a907f0fad48cf8b6893ed56e2c5"
+    },
+    "historical/2015-04-19/rule_based_route_hours.csv": {
+      "bytes": 1008,
+      "sha256": "20fc78688ff57146c262a87540afc8fc6a1a1d757d535b3351cf6e84b8fc8284"
+    },
+    "historical/2015-04-19/rule_based_transfers.csv": {
+      "bytes": 492,
+      "sha256": "10dab20840bf08de9fffc4593576ea09d4d6e4c1df9e87f7b335aa8615777b34"
+    },
+    "hybrid/2015-04-06/optimized_route_events.csv": {
+      "bytes": 3358,
+      "sha256": "b34a8f2d1d56ab85ea95b8c7d1c0028f2f5b3e6877fca612b515c4422c3557b7"
+    },
+    "hybrid/2015-04-06/optimized_route_hours.csv": {
+      "bytes": 1041,
+      "sha256": "cb4567a1ce651797f56f05ae9f01ecad11f2509878246d93718bfca09ddf5d70"
+    },
+    "hybrid/2015-04-06/optimized_transfers.csv": {
+      "bytes": 653,
+      "sha256": "ceab81684dba292f0a855919ee8db7327a81e403c3f80799bcce563e0c67f697"
+    },
+    "hybrid/2015-04-06/rule_based_route_events.csv": {
+      "bytes": 5113,
+      "sha256": "4d08722529589d909545aaaa876176333f9b59b8b6e7ca058244bd82686556f4"
+    },
+    "hybrid/2015-04-06/rule_based_route_hours.csv": {
+      "bytes": 1051,
+      "sha256": "a2633943a72246b2a121df2a601e72fc9f2c1306d82b0c542ec420a37bf8d35f"
+    },
+    "hybrid/2015-04-06/rule_based_transfers.csv": {
+      "bytes": 1223,
+      "sha256": "8d063cede87f0b548ca8b7aa498d04a2197a78fa111548a4d9a1e7ec6cf5ad93"
+    },
+    "hybrid/2015-04-07/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "hybrid/2015-04-07/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "hybrid/2015-04-07/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "hybrid/2015-04-07/rule_based_route_events.csv": {
+      "bytes": 4843,
+      "sha256": "85cb6f65d52264b321e56f351ade17437f9e498a4cbff05d9b3f3e8853a5972d"
+    },
+    "hybrid/2015-04-07/rule_based_route_hours.csv": {
+      "bytes": 974,
+      "sha256": "18ea4e2d691caadb25b0c589c69358e8e7680efde392659d6c86fad054fea987"
+    },
+    "hybrid/2015-04-07/rule_based_transfers.csv": {
+      "bytes": 1361,
+      "sha256": "454270f6815ff8f05de623f3db60574df9c24f7cffb262d6a325e58fa49e98bb"
+    },
+    "hybrid/2015-04-08/optimized_route_events.csv": {
+      "bytes": 3754,
+      "sha256": "238b2c826fba108e6adea85e15494437105cf42d73c8552b2bbfedd1b9e772d2"
+    },
+    "hybrid/2015-04-08/optimized_route_hours.csv": {
+      "bytes": 1074,
+      "sha256": "121c69238fbb440d8080ef557ddc3e92469a0ce980bfcc644257a0e9e2abdc08"
+    },
+    "hybrid/2015-04-08/optimized_transfers.csv": {
+      "bytes": 720,
+      "sha256": "65862c46355ca4c74955951c805cf621851df6400d71c44409ed71e03736f5c1"
+    },
+    "hybrid/2015-04-08/rule_based_route_events.csv": {
+      "bytes": 5591,
+      "sha256": "63122055c56c0e7df59ba9e0df00c82c167483a08424d453377d85d57a65f76c"
+    },
+    "hybrid/2015-04-08/rule_based_route_hours.csv": {
+      "bytes": 1062,
+      "sha256": "22664e9e35fcae6bca4b646f1b3e3e97fa28ed37e9aeae6a8986eb7892479198"
+    },
+    "hybrid/2015-04-08/rule_based_transfers.csv": {
+      "bytes": 1426,
+      "sha256": "9b68eded485367f99af731c2bf299f1fbed6a66679edb5b89ac98e0e069b52d2"
+    },
+    "hybrid/2015-04-09/optimized_route_events.csv": {
+      "bytes": 4050,
+      "sha256": "f55c075a9e0d6a0610f53382a5e5b0c6e5f8abbe10a4c3779776da43ef3a6a2c"
+    },
+    "hybrid/2015-04-09/optimized_route_hours.csv": {
+      "bytes": 1138,
+      "sha256": "a933e07d8827346f48059344995f114bf4d6a3802f5f7598d5ed5089d843cc1a"
+    },
+    "hybrid/2015-04-09/optimized_transfers.csv": {
+      "bytes": 778,
+      "sha256": "43de30e3c2eb7430b2f8859c4d7f3e5fde570459b8eabbba3f9e0b6fcc1825b0"
+    },
+    "hybrid/2015-04-09/rule_based_route_events.csv": {
+      "bytes": 6924,
+      "sha256": "b4c2d02ca046d75d5a1a9088c35ba4de77a1d8be7dbc6cb774d4a234d20b226d"
+    },
+    "hybrid/2015-04-09/rule_based_route_hours.csv": {
+      "bytes": 1112,
+      "sha256": "a376ccdf571f34956c114e8eb124e2e0e4760a8ed8b163fc39f0b12a207cfa8d"
+    },
+    "hybrid/2015-04-09/rule_based_transfers.csv": {
+      "bytes": 1564,
+      "sha256": "436fd99c13664dbfffd9b33d8561442b2ceaf5cfc5c30389205c3eb0246c5ebc"
+    },
+    "hybrid/2015-04-10/optimized_route_events.csv": {
+      "bytes": 2292,
+      "sha256": "7b6050ef5678252b07e1370cd05b8229c6c154bdca9fecb264476ffaed5601bf"
+    },
+    "hybrid/2015-04-10/optimized_route_hours.csv": {
+      "bytes": 970,
+      "sha256": "4b8f5df3cf933a0adad83201001684e1f778670ee3bc8bdbb40c4b0903bb189a"
+    },
+    "hybrid/2015-04-10/optimized_transfers.csv": {
+      "bytes": 457,
+      "sha256": "4ca9709c1140ba21e70ac60e354c11e07ec1512baf435890267d3de2fbf3ef1e"
+    },
+    "hybrid/2015-04-10/rule_based_route_events.csv": {
+      "bytes": 6809,
+      "sha256": "379fb5c0948b7f428ad146084ff9188881bc3f8eba3fa02f5d0a1206d7b8df0d"
+    },
+    "hybrid/2015-04-10/rule_based_route_hours.csv": {
+      "bytes": 1098,
+      "sha256": "1377935483cee3d53c38b050712704e59af059188635e6f73fe8e68791e7f42b"
+    },
+    "hybrid/2015-04-10/rule_based_transfers.csv": {
+      "bytes": 1442,
+      "sha256": "b9632ef45c045343550d6822edac28baca4f11d5a288adc491328db02dd39964"
+    },
+    "hybrid/2015-04-11/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "hybrid/2015-04-11/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "hybrid/2015-04-11/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "hybrid/2015-04-11/rule_based_route_events.csv": {
+      "bytes": 4524,
+      "sha256": "1ba5b73ec670c32216df8d207af1df8be32b796cd27ecd586b6f29f59c73ab19"
+    },
+    "hybrid/2015-04-11/rule_based_route_hours.csv": {
+      "bytes": 1103,
+      "sha256": "e91fc52eac8362304cd6ea000c05b8d97a91a27f36acfd767523420a389d0d55"
+    },
+    "hybrid/2015-04-11/rule_based_transfers.csv": {
+      "bytes": 864,
+      "sha256": "d55e55a3be9ae27460c98ad85f4b519a6d27669463f7887120ec19a69f3c96d7"
+    },
+    "hybrid/2015-04-12/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "hybrid/2015-04-12/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "hybrid/2015-04-12/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "hybrid/2015-04-12/rule_based_route_events.csv": {
+      "bytes": 2589,
+      "sha256": "a51d7033553e7ac38625980af750d4c75f3b25014fa113504203f50aae96d93e"
+    },
+    "hybrid/2015-04-12/rule_based_route_hours.csv": {
+      "bytes": 991,
+      "sha256": "545f0d8e9aa90dab288260e364d9273af384eb679fdf1cebb648cb35f6e9a9cd"
+    },
+    "hybrid/2015-04-12/rule_based_transfers.csv": {
+      "bytes": 635,
+      "sha256": "b73247ca5be9cbb168bd7881c78482564fdc1e4ea2d770179446e4ce92b69b0c"
+    },
+    "hybrid/2015-04-13/optimized_route_events.csv": {
+      "bytes": 4205,
+      "sha256": "daf7c4c06ea895197f57fca5af09c18497273301341a5f06b6fafb887d923de5"
+    },
+    "hybrid/2015-04-13/optimized_route_hours.csv": {
+      "bytes": 1104,
+      "sha256": "4aec77bcaf9014d6bb45cfaca6511863eafc320297bc9631b381646667e56082"
+    },
+    "hybrid/2015-04-13/optimized_transfers.csv": {
+      "bytes": 806,
+      "sha256": "a6471d3d000e1117b973b237b8bdf914e2068e4c917a7e2140309cc53caa0abe"
+    },
+    "hybrid/2015-04-13/rule_based_route_events.csv": {
+      "bytes": 5109,
+      "sha256": "5f31946281e4c91552ac1a8dc0224df003e41a16891107d7afe67f5a0a9bc050"
+    },
+    "hybrid/2015-04-13/rule_based_route_hours.csv": {
+      "bytes": 1109,
+      "sha256": "b516c1938a77014015eacab8bcfbc35b6a81f923cba82dbfe16603f5492809d7"
+    },
+    "hybrid/2015-04-13/rule_based_transfers.csv": {
+      "bytes": 1488,
+      "sha256": "340fd7afb2765aee025465fa08dccd8dc107076b429fcdff5a0feacf451d1704"
+    },
+    "hybrid/2015-04-14/optimized_route_events.csv": {
+      "bytes": 2970,
+      "sha256": "55a758735c5c682d731431204f600ec15cc83f5765f1e59b962c18b7ccff466e"
+    },
+    "hybrid/2015-04-14/optimized_route_hours.csv": {
+      "bytes": 1072,
+      "sha256": "0b106510b58e0a1f6021d981e9ee7e4df5208b276350ee4af87494c92b040d66"
+    },
+    "hybrid/2015-04-14/optimized_transfers.csv": {
+      "bytes": 584,
+      "sha256": "b3dfe53c39a39fe692d906bfb2e08983d2f1831d0178145110c474e7a9786e94"
+    },
+    "hybrid/2015-04-14/rule_based_route_events.csv": {
+      "bytes": 5210,
+      "sha256": "f76e557f569f9027fef09b1c3ee7b44a9e717aa66b0bffaf02da1d7482bcfd09"
+    },
+    "hybrid/2015-04-14/rule_based_route_hours.csv": {
+      "bytes": 1000,
+      "sha256": "cb4ab5d3c9b93e6fe1b791c304ddc36c5781b3876f8483d1070c286533a02994"
+    },
+    "hybrid/2015-04-14/rule_based_transfers.csv": {
+      "bytes": 1590,
+      "sha256": "5d2a302361e97c128d7a1addcbb0dc32791d28fd0584d04d9e9f3f7213a36af5"
+    },
+    "hybrid/2015-04-15/optimized_route_events.csv": {
+      "bytes": 4403,
+      "sha256": "26b5aa062902fcf6356804d1c8a659d809ede60b16ed93934cb185b9c034da1e"
+    },
+    "hybrid/2015-04-15/optimized_route_hours.csv": {
+      "bytes": 1170,
+      "sha256": "a6f06d90d8711c7c1c33304b2b651faffb9a7a848156684c908e8f2e2049ea45"
+    },
+    "hybrid/2015-04-15/optimized_transfers.csv": {
+      "bytes": 949,
+      "sha256": "0c0576645c8dc96ab26c9693c356eff596ea1e4d0d8b9339d5f9816daf26c577"
+    },
+    "hybrid/2015-04-15/rule_based_route_events.csv": {
+      "bytes": 6121,
+      "sha256": "54fe7748b4d6b89aa21294d3bc64b3907695dc29af7067b64818569bc5bb7622"
+    },
+    "hybrid/2015-04-15/rule_based_route_hours.csv": {
+      "bytes": 1115,
+      "sha256": "9449d746326db35927e52f18ed6c9c6216cde0ba24fd4d58aeead3049ebc4f29"
+    },
+    "hybrid/2015-04-15/rule_based_transfers.csv": {
+      "bytes": 1655,
+      "sha256": "cbfa86bfaa4ff38ab430662305c82ff047501aab987c383e35024622d70d0a3a"
+    },
+    "hybrid/2015-04-16/optimized_route_events.csv": {
+      "bytes": 3972,
+      "sha256": "1a62f90f11aaec60d8763fcf1e874bc2427a2f4d67ac49d687365c6e8ccb6272"
+    },
+    "hybrid/2015-04-16/optimized_route_hours.csv": {
+      "bytes": 1197,
+      "sha256": "4ed705723a627fe546f6b8e912e87c7d4b3c35bc34a4a18b981a5ce29745dffe"
+    },
+    "hybrid/2015-04-16/optimized_transfers.csv": {
+      "bytes": 765,
+      "sha256": "63f499c293b745b3c52cd9d29a95ac1350e4d11f7810220a1875594bcefc1c06"
+    },
+    "hybrid/2015-04-16/rule_based_route_events.csv": {
+      "bytes": 5843,
+      "sha256": "4ff6f2890818f3f8f7525a160bd5f4bfb62b2911bebe76364347f2d9144ce3f0"
+    },
+    "hybrid/2015-04-16/rule_based_route_hours.csv": {
+      "bytes": 1104,
+      "sha256": "21df837848a604b7c9027c1eafd02c147edd816dc96afc44665c626a43224cbd"
+    },
+    "hybrid/2015-04-16/rule_based_transfers.csv": {
+      "bytes": 1636,
+      "sha256": "78835984dbf1bedecefae50844fe2b8d8ac3c3907f4c42b9dcfa07b97ff5f9b8"
+    },
+    "hybrid/2015-04-17/optimized_route_events.csv": {
+      "bytes": 2781,
+      "sha256": "c838552f9008e10a150606011171f711859fa181218c148bb3694691447d5649"
+    },
+    "hybrid/2015-04-17/optimized_route_hours.csv": {
+      "bytes": 1009,
+      "sha256": "cda46bf48ab5e2052fb961c4e4524304cb2555ad826949413745d949a30343bb"
+    },
+    "hybrid/2015-04-17/optimized_transfers.csv": {
+      "bytes": 541,
+      "sha256": "5fa56ffc8249a026513934689e3805362bbf42dbbc1b24ec37eb73c61f41ebba"
+    },
+    "hybrid/2015-04-17/rule_based_route_events.csv": {
+      "bytes": 3702,
+      "sha256": "896780ad1b81ec0b83ee4538dd96f1ad62dfff62e29f81d4e28aff6e509286ad"
+    },
+    "hybrid/2015-04-17/rule_based_route_hours.csv": {
+      "bytes": 1081,
+      "sha256": "3e5cfc9c79fbb5c59637e30aa52845d7f08004e6e68225afb0a89ce195553310"
+    },
+    "hybrid/2015-04-17/rule_based_transfers.csv": {
+      "bytes": 1450,
+      "sha256": "8295b01046a8312cbb78d0ef166ca69753aa5d00f09c2936308c6107b7254d88"
+    },
+    "hybrid/2015-04-18/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "hybrid/2015-04-18/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "hybrid/2015-04-18/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "hybrid/2015-04-18/rule_based_route_events.csv": {
+      "bytes": 3889,
+      "sha256": "d9cc1d425aaa4273423fa7eedb118a62a4c7427001cdb20ea06bd0c1d058b40f"
+    },
+    "hybrid/2015-04-18/rule_based_route_hours.csv": {
+      "bytes": 1034,
+      "sha256": "4f370df763c8abe53a3eab90417a4b90628e834b7d2334e8cce221511c3f4850"
+    },
+    "hybrid/2015-04-18/rule_based_transfers.csv": {
+      "bytes": 757,
+      "sha256": "6f427e3cfac8df08c9a354e5364c63778961997b1d70b873a5a17314d3a33c18"
+    },
+    "hybrid/2015-04-19/optimized_route_events.csv": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "hybrid/2015-04-19/optimized_route_hours.csv": {
+      "bytes": 558,
+      "sha256": "37838cb184dbdae9a2c74b33d4ec7ecd840bb51f51c0196f9db475b383e94be5"
+    },
+    "hybrid/2015-04-19/optimized_transfers.csv": {
+      "bytes": 55,
+      "sha256": "5290c42223da5d89ce36253d89a2eb448722fd4857dd273a44bdd038726d7f37"
+    },
+    "hybrid/2015-04-19/rule_based_route_events.csv": {
+      "bytes": 2477,
+      "sha256": "1c3f2a85c9f0d16e272cf01714fa3dc148175a907f0fad48cf8b6893ed56e2c5"
+    },
+    "hybrid/2015-04-19/rule_based_route_hours.csv": {
+      "bytes": 1008,
+      "sha256": "20fc78688ff57146c262a87540afc8fc6a1a1d757d535b3351cf6e84b8fc8284"
+    },
+    "hybrid/2015-04-19/rule_based_transfers.csv": {
+      "bytes": 492,
+      "sha256": "10dab20840bf08de9fffc4593576ea09d4d6e4c1df9e87f7b335aa8615777b34"
+    }
+  }
+}

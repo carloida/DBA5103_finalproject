@@ -13,6 +13,8 @@ Carlo explicitly authorized publication to `main` and designated the [complete p
 
 The upstream heads are recorded as merge parents after their reviewed content has already been integrated. The integration tree is retained to preserve local fixes and exclude superseded generated artifacts. This is a reviewed source integration, not acceptance of PR #1's old demand outputs as the base case.
 
+The [routing evidence correction](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) makes the consequence explicit: PR #1's generated transfer/route files are available at their original commit, not restored as current outputs on main. Newly published route artifacts are the saved Carlo re-solve, with different allocation/cost provenance; they do not certify Joohee's exact 14-day report schedules.
+
 ## Current execution paths
 
 - `run_project_pipeline.py`: the report scenario, with verification-only default and explicit rebuild flags. Three policy cases, no implicit experiment reruns, no overwriting the published output tree.

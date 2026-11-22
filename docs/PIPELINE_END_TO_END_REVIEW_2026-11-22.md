@@ -32,6 +32,8 @@ This review inspects source, published inputs and supplied results. The default 
 
 ## What is ready
 
+**Routing correction:** [saved re-solved route evidence is now downloadable](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md), with replay/recheck results and daily plan-total differences. This closes access to Carlo's evidence, not the missing exact Joohee schedule handoff. Report-ready conditional wording and cost/active-day qualifications are included there.
+
 The observed inputs, two estimated-demand outputs, complete producer, model/policy source, supplied result tables, supporting reports and verification command are available together. Jason's research contribution is represented in the economics and Section 1–2 ownership; he does not need a separate script. Demand is reconciled across the team; it does not need to be reopened for the above reporting/model limitations.
 
 The next step is a focused consistency edit and collection of existing route evidence, followed by the team's final scope/cost sign-off. No blanket experiment rerun is recommended by this review. A stronger feasibility/profit/generalization claim would require further modelling or evidence rather than a wording change alone.

@@ -1,6 +1,8 @@
 # Temporary integration results
 
-These files belong to the isolated integration branch. They are retrospective experiments on 6–19 April 2015, not a new sealed test or final operator financial results. See the [executed report](../../../docs/INTEGRATION_REVIEW_2026-11-22.md) and [methods and reproduction commands](../../../docs/INTEGRATION_METHODS_2026-11-22.md).
+These files record the original temporary-branch experiments, now published on main. They are retrospective experiments on 6–19 April 2015, not a new sealed test or final operator financial results. See the [executed report](../../../docs/INTEGRATION_REVIEW_2026-11-22.md) and [methods and reproduction commands](../../../docs/INTEGRATION_METHODS_2026-11-22.md).
+
+**Scope correction:** these are separately re-solved allocations, not Joohee's exact reported schedules. [Saved transfers, route hours/events and rechecks](../routing_evidence_2026-11-22/README.md) are downloadable. Historical optimized passes include five no-move days: 13/14 calendar days, or 8/9 active days. The rule passes 3/14. Negative cost figures are estimated scenarios on the same 13 priced optimized days, not actual expenses or direct repricing of the report's USD202 result.
 
 | File | Contents |
 | --- | --- |

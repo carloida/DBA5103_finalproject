@@ -15,3 +15,4 @@
 /output/sf_bikeshare/demand_case_comparison_2026-11-22/*.json -text
 /output/sf_bikeshare/demand_estimation_cases_2026-11-22/*.json -text
 /output/sf_bikeshare/integration_review_2026-11-22/*.json -text
+/output/sf_bikeshare/routing_evidence_2026-11-22/*.json -text

@@ -1,5 +1,7 @@
 # Published project pipeline
 
+**Team's main reference:** this document on the repository's `main` branch is the current reference for the complete pipeline and its supplementary files. Older drafts, posters and experimental branches are historical context; keep future report and implementation changes consistent with the assumptions and scope recorded here. Outstanding gaps remain visible in the linked reviews.
+
 Updated 22 November 2026. The team confirmed **historical demand as base**, **hybrid as sensitivity**, and **observed trips as a lower-demand comparison**. Both estimated-demand cases subtract trips already served during outages. Fu Yan's latest code reproduces the published outputs; the former missing-core handoff is resolved.
 
 ## Pipeline and owners

@@ -1,5 +1,7 @@
 # Project status - 22 November 2026
 
+The [pipeline on main](SF_Bikeshare_Project_Pipeline_Report.md) is the team's main reference, as explicitly designated by Carlo. Its supporting reviews record outstanding report/model limitations alongside the completed work.
+
 The team confirmed historical demand as the base and hybrid as sensitivity. Joohee confirmed that the report uses the published historical/hybrid CSVs, plus observed trips as a lower-demand comparison. Both estimated cases subtract trips already served during outages. See the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
 ## Completed and published

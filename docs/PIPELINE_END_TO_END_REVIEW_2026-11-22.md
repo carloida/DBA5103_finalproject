@@ -2,9 +2,9 @@
 
 ## Assessment
 
-The pipeline is cohesive for a retrospective operations-research study: audited observations feed attempted-demand estimates, economic assumptions feed a daily mixed-integer allocation model, and common accounting evaluates service and conditional contribution. Historical is the agreed base; hybrid and observed counts provide separate comparisons. The code/input handoff is ready on the integration branch. Financial conclusions, operational feasibility and some report wording still require qualifications.
+The pipeline is cohesive for a retrospective operations-research study: audited observations feed attempted-demand estimates, economic assumptions feed a daily mixed-integer allocation model, and common accounting evaluates service and conditional contribution. Historical is the agreed base; hybrid and observed counts provide separate comparisons. The code/input handoff is ready and approved for main publication. Financial conclusions, operational feasibility and some report wording still require qualifications.
 
-This review inspects source, published inputs and supplied results. The default project verification passed again. No optimization, demand-estimation or diversion experiment was rerun for this review. Google Docs and main were not edited.
+This review inspects source, published inputs and supplied results. The default project verification passed again. No optimization, demand-estimation or diversion experiment was rerun for this review. Google Docs were not edited. The reviewed pipeline was subsequently approved for publication on main.
 
 ## Alignment by stage
 
@@ -43,4 +43,4 @@ The next step is a focused consistency edit and collection of existing route evi
 - [Downloadable 14-day results](../output/sf_bikeshare/optimization_14days_2026-11-22/README.md)
 - [Penalty, budget and diversion results](../output/sf_bikeshare/extra_experiments_2026-11-22/README.md)
 
-Publication status: this review and pipeline are on `integration/demand-cost-model-2026-11-22`. Publishing to main remains pending explicit approval after automatic approval review rejected the earlier main push. PRs #1/#2 remain unmerged into main.
+Publication status: Carlo explicitly approved the reviewed pipeline for `main` as the team's main reference. The reviewed PR #1/#2 heads are included as merge ancestors, with superseded generated outputs excluded as described in the [release provenance](PIPELINE_RELEASE_2026-11-22.md). This publication retains the open modelling/report gaps above; it does not certify operational profit or exact route feasibility.

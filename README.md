@@ -1,5 +1,7 @@
 # DBA5103: SF Bike Share redistribution
 
+**Main project reference:** the [complete pipeline](docs/SF_Bikeshare_Project_Pipeline_Report.md), published on `main`, is the team's authoritative reference for agreed assumptions, owners, code, datasets and results. Its [end-to-end review](docs/PIPELINE_END_TO_END_REVIEW_2026-11-22.md) and [report corrections](docs/REPORT_RECONCILIATION_2026-11-22.md) remain part of that reference.
+
 **Published setup (22 November): historical demand is the base, hybrid is sensitivity, and observed trips are the lower-demand comparison.** The complete demand producer, allocation/policy code and Joohee's completed report results are integrated. Trips served during outages are subtracted once in both demand estimates. Frozen V3 observations are unchanged.
 
 Start with the **[complete project pipeline](docs/SF_Bikeshare_Project_Pipeline_Report.md)** for assumptions, owners, commands and downloads. The **[report reconciliation](docs/REPORT_RECONCILIATION_2026-11-22.md)** lists numerical and interpretation corrections for Carlo's manual final edit; Google Docs were not edited.

@@ -2,6 +2,8 @@
 
 This release publishes the agreed historical base, hybrid sensitivity and observed-only comparison, with the complete producer and the supplied completed results. It promotes the reviewed temporary integration work into the project publication. It does not rerun Joohee's experiments, overwrite frozen observations or edit Google Docs.
 
+Carlo explicitly authorized publication to `main` and designated the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md) as the team's main reference. The end-to-end review, report corrections and linked supplementary files are part of that reference. The integration branch is retained as development history.
+
 ## Reviewed upstream sources
 
 - Main starting point: `64fe8cd9fa5aa5beac6b1a4a66339bd3acda08ed`.

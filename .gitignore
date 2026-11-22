@@ -30,6 +30,7 @@
 *.parquet
 !/output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet
 *.zip
+!/output/sf_bikeshare/optimization_14days_2026-11-22/route_audit_exact_plans.zip
 *.7z
 **/__pycache__/
 **/.ipynb_checkpoints/

@@ -2,7 +2,7 @@
 
 The [pipeline on main](SF_Bikeshare_Project_Pipeline_Report.md) is the team's main reference, as explicitly designated by Carlo. Its supporting reviews record outstanding report/model limitations alongside the completed work.
 
-Routing update: [Carlo's saved re-solved transfer and route files](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) are published with qualified counts and estimated route-cost results. They do not verify Joohee's exact report schedules; original report flags remain False. Obtain her fixed transfer files for an exact-plan check, or use the documented conditional-evidence paragraph.
+Routing update: [Joohee's exact reported plans and ZIP](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) are now published and independently checked. They reproduce the 766 bikes and USD202.316 Stage 1 gain; all 133 active hours pass conditionally at one-minute setup. Route-cost changes reproduce -USD878.71/-USD4,191.83. The [v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md) lists four remaining interpretation edits; Carlo's different re-solve remains separate.
 
 The team confirmed historical demand as the base and hybrid as sensitivity. Joohee confirmed that the report uses the published historical/hybrid CSVs, plus observed trips as a lower-demand comparison. Both estimated cases subtract trips already served during outages. See the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
@@ -25,6 +25,6 @@ The team confirmed historical demand as the base and hybrid as sensitivity. Jooh
 | Joohee | Check formulation/assumptions against code; qualify route, service-allocation, diversion and perfect-information claims |
 | Hong Jin | Check reported solver gaps, the USD0.50 penalty result and which exact route-audit artifacts support the draft |
 
-The base result table reconciles, but the report is not yet fully reconciled. [Required corrections](REPORT_RECONCILIATION_2026-11-22.md) include -USD24.79 at penalty USD0.50, nonuniform cost-scenario percentages, missing route evidence and causal overinterpretation of the diversion ratio. The original source/results remain unchanged. See the [end-to-end review](PIPELINE_END_TO_END_REVIEW_2026-11-22.md) for objective alignment and priority actions.
+The base results and exact-plan conditional route/cost evidence reconcile. The final PDF v2 implements most earlier corrections. Four remaining interpretation edits are in the [current v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md): finite-gap gains, route-level ranking, joint cost/service dependence and benefit-bias inference. Source result tables remain unchanged.
 
 No Google Doc was edited. No full cross-city/time robustness study or verified cash-profit result is claimed. The latest pipeline Markdown supersedes the earlier planning PDF/poster.

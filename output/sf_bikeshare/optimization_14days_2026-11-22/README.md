@@ -2,7 +2,7 @@
 
 These are Joohee's completed runs, imported unchanged from Drive. See the [handoff review](../../../docs/JOOHEE_HANDOFF_2026-11-22.md) for file descriptions, checks, cost assumptions and dependency notes. No experiments were rerun for this upload.
 
-**Exact routing remains unverified:** this handoff contains aggregate policy tables, not the original station-pair/hour transfer plans. The [published routing evidence](../../../docs/ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) is for Carlo's different re-solved allocations and must not be used as a certificate for these reported plans. The unchanged routing fields remain False.
+**Exact audit subsequently supplied and verified:** download [Joohee's original ZIP, transfer/state/route files and independent verification](EXACT_PLAN_AUDIT_README.md). The 766-bike plans reproduce all report result/state tables; all 133 active optimized hours pass conditionally at one-minute setup. Estimated route-cost changes are -USD878.71/-USD4,191.83. Original aggregate routing flags remain False as historical source fields; the later audit manifest supplies the conditional evidence. Carlo's earlier re-solve remains distinct.
 
 - [Historical policies](historical_daily_policy_comparison.csv)
 - [Hybrid policies](hybrid_daily_policy_comparison.csv)

@@ -13,7 +13,7 @@ python sf_bikeshare/run_project_pipeline.py
 
 The default verifies supplied files and results without rerunning experiments. Explicit rebuild options write to a separate destination.
 
-**Routing evidence correction:** the [scope clarification](docs/ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) and [saved transfer/route downloads](output/sf_bikeshare/routing_evidence_2026-11-22/README.md) distinguish Carlo's re-solved conditional checks from the unverified exact plans behind the reported USD202 gain. The 13/14 optimized passes include five no-move days. Estimated route-cost scenarios reverse the gain on the separately priced subset; these are not observed expenses.
+**Exact report audit now available:** [Joohee's original ZIP, transfer/state/route files and independent checks](output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) reproduce the 766-bike/USD202 report case. All 133 active optimized hours pass conditionally at one-minute setup. Exact-plan route-cost changes reproduce -USD878.71 / -USD4,191.83. The [final PDF v2 review](docs/FINAL_REPORT_V2_REVIEW_2026-11-22.md) records verified corrections and four remaining wording edits. Carlo's earlier re-solve remains separate; real-world operational feasibility and observed profit are not certified.
 
 ## Current files
 
@@ -26,7 +26,7 @@ The default verifies supplied files and results without rerunning experiments. E
 - [Five city/time robustness datasets](output/sf_bikeshare/robustness_testing/README.md): observed inputs prepared; these five have not been optimized here.
 - [Project status and responsibilities](docs/PROJECT_STATUS.md), [data preparation report](docs/SF_Bikeshare_Consolidated_Data_Preparation_Report.md), [dataset iterations](docs/SF_Bikeshare_Dataset_Iterations.md) and [data sources](docs/DATA_SOURCES.md).
 
-The older case reports, pipeline PDF and posters are dated development snapshots. Their pending handoff/selection statements are superseded by the current pipeline. The supplied historical results show USD202 additional **Stage 1 modeled contribution**, not verified profit or certified executable truck dispatches. The draft's routing and diversion claims need the qualifications in the reconciliation note.
+The older case reports, pipeline PDF and posters are dated development snapshots. Their pending handoff/selection statements are superseded by the current pipeline. The historical results show USD202 additional Stage 1 modeled contribution. Exact schedule evidence is now verified conditionally; use the final PDF v2 review for the remaining interpretation edits.
 
 ## Shared dataset
 

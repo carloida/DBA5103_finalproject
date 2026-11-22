@@ -1,5 +1,7 @@
 # Joohee's completed results handoff
 
+**Later handoff:** Joohee subsequently supplied the [original exact-plan ZIP and audit files](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md). They reproduce the reported historical results and pass the independent conditional certificate check. The original thirteen-file import below is preserved unchanged; its missing-route status is historical.
+
 Imported from the shared [github_upload_joohee Drive folder](https://drive.google.com/drive/folders/1Z8_gtGBwahZIVfOtBsJiadQGGWYPvZZS) into the temporary integration branch. All 13 supplied files are preserved byte-for-byte in their requested repository paths. No optimization or diversion experiment was rerun, no existing result set was overwritten, and Google Docs were not edited. This dated handoff records the import checks; the current release status is in the [project pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
 The supplied report setup is historical base, hybrid sensitivity and observed trips as a lower-demand comparison. The subsequent team chat confirmed this setup for the published pipeline.

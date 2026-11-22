@@ -1,5 +1,7 @@
 # Routing evidence correction and exact scope
 
+**Later evidence received:** Joohee's [exact plans and original ZIP](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) are now provided and independently verified, including the -USD879/-USD4,192 scenarios. The missing-evidence discussion and provisional paragraph below describe the earlier review. Current report edits are in the [v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md).
+
 Fu Yan's review correctly identifies an open gap: merged source code and a successful conditional check on a separate allocation do not certify the exact plans behind the report's USD202.316 result. This correction adopts the conditional-evidence option now. Joohee's original result CSVs and their `route_feasibility_checked=False` fields remain unchanged. No new allocation optimization was run for this correction. Google Docs were not edited.
 
 ## What was merged and what was excluded
@@ -53,7 +55,7 @@ The report's +USD202.32 is a **different allocation and a 14-day total**; the ab
 
 “Productive activity” includes driving, loading/unloading and stop setup, not driving alone. “Paid span” includes waiting between the first assigned hour and last completion; it is not a verified worker shift. Vehicle/fuel/wage inputs and road times are proxies, not observed operator expenses. Use **estimated route-cost scenarios**, not “actual” or “real” route costs. Incomplete routes have no invented full-day cost. Stage 1 and Stage 2 costs price the same operation and must not be added.
 
-## Replacement wording for the report
+## Earlier provisional report wording, superseded by the exact-plan audit
 
 > A separate historical-demand allocation was re-solved using the updated cost configuration and subjected to conditional pickup-and-delivery route checks. Thirteen of fourteen calendar days passed, including five no-move days; eight of nine active optimized days passed. The rule-based case passed on three of fourteen days. These checks do not certify the exact allocations underlying the reported USD202.32 Stage 1 gain. On the thirteen conditionally priced optimized days, additional modeled contribution was -USD703.25 with productive-activity labour and -USD3,782.26 with paid-span labour. These are estimated-cost scenarios, with no depot, worker-shift or minute-by-minute station-inventory certificate. Operational executability and positive real-world contribution are therefore not established.
 

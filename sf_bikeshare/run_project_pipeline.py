@@ -24,6 +24,17 @@ def verify():
     handoff=json.loads((ROOT/'docs/JOOHEE_HANDOFF_MANIFEST_2026-11-22.json').read_text())
     for f in handoff['files']:
         assert hashlib.sha256((ROOT/f['path']).read_bytes()).hexdigest()==f['sha256'],f['path']
+    exact_path=DATA/'optimization_14days_2026-11-22/exact_plan_audit_manifest.json'
+    exact=json.loads(exact_path.read_text())
+    source=exact['source']
+    assert hashlib.sha256((exact_path.parent/source['archive']).read_bytes()).hexdigest()==source['archive_sha256']
+    for name,value in source['files'].items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==value,name
+    for name,value in exact['derived_files'].items():
+        assert hashlib.sha256((exact_path.parent/name).read_bytes()).hexdigest()==value,name
+    for name,value in exact['input_files'].items():
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==value,name
+    assert exact['checks']['optimized_bikes']==766 and exact['checks']['optimized_active_hours']==133
     outputs={}
     for case,name in CASES.items():
         d=pd.read_csv(DATA/'demand_estimation_cases_2026-11-22'/name)
@@ -58,9 +69,10 @@ def verify():
         values={k.arg:ast.literal_eval(k.value) for k in node.keywords}
         assert values==dict(fixed=60.,handling=1.,km_cost=.30,avg_load=15.)
     print('PASS: frozen supplied file hashes, both demand contracts, three 14-day result sets, '
-          'demand totals, contribution accounting, recorded solver/replay diagnostics and report cost constants')
+          'demand totals, contribution accounting, recorded solver/replay diagnostics, report cost constants and exact-plan audit hashes')
     print('Historical is base; hybrid is sensitivity; observed counts are a lower-demand comparison. '
-          'This verifies supplied records; it does not independently reproduce their optimization or certify routes.')
+          'This verifies supplied records and exact-plan audit integrity; use check_exact_report_routing.py '
+          'for fixed-plan replay/certificate validation. It does not independently reproduce allocation optimization or certify real-world operations.')
 
 
 def run(script,*args):

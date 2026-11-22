@@ -1,5 +1,7 @@
 # End-to-end pipeline review
 
+**V2 update:** the [original exact report plans and independent audit](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) are now published and close the missing-schedule gap. The [final PDF v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md) is the current remaining-edit checklist.
+
 ## Assessment
 
 The pipeline is cohesive for a retrospective operations-research study: audited observations feed attempted-demand estimates, economic assumptions feed a daily mixed-integer allocation model, and common accounting evaluates service and conditional contribution. Historical is the agreed base; hybrid and observed counts provide separate comparisons. The code/input handoff is ready and approved for main publication. Financial conclusions, operational feasibility and some report wording still require qualifications.
@@ -18,12 +20,12 @@ This review inspects source, published inputs and supplied results. The default 
 | Routing | Fixed transfers are checked for pickup/delivery precedence, onboard load and estimated timing | Appropriate extension; it does not repair Stage 1 customer timing or certify the supplied report's exact schedules |
 | Sensitivity and writing | Demand cases, penalty/budget experiments and cost checks test selected assumptions | Completed scopes are identifiable. Additional city/time packages remain prepared inputs, not completed tests |
 
-## Gaps and required actions
+## Earlier gaps and actions (use the v2 review for current status)
 
 | Priority | Gap and consequence | Owner / action |
 | --- | --- | --- |
 | High: economics | The report uses USD0.30/km as an approximate travel coefficient, without explicit full driving-time labour or paid-span treatment. The separate route-repricing experiment reverses the positive Stage 1 gains under its tested assumptions. | Jason + Joohee: retain the report coefficients only as a clearly labelled approximation, discuss the extension and avoid claiming cash profit or economically justified real dispatches. A stronger operational claim requires consistent costs and suitable schedules. |
-| High: route evidence | The supplied 14-day tables mark routing unchecked. Exact transfer/state/route files supporting the draft's claimed pass counts were not supplied. | Hong Jin + Joohee: provide the existing exact schedules and audit outputs/settings if available. Do not rerun all experiments merely for an upload. Without the files, remove or qualify executability/pass-count claims. |
+| Closed: route provenance | Exact original transfer/state/route files now supplied and verified. All 133 active hours pass at one-minute setup; 29 hours on three days remain uncertified at two minutes. | Keep conditional operational limits explicit; use the later audit manifest rather than the original pre-audit aggregate flags. |
 | High: comparison interpretation | The optimizer uses the full day's estimated demand; the occupancy rule uses current stock and no look-ahead. Their gain difference combines information/planning with the allocation method. | Joohee + Hong Jin + Carlo: describe an informed retrospective benchmark versus a stock-balancing rule. For a future deployment comparison, evaluate forecast-based policies with matched information. |
 | High: report accuracy | At penalty USD0.50, the supplied returned allocation is USD24.79 worse than no rebalancing. Solver gaps refer to the full objective, so a small incremental gain is not necessarily certified. | Hong Jin + Joohee + Carlo: correct the row; distinguish feasible incumbents from exact optima. In a future dispatcher choose the better evaluated feasible candidate, including no rebalancing. Do not alter the supplied snapshots silently. |
 | Model boundary | Returns stay fixed when pickups are lost, diverted returns may already be counted nearby, and each day restarts from historical midnight stock without an end target. This is not a continuously simulated ten-week policy. | Joohee + Fu Yan: explain independent daily scenarios and approximate flow consistency. Link accepted departures to returns, diversion and terminal states only in a separately validated extension. |
@@ -32,7 +34,7 @@ This review inspects source, published inputs and supplied results. The default 
 
 ## What is ready
 
-**Routing correction:** [saved re-solved route evidence is now downloadable](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md), with replay/recheck results and daily plan-total differences. This closes access to Carlo's evidence, not the missing exact Joohee schedule handoff. Report-ready conditional wording and cost/active-day qualifications are included there.
+**Current routing evidence:** both [Joohee's exact report audit](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) and [Carlo's separate re-solve](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) are available and labelled. The report v2 incorporates most earlier corrections; its final interpretation edits are in the current v2 review.
 
 The observed inputs, two estimated-demand outputs, complete producer, model/policy source, supplied result tables, supporting reports and verification command are available together. Jason's research contribution is represented in the economics and Section 1–2 ownership; he does not need a separate script. Demand is reconciled across the team; it does not need to be reopened for the above reporting/model limitations.
 

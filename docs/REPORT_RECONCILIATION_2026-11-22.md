@@ -1,5 +1,7 @@
 # Report reconciliation before final submission
 
+**Final PDF v2 update:** most corrections below are implemented, and Joohee's exact schedules are now supplied and verified. Use the [current v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md) for verified items and four remaining sentence edits. The missing-plan gap is closed; the table below is the historical pre-v2 checklist.
+
 Reviewed against the report text supplied by Carlo on 22 November, the published demand snapshots, Joohee's unchanged CSVs and the actual source code. Google Docs were not edited. This review does not rerun the experiments or replace the supplied CSVs.
 
 ## Demand and base results are aligned
@@ -8,7 +10,7 @@ The team confirmed historical base, hybrid sensitivity and observed-only lower-d
 
 The historical result table reconciles: 766 bikes moved, 748.58 extra pickups served, 668.16 fewer failed returns and USD202.316 additional Stage 1 modeled contribution. These are retrospective results under the report's USD60/day, USD1/bike and USD0.30/km assumptions, not the separate updated-cost experiment.
 
-## Corrections for the manual final edit
+## Historical pre-v2 corrections
 
 | Draft location | Finding | Required correction |
 | --- | --- | --- |
@@ -27,7 +29,7 @@ The historical result table reconciles: 766 bikes moved, 748.58 extra pickups se
 
 At penalty USD0 and USD0.30 the supplied optimizer returns no-rebalancing plans. With finite gaps this describes the returned solutions, rather than proving that no alternative active plan could improve the objective by a small amount.
 
-## Suggested replacement for the economic and routing conclusion
+## Earlier pre-v2 replacement text
 
 For the full corrected route paragraph, exact schedule differences, active-day counts, cost denominator and downloadable saved route files, use the [routing evidence correction](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md). The separate re-solve's 13/14 conditional passes do not certify Joohee's reported allocations; five passes are no-move days. Its -USD703.25/-USD3,782.26 scenarios cover thirteen priced days and estimated costs, not fourteen days of the report's exact plans or actual expenses.
 

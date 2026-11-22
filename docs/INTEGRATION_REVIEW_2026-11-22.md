@@ -35,6 +35,8 @@ Additional contribution uses allocated trip values, not cash receipts. Both poli
 
 ## Conditional routes and cost uncertainty
 
+Joohee's exact original report plans were subsequently supplied and [independently verified](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md). Those exact plans pass all 133 active hours at one-minute setup and yield -USD878.71/-USD4,191.83 in route-cost scenarios. The earlier re-solve results below remain distinct.
+
 These checks apply to Carlo's separate re-solved allocations, not the exact plans behind Joohee's USD202.32 report result. See the [schedule differences and downloadable route evidence](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md). Historical optimized passes are 13/14 calendar days, including five no-move days (8/9 active days); the rule passes 3/14. Equal daily bike totals alone cannot verify exact report-plan identity.
 
 Only full-day conditional timing/capacity/precedence passes receive route costs. Uncertified routes have missing costs, not fictitious full-day totals. The table sums only priced days; use the priced-day count before making any cross-policy comparison.

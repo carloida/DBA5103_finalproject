@@ -1,5 +1,7 @@
 # Published project pipeline
 
+**Exact-plan download:** [original ZIP, 187 CSVs, replay/cost checks and verification command](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md). Use `python sf_bikeshare/check_exact_report_routing.py` for fixed-plan replay and supplied-certificate validation without re-solving allocation.
+
 **Team's main reference:** this document on the repository's `main` branch is the current reference for the complete pipeline and its supplementary files. Older drafts, posters and experimental branches are historical context; keep future report and implementation changes consistent with the assumptions and scope recorded here. Outstanding gaps remain visible in the linked reviews.
 
 Updated 22 November 2026. The team confirmed **historical demand as base**, **hybrid as sensitivity**, and **observed trips as a lower-demand comparison**. Both estimated-demand cases subtract trips already served during outages. Fu Yan's latest code reproduces the published outputs; the former missing-core handoff is resolved.
@@ -30,14 +32,14 @@ flowchart LR
 | Time-expanded formulation | Joohee | 24-hour daily MILP, base contribution objective, return penalties and budget alternative |
 | Implementation, rule baseline and replay | Hong Jin, Joohee | Model/evaluator code and completed 14-day historical/hybrid/observed comparisons |
 | Penalty, budget and diversion experiments | Joohee | Completed supplied outputs, imported unchanged; descriptive diversion check |
-| Routing extension and sensitivity interpretation | Hong Jin, Joohee | Conditional route checker available; exact report-schedule audit files were not in the handoff |
+| Routing extension and sensitivity interpretation | Hong Jin, Joohee | Exact historical transfer/state/route files now supplied and independently checked; all 133 active optimized hours pass conditionally at one-minute setup |
 | Data/repository handoff and final consistency edit | Carlo | Published pipeline, checks, result links and manual report corrections |
 
 The [handoff review](JOOHEE_HANDOFF_2026-11-22.md) describes Joohee's completed files. The [report reconciliation](REPORT_RECONCILIATION_2026-11-22.md) lists corrections before final submission. Google Docs remain untouched.
 
 The [end-to-end review](PIPELINE_END_TO_END_REVIEW_2026-11-22.md) assesses objective alignment, remaining gaps and actions. The optimizer uses the full day's demand while the occupancy rule has no look-ahead, so their difference includes an information/planning advantage.
 
-**Routing clarification:** the [saved evidence and correction](ROUTING_EVIDENCE_RECTIFICATION_2026-11-22.md) concern a separate re-solved allocation. They do not certify Joohee's exact report schedules. The optimized conditional result is 13/14 calendar days, including five no-move days (8/9 active days); the rule passes 3/14. Estimated route-cost scenarios reverse the re-solved gain on the 13 priced days, and do not directly reprice the report's different USD202 allocation. Exact report transfer/route files remain required for a stronger claim.
+**Exact report evidence received:** [Joohee's original audit and independent verification](../output/sf_bikeshare/optimization_14days_2026-11-22/EXACT_PLAN_AUDIT_README.md) now close the missing-schedule gap. Her exact 766-bike plans pass all 133 active hours on nine truck days at one-minute setup; two-minute setup leaves 29 hours on three days uncertified. The rule passes 3/14 days at one minute. Carlo's earlier re-solve (8/9 active days) remains separate. Both are conditional checks, without depot, shift or minute-by-minute customer/inventory certification.
 
 ### Jason's contribution and where it enters
 
@@ -92,7 +94,9 @@ $$
 
 Distance is road kilometres and money is USD. The USD0.30/km coefficient is an approximate scenario, not demonstrated complete driving-labour reimbursement. Handling is approximately one minute per load and one per unload at the adopted loaded wage. Average load, throughput and onboard capacity have separate meanings.
 
-The separate [updated-cost configuration](../sf_bikeshare/integration_cost_config.json) uses USD0.985667/bike handling plus pair-specific vehicle and driving-time labour. Its [executed results](INTEGRATION_REVIEW_2026-11-22.md) are a separate extension and must not be substituted for the report's USD202 result. Stage 2 reprices the same redistribution operation; never add Stage 1 and Stage 2 as two expenses. An incomplete route receives no invented full-day route cost.
+The exact report plans have also been repriced with the stated vehicle/wage proxies: productive-activity route cost is USD2,400.00 and additional contribution becomes -USD878.71; paid-span costing gives -USD4,191.83. These are verified conditional estimates for the exact fourteen-day case, holding hourly service fixed. See the [exact-plan cost audit](../output/sf_bikeshare/optimization_14days_2026-11-22/exact_plan_route_costs.csv).
+
+The [updated-cost re-solve](INTEGRATION_REVIEW_2026-11-22.md) remains separate: its -USD703/-USD3,782 cover thirteen priced days of different allocations. Stage 1 and Stage 2 price the same operation; do not add them. Incomplete routes receive no invented full-day cost.
 
 ## Published datasets and results
 
@@ -132,6 +136,6 @@ Demand-only and integration-invariant tests remain available as documented in [t
 
 Demand scenarios, cost repricing, selected cost/throughput reoptimizations, penalties and budget experiments are completed. The [five additional city/time packages](../output/sf_bikeshare/robustness_testing/README.md) are prepared observations only. They have not been passed through demand estimation and policy optimization here; their scope/availability inputs and missing-opening rules require separate handling.
 
-The current draft's main numerical results match the supplied historical case. Final editing must reconcile the USD0.50-penalty row, cost-scenario percentages, route evidence and the interpretation of proportional service, demand bias and diversion. Lectures support the time-expanded flow, mixed-integer constraints, conditional DP route search and scenario re-solving; they do not prove estimator truth or real operational profit. See [lecture alignment](INTEGRATION_METHODS_2026-11-22.md#mathematical-model-and-lecture-alignment).
+The supplied final PDF v2 corrects the penalty row, cost-scenario percentages, proportional-service wording and major diversion/routing qualifications. Exact schedules and costs are now independently verified. The [v2 review](FINAL_REPORT_V2_REVIEW_2026-11-22.md) identifies four final interpretation edits: finite-gap gains, route-level ranking, joint cost/service dependence and benefit-bias inference. Lectures support the flow, integer and conditional route/scenario methods; they do not prove estimator truth or operational profit. See [lecture alignment](INTEGRATION_METHODS_2026-11-22.md#mathematical-model-and-lecture-alignment).
 
 The earlier pipeline PDF and poster are dated planning artifacts; this Markdown pipeline is the current implementation reference.

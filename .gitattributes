@@ -16,3 +16,5 @@
 /output/sf_bikeshare/demand_estimation_cases_2026-11-22/*.json -text
 /output/sf_bikeshare/integration_review_2026-11-22/*.json -text
 /output/sf_bikeshare/routing_evidence_2026-11-22/*.json -text
+/output/sf_bikeshare/optimization_14days_2026-11-22/route_audit_exact_plans.zip binary
+/output/sf_bikeshare/optimization_14days_2026-11-22/exact_plan_audit_manifest.json -text

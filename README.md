@@ -13,7 +13,7 @@ The default verifies supplied files and results without rerunning experiments. E
 
 ## Current files
 
-- [Historical base and hybrid sensitivity CSVs](output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md): 57,120 rows ? 31 columns each; latest Fu Yan code reproduces the published snapshots.
+- [Historical base and hybrid sensitivity CSVs](output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md): 57,120 rows x 31 columns each; latest Fu Yan code reproduces the published snapshots.
 - [Frozen V3](output/sf_bikeshare/model_inputs_v3/README.md) and [minute status/trip supplement](output/sf_bikeshare/demand_estimation_inputs_v3/README.md).
 - [Demand validation](output/sf_bikeshare/demand_case_comparison_2026-11-22/README.md): matched fully observed reconstruction windows, not true-unmet-demand ground truth.
 - [Completed 14-day historical/hybrid/observed policy results](output/sf_bikeshare/optimization_14days_2026-11-22/README.md).

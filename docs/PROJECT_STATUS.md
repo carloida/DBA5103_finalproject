@@ -1,10 +1,10 @@
-# Project status ? 22 November 2026
+# Project status - 22 November 2026
 
 The team confirmed historical demand as the base and hybrid as sensitivity. Joohee confirmed that the report uses the published historical/hybrid CSVs, plus observed trips as a lower-demand comparison. Both estimated cases subtract trips already served during outages. See the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
 ## Completed and published
 
-- Carlo's frozen V3 observations, 34 SF stations ? 70 days ? 24 recorded slots, with metric inputs and the minute supplement.
+- Carlo's frozen V3 observations, 34 SF stations x 70 days x 24 recorded slots, with metric inputs and the minute supplement.
 - Fu Yan's complete historical/hybrid producer, support fallback tests and matched validation; both outputs reproduce the published snapshots.
 - Hong Jin's allocation model, rule policy, independent replay and conditional route-check source. Earlier generated own-hour demand/results from PR #1 are superseded and excluded from the current report inputs.
 - Joohee's unchanged 14-day historical, hybrid and observed policy tables; penalty, budget, fixed-schedule repricing, selected first-day reoptimizations and diversion outputs. No experiments were rerun for her file upload.
@@ -21,6 +21,6 @@ The team confirmed historical demand as the base and hybrid as sensitivity. Jooh
 | Joohee | Check formulation/assumptions against code; qualify route, service-allocation, diversion and perfect-information claims |
 | Hong Jin | Check reported solver gaps, the USD0.50 penalty result and which exact route-audit artifacts support the draft |
 
-The base result table reconciles, but the report is not yet fully reconciled. [Required corrections](REPORT_RECONCILIATION_2026-11-22.md) include ?USD24.79 at penalty USD0.50, nonuniform cost-scenario percentages, missing route evidence and causal overinterpretation of the diversion ratio. The original source/results remain unchanged.
+The base result table reconciles, but the report is not yet fully reconciled. [Required corrections](REPORT_RECONCILIATION_2026-11-22.md) include -USD24.79 at penalty USD0.50, nonuniform cost-scenario percentages, missing route evidence and causal overinterpretation of the diversion ratio. The original source/results remain unchanged. See the [end-to-end review](PIPELINE_END_TO_END_REVIEW_2026-11-22.md) for objective alignment and priority actions.
 
 No Google Doc was edited. No full cross-city/time robustness study or verified cash-profit result is claimed. The latest pipeline Markdown supersedes the earlier planning PDF/poster.

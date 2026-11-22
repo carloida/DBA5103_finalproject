@@ -33,6 +33,8 @@ flowchart LR
 
 The [handoff review](JOOHEE_HANDOFF_2026-11-22.md) describes Joohee's completed files. The [report reconciliation](REPORT_RECONCILIATION_2026-11-22.md) lists corrections before final submission. Google Docs remain untouched.
 
+The [end-to-end review](PIPELINE_END_TO_END_REVIEW_2026-11-22.md) assesses objective alignment, remaining gaps and actions. The optimizer uses the full day's demand while the occupancy rule has no look-ahead, so their difference includes an information/planning advantage.
+
 ### Jason's contribution and where it enters
 
 Jason owns the Introduction and Literature Review (report Sections 1–2), plus the pricing and cost evidence used in Section 3.3 and the model parameters. His contributions feed the formulation, economic objective and sensitivity analysis; they are not a separate demand-estimation stage.
@@ -47,8 +49,8 @@ The supplied initial report includes Sections 1–2 and 3.3. No separate Jason-a
 
 | Item | Agreed implementation |
 | --- | --- |
-| Scope | 34 SF stations, 9 February?19 April 2015; 57,120 station-hours |
-| Training / evaluation | 9 February?5 April / 6?19 April; evaluation dates were explored during development |
+| Scope | 34 SF stations, 9 February to 19 April 2015; 57,120 station-hours |
+| Training / evaluation | 9 February to 5 April / 6 to 19 April; evaluation dates were explored during development |
 | Minute status | Carry the left snapshot to the next only for valid positive gaps of at most 90 seconds; longer gaps are unknown |
 | Historical rates | Training available-period events divided by summed available exposure, by station, clock hour, weekday/weekend and rider; pool day types if exposure is insufficient; unsupported rates remain missing |
 | Episode adjustment | Expected arrivals minus served events, clipped at zero once per episode, then allocated by expected hourly arrivals and added to observed counts |
@@ -91,7 +93,7 @@ The separate [updated-cost configuration](../sf_bikeshare/integration_cost_confi
 ## Published datasets and results
 
 - [Frozen V3](../output/sf_bikeshare/model_inputs_v3/README.md) and [minute supplement](../output/sf_bikeshare/demand_estimation_inputs_v3/README.md).
-- [Historical base CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/historical_demand_station_hour.csv.gz) and [hybrid sensitivity CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/estimated_demand_station_hour_hybrid.csv.gz), both 57,120 ? 31. Pandas reads gzip directly.
+- [Historical base CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/historical_demand_station_hour.csv.gz) and [hybrid sensitivity CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/estimated_demand_station_hour_hybrid.csv.gz), both 57,120 rows x 31 columns. Pandas reads gzip directly.
 - [Matched demand validation](../output/sf_bikeshare/demand_case_comparison_2026-11-22/matched_validation.csv).
 - [Completed 14-day policy and cost results](../output/sf_bikeshare/optimization_14days_2026-11-22/README.md).
 - [Completed penalty, budget and diversion outputs](../output/sf_bikeshare/extra_experiments_2026-11-22/README.md).

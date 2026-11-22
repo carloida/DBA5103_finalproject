@@ -17,7 +17,7 @@ The team confirmed historical demand as the base and hybrid as sensitivity. Jooh
 | --- | --- |
 | Carlo | Manual final report edit, repository/data consistency and corrected conclusion wording |
 | Fu Yan | Ensure Section 3 demand wording matches the published historical base, served-trip subtraction, support rules and validation scope |
-| Jason | Ensure cost-source discussion identifies the executed approximate USD0.30/km scenario and distinguishes allocated trip values from cash |
+| Jason | Finalize Sections 1–2 (Introduction and Literature Review); ensure Section 3.3 cost-source discussion identifies the executed approximate USD0.30/km scenario and distinguishes allocated trip values from cash |
 | Joohee | Check formulation/assumptions against code; qualify route, service-allocation, diversion and perfect-information claims |
 | Hong Jin | Check reported solver gaps, the USD0.50 penalty result and which exact route-audit artifacts support the draft |
 

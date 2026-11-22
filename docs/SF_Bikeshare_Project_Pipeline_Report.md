@@ -10,6 +10,8 @@ flowchart LR
   A --> C[Hybrid sensitivity and observed comparison]
   B --> D[Daily Stage 1 allocation MILP]
   C --> D
+  P[Cost and allocated trip-value assumptions: Jason] --> D
+  P --> E
   D --> E[Policy replay and service/cost comparisons]
   D --> F[Conditional pickup-delivery route checks]
   E --> G[Penalty, budget and cost sensitivity]
@@ -19,6 +21,7 @@ flowchart LR
 
 | Stage | Owner | Deliverable and status |
 | --- | --- | --- |
+| Introduction, motivation and literature review | Jason | Sections 1–2 of the supplied report; research context for the formulation and cost structure |
 | Ingestion, cleaning and features | Carlo | Frozen V3, 34 SF stations, 70 days, metric units; minute supplement and audited opening stock |
 | Demand estimation and reconstruction validation | Fu Yan, reviewed with Carlo | Complete producer; historical and hybrid station-hour CSVs, episode audits, rates and matched validation |
 | Cost and allocated trip-value evidence | Jason | Sources and assumptions; executed report scenario distinguished from updated-cost extension |
@@ -29,6 +32,16 @@ flowchart LR
 | Data/repository handoff and final consistency edit | Carlo | Published pipeline, checks, result links and manual report corrections |
 
 The [handoff review](JOOHEE_HANDOFF_2026-11-22.md) describes Joohee's completed files. The [report reconciliation](REPORT_RECONCILIATION_2026-11-22.md) lists corrections before final submission. Google Docs remain untouched.
+
+### Jason's contribution and where it enters
+
+Jason owns the Introduction and Literature Review (report Sections 1–2), plus the pricing and cost evidence used in Section 3.3 and the model parameters. His contributions feed the formulation, economic objective and sensitivity analysis; they are not a separate demand-estimation stage.
+
+- Trip allocations: member USD0.88 and casual USD4.50 in the base, with [low/base/high allocation assumptions](../output/sf_bikeshare/model_inputs_v3/revenue_allocation_scenarios.csv) and [historical tariff evidence](../output/sf_bikeshare/model_inputs_v3/tariff_reference.csv). The V3 tables retain their original dated scenario labels.
+- Cost research: vehicle hire, rental mileage, fuel, loaded wage, handling and supporting references. The [dated input handoff](supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md) records the earlier evidence; the [updated-cost configuration](../sf_bikeshare/integration_cost_config.json) contains the later wage/source assumptions used in the separate extension.
+- Executed report model: USD60/day, USD1/bike handling and the approximate USD0.30/km travel coefficient. These are the coefficients behind Joohee's supplied results. The later fully explicit driving-time formulation is a separate scenario, not silently substituted into those results.
+
+The supplied initial report includes Sections 1–2 and 3.3. No separate Jason-authored report file was in Joohee's Drive upload; this repository publication provides the attributed pipeline and input evidence rather than claiming to have imported a separate Jason document.
 
 ## Inputs and fixed assumptions
 

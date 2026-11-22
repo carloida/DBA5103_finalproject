@@ -1,5 +1,7 @@
 # SF Bike Share demand estimation case comparison
 
+> **Integration update:** PR #2 now supplies the complete core and reproduces the validation tables on this temporary branch. The missing-core findings below describe the earlier audit snapshot. See the [current integration review](INTEGRATION_REVIEW_2026-11-22.md) for resolved items, updated costs and new model results.
+
 Prepared 22 November 2026. Carlo's data and integration review; final demand case selection to be reconciled with Fu Yan and Joohee.
 
 **Recommendation: historical availability-adjusted rates are the stronger provisional base on the tested reconstruction errors. Fu Yan's v2 hybrid is a useful sensitivity scenario.** The hybrid improves the original unlimited predecessor extrapolation and has some short pre-outage advantages. True unmet demand is unobserved, so these results do not establish either case as the actual missing-customer count.

@@ -1,5 +1,7 @@
 # Case A Historical availability adjusted demand
 
+> **Integration update:** PR #2 now supplies the complete core and reproduces the validation tables on this temporary branch. The missing-core findings below describe the earlier audit snapshot. See the [current integration review](../INTEGRATION_REVIEW_2026-11-22.md) for resolved items, updated costs and new model results.
+
 Prepared 22 November 2026 for the DBA5103 SF bike redistribution project.
 
 **Status: proposed base case, supported by local comparative tests.** This case describes the historical-rate scenario already constructed and tested locally. Final team selection and a complete production builder remain pending. It supplements the frozen V3 observations; it does not replace them. The [comparison report](../SF_Bikeshare_Demand_Estimation_Case_Comparison.md) explains how to use this case alongside Fu Yan's v2 hybrid.

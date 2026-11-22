@@ -4,6 +4,7 @@
 !/.gitattributes
 !/README.md
 !/requirements.txt
+!/requirements-integration.txt
 !/docs/
 !/sf_bikeshare/
 !/CitiBike_JC_202609_EDA.py
@@ -42,6 +43,7 @@
 *.duckdb.wal
 /output/sf_bikeshare/duckdb_temp/
 /output/sf_bikeshare/status_intervals*
+/output/sf_bikeshare/demand_estimation_build/
 /output/sf_bikeshare/station_hour_panel.csv
 
 # Local draft messages and the superseded tall poster PDF.

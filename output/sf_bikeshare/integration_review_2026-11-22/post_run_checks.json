@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "checks": [
+    "Python source syntax",
+    "84 unique paired policy evaluations",
+    "28 finite-gap optimized incumbents",
+    "56 conditional route checks with incomplete costs missing",
+    "Frozen source hashes match before/after run and original main checkout",
+    "Final paired-support validation matches executed main-case tables",
+    "New report relative links exist",
+    "Strict JSON output parses"
+  ],
+  "integration_invariants": "PASS: metric conversions, driving labour, model/evaluator equality, service budget, terminal stock and route pricing",
+  "demand_tests": "PASS: support pooling, unresolved support, hourly method labels, hybrid switching and paired validation support; real-data fallback checks previously passed",
+  "post_run_source_changes": [
+    "build_demand_minute.py",
+    "hj_build_demand_fxn.py",
+    "hj_multiday_sensitivity.py",
+    "hj_optimization_model.py",
+    "integration_costs.py",
+    "run_integrated_pipeline.py",
+    "summarize_integration.py",
+    "test_demand_estimation.py"
+  ],
+  "post_run_change_scope": "Paired finite validation support for future unsupported groups; unchanged main-case validation verified. Re-export station pair costs on each run, one-truck config guard, legacy-entry comments and report formatting. No executed allocation objective or constraint changed after the run.",
+  "upstream_prs_checked_open_unmerged": {
+    "1": "244dda807805acbd28b33c56292e6eecb1de936a",
+    "2": "169043a843d4f67cf9ca3381d0d37be5a633c822"
+  },
+  "publication_code_sha256": {
+    "assess_subset_windows.py": "203903889c036c7d15da345e32d1e2b4ceb776477d5fa7ec5327c7ee649bb8fd",
+    "build_database.py": "fc12e3c7bc146e0f62af95f674d8ab88b8a2eaeb28c3866f5779b8fcdaff269d",
+    "build_demand_historical.py": "7b91d89c37b2511a3114fbb6ce7b5346472ffbc1ebba3014302bc8d6d128fff5",
+    "build_demand_hybrid.py": "9afe982ec494620a93bda0c735e5d17e055314c772997e134f57a1f3feb9240f",
+    "build_demand_minute.py": "59e4c9928ef0c4f4f2e9281ef2d3a81f76e2791299c41173d53f32645d87dbe2",
+    "build_robustness_subsets.py": "a548a971000e09a88a34bbbafa30ade0b64a22e89f8b9d03707963ca61a59353",
+    "enrich_model_inputs.py": "cafb9c58f2801ee6724d71f4dec31a1ee0253e59fbed0d99209080b36f430ea3",
+    "export_minute_demand_inputs.py": "bf375c1e9a7377cfe8c30e1fcc3ade8cfd4b3a9a5df24f992348d16748ef3d26",
+    "hj_build_demand_fxn.py": "ec3e6aed056f6aefdcc2cfe51d531e72e9f7b23a5dc7fa02a9ac63e70bea2446",
+    "hj_multiday_sensitivity.py": "48bea904973aa11434e860105575e42dfc1be74dc619223828d4153a78e9125c",
+    "hj_optimization_model.py": "39efd667cdd587f1d6c8425b9bafacded9b57522244095b5bb0837e01cf40536",
+    "hj_policy_routing.py": "1b6ac135e6cc4a8a58fb3adf668ce8c133610897f980925a1739d136dd1e903d",
+    "integration_costs.py": "d3ef33c2a96aa471f6d37f33170a57e57270091622d9d4edd0c0ab123d8032ec",
+    "make_notebook.py": "7c0aea2df0148ad045dd1f2c12ec9b083a693bf7dca5ae85a43d6afbfcefe464",
+    "make_pipeline_brief.py": "48e725b83df800cd1122ec7336bfad199070e589d8adac89813a47861c264139",
+    "make_subset_poster.py": "f28ca5392842fda3d7c62db48395f461dd7531c2391a11a0ec5e1e7066c59363",
+    "make_subset_poster_portrait.py": "10bf8de969333d68886fbb44ae238e46648f33af5408702cc22e6f3a91f2c287",
+    "make_whatsapp_summary.py": "c9263d55c98ce8b8e0f1e59373e543c12d4fec46238000612764d619cc068bd3",
+    "run_integrated_pipeline.py": "374b13033b9593396717b74fe839e139f7d0a66f16d974d24c91dcf53fcd85c6",
+    "SF_Bay_Area_Bikeshare_EDA.py": "ce10b629f59834a933d1eed86ede8cd44a0504b98b8483699538691e304f970a",
+    "summarize_integration.py": "b0b342941f50027dce827cd9680c6dbbab428fce0524da599de44489e8575ad5",
+    "test_demand_estimation.py": "fbb1fd59d4628b69049dd525f09c69014460fe5764814b6004bc04860fd5b2c4",
+    "test_integration.py": "6d1efb34efbe8b110985d57fbb370054591fa6a11c5401d08a84736649d01dd5",
+    "validate_robustness_subsets.py": "c542d755a05767aae6b068cb744bca5da972b06e01894e365385c37243a04408",
+    "validate_subset_patterns.py": "4cd478259a276ffa803c07b7404cbca74559e515b3252b5296db29e657cc235a",
+    "write_report.py": "53d52796a74ca4ae1a2fe336d57d09e65cc00cef8ec3feeaae22dc3b4da61818"
+  },
+  "policy_rows": 84,
+  "route_rows": 56,
+  "maximum_optimized_mip_gap": 0.0247609320510784,
+  "priced_counts": [
+    {
+      "case": "historical",
+      "policy": "optimized",
+      "days": 13
+    },
+    {
+      "case": "historical",
+      "policy": "rule_based",
+      "days": 3
+    },
+    {
+      "case": "hybrid",
+      "policy": "optimized",
+      "days": 13
+    },
+    {
+      "case": "hybrid",
+      "policy": "rule_based",
+      "days": 3
+    }
+  ]
+}

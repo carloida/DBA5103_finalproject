@@ -1,3 +1,4 @@
+# Legacy PR #1 entry point; current integrated costs/demand use run_integrated_pipeline.py.
 #!/usr/bin/env python3
 """Reproduce the availability-adjusted demand method in DBA5103 report §3.4.
 

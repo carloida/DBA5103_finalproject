@@ -473,21 +473,27 @@ def summarise_validation(t, methods=VALIDATION_METHODS):
     for gname, g in groups.items():
         for (test, side), s in g.groupby(["test", "side"]):
             for rider in RIDERS:
-                act = s[f"actual_{rider}"]
+                # Unsupported rates must not cause different methods to be scored on different targets.
+                paired = s[f"actual_{rider}"].notna()
                 for name in methods:
-                    err = s[f"pred_{name}_{rider}"] - act
+                    paired &= s[f"pred_{name}_{rider}"].notna()
+                act = s.loc[paired, f"actual_{rider}"]
+                for name in methods:
+                    err = s.loc[paired, f"pred_{name}_{rider}"] - act
                     ok = err.notna()
                     rows.append({"group": gname, "test": test, "side": side, "rider": rider, "method": name,
                                  "n": int(ok.sum()), "mean_actual": act[ok].mean(), "mae": err[ok].abs().mean(),
                                  "rmse": float(np.sqrt((err[ok] ** 2).mean())), "bias": err[ok].mean()})
     long = pd.DataFrame(rows).sort_values(["group", "test", "side", "rider", "method"]).reset_index(drop=True)
     a = long[long["group"].eq("all_eligible")]
-    wide = a.pivot_table(index=["test", "side", "rider"], columns="method", values=["n", "mae", "rmse", "bias"])
-    out = pd.DataFrame(index=wide.index)
-    out["n"] = wide[("n", "case_b_hybrid")].astype(int)
+    keys = ["test", "side", "rider"]
+    historical = a[a["method"].eq("case_a_historical")].set_index(keys)
+    hybrid = a[a["method"].eq("case_b_hybrid")].set_index(keys)
+    out = pd.DataFrame(index=hybrid.index)
+    out["n"] = hybrid["n"].astype(int)
     for stat in ("mae", "rmse", "bias"):
-        out[f"hybrid_{stat}"] = wide[(stat, "case_b_hybrid")]
-        out[f"historical_{stat}"] = wide[(stat, "case_a_historical")]
+        out[f"hybrid_{stat}"] = hybrid[stat]
+        out[f"historical_{stat}"] = historical[stat].reindex(out.index)
     out = out[["n", "hybrid_mae", "historical_mae", "hybrid_rmse", "historical_rmse", "hybrid_bias", "historical_bias"]]
     return long, out.reset_index()
 
@@ -565,7 +571,7 @@ def run(case="hybrid", argv=None):
 
     def save(df, name):
         path = out_dir / name
-        df.to_csv(path, index=False, date_format="%Y-%m-%d %H:%M:%S")
+        df.to_csv(path, index=False, date_format="%Y-%m-%d %H:%M:%S", lineterminator="\n")
         files[name] = path
 
     save(result, f"estimated_demand_station_hour_{args.case}.csv")

@@ -1,5 +1,7 @@
 # DBA5103: SF Bike Share redistribution
 
+> **Temporary integration branch:** main and PRs #1/#2 remain unmerged. The complete demand producer, updated metric costs, allocation model and conditional route repricing are integrated here. Start with the [executed integration review](docs/INTEGRATION_REVIEW_2026-11-22.md) and [reproduction guide](docs/INTEGRATION_METHODS_2026-11-22.md). Earlier missing-core and pilot-cost statements below are dated main-branch snapshots, resolved or superseded for this branch.
+
 This project studies where and when to move bikes between stations so that the extra trips served justify the moving cost. It follows the problem discussed at our meeting and recorded by Joohee:
 
 > Given estimated demand at each station and time, how many bikes should we move, where should they go, and when should we move them to earn the highest additional operating contribution, within station and truck limits?

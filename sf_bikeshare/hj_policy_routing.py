@@ -33,7 +33,7 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-from hj_optimization_model import read_day
+from hj_optimization_model import read_day, relocation_cost_matrix
 
 TRANSFER_COLUMNS = ['hour','from_station_id','to_station_id','bikes','unit_cost_usd']
 
@@ -95,10 +95,11 @@ def evaluate_policy(name, ids, caps, opening, sub, cas, returns, distance,
                     transfers, *, max_neighbors=5, throughput=15,
                     fixed=60., handling=1., km_cost=.30, avg_load=15.,
                     member_value=.88, casual_value=4.5,
-                    failed_return_penalty=.88):
+                    failed_return_penalty=.88, unit_costs=None):
     """Exact deterministic evaluator for existing Stage-1 convention, no optimizer."""
     if avg_load<=0:raise ValueError('avg_load must be positive')
     ids=list(map(int,ids));n=len(ids);hours=sub.shape[1]
+    costs=relocation_cost_matrix(distance,handling,km_cost,avg_load,unit_costs)
     allowed=allowed_arcs(ids,distance,max_neighbors)
     d=clean_transfers(transfers,ids,hours,allowed)
     id_to_ix={sid:i for i,sid in enumerate(ids)}
@@ -128,12 +129,12 @@ def evaluate_policy(name, ids, caps, opening, sub, cas, returns, distance,
                          'closing_stock':after[i]})
         total_value+=float(vals.sum());total_served+=float(served.sum());total_failed+=float(failed.sum())
         moved+=sum(k for _,_,k in jobs)
-        move_cost+=sum(k*(handling+km_cost*distance[id_to_ix[o],id_to_ix[j]]/avg_load)
+        move_cost+=sum(k*costs[id_to_ix[o],id_to_ix[j]]
                        for o,j,k in jobs)
         b=after
     fixedcost=fixed*(1 if moved else 0)
     penalty=total_failed*failed_return_penalty
-    d['unit_cost_usd']=[round(handling+km_cost*distance[id_to_ix[int(o)],id_to_ix[int(j)]]/avg_load,4)
+    d['unit_cost_usd']=[round(float(costs[id_to_ix[int(o)],id_to_ix[int(j)]]),4)
                         for o,j in zip(d.from_station_id,d.to_station_id)]
     summary={'policy':name,'horizon_hours':hours,'demand_pickups':round(float((sub+cas).sum()),5),
              'served_pickups':round(total_served,5),'unmet_pickups':round(float((sub+cas).sum())-total_served,5),

@@ -1,0 +1,3 @@
+artifact,latest_producer,rows,maximum_numeric_difference,canonical_lf_byte_identical,interpretation
+historical_demand_station_hour.csv,historical,57120,5.329070518200751e-15,False,Same demand case; producer/validation handoff updated
+estimated_demand_station_hour_hybrid.csv,hybrid,57120,0.0,True,Same demand case; producer/validation handoff updated

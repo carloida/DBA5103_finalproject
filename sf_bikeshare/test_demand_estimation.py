@@ -86,6 +86,23 @@ def test_integral_and_hybrid_prediction():
     assert np.isclose(p[0], 1.0 * 3600 + 2.0 * 3600)
 
 
+def test_paired_validation_support():
+    t = pd.DataFrame({'test': ['available_1hour'] * 3, 'side': ['pickups'] * 3,
+                      'weekday_peak': [False] * 3, 'common_3hour_origin': [False] * 3})
+    for rider in bd.RIDERS:
+        t[f'actual_{rider}'] = [1., 2., 3.]
+        t[f'pred_case_a_historical_{rider}'] = [1., np.nan, 3.]
+        t[f'pred_case_b_hybrid_{rider}'] = [2., 2., np.nan]
+    long, wide = bd.summarise_validation(t)
+    assert long['n'].eq(1).all()
+    assert wide['historical_mae'].eq(0).all() and wide['hybrid_mae'].eq(1).all()
+    for rider in bd.RIDERS:
+        t[f'pred_case_a_historical_{rider}'] = np.nan
+    long, wide = bd.summarise_validation(t)
+    assert long['n'].eq(0).all() and wide['n'].eq(0).all()
+    assert wide[['historical_mae','hybrid_mae']].isna().all().all()
+
+
 def real_data_tests(hourly_path, minute_dir):
     hourly = pd.read_csv(hourly_path)
     status = pd.read_csv(Path(minute_dir) / "status.csv.gz")
@@ -128,7 +145,8 @@ if __name__ == "__main__":
     ap.add_argument("--hourly")
     ap.add_argument("--minute-dir")
     args = ap.parse_args()
-    for test in (test_rate_support_levels, test_hour_method_labels, test_integral_and_hybrid_prediction):
+    for test in (test_rate_support_levels, test_hour_method_labels, test_integral_and_hybrid_prediction,
+                 test_paired_validation_support):
         test()
         print("PASS", test.__name__)
     if args.hourly and args.minute_dir:

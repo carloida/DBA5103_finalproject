@@ -1,5 +1,7 @@
 # Case B Hybrid predecessor and historical demand
 
+> **Integration update:** PR #2 now supplies the complete core and reproduces the validation tables on this temporary branch. The missing-core findings below describe the earlier audit snapshot. See the [current integration review](../INTEGRATION_REVIEW_2026-11-22.md) for resolved items, updated costs and new model results.
+
 Prepared 22 November 2026 for the DBA5103 SF bike redistribution project.
 
 **Status: audited sensitivity candidate based on Fu Yan's v2 specification.** Its numerical demand outputs match the documented hybrid rule and load into the model. The supplied producer bundle is incomplete and its original validation needs corrections before final release. This report can also describe the base scenario if the team selects it, provided Case A remains a comparison and the assumptions are reported.

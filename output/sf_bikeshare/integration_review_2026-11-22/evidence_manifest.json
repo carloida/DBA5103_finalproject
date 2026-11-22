@@ -1,0 +1,20 @@
+{
+  "status": "TEMPORARY_INTEGRATION_RESULTS",
+  "files": {
+    "additional_sensitivity.csv": "eec1d177c110044910448b968aa7f16be456c19abb26fdaf873a101723bc78ea",
+    "aggregate_policy_comparison.csv": "f7c11d4df89d0b55bc181afd82caa0fa061d19d533d01171f13cf6065b8c9c9d",
+    "aggregate_route_comparison.csv": "c32c9da56657fc0d706eaeedde3df57e9dea4f3cca1aa42bd27696ba0af45371",
+    "artifact_reconciliation.csv": "87f3c9e0276772b09ce2f13b5272906fb31e54bc0a2d0677bc51a7e40a3ac631",
+    "break_even_costs.csv": "bff3ff9a2c679125019d52ad1c18293fd7a03cf663ea3d26d04c19ef809fd8ba",
+    "conditional_route_comparison.csv": "da67474880b9248c92530997d4ea8ceaa5c0f820ed4031248ab5fdad3fe04092",
+    "cost_configuration.json": "a4043eb30aa88ce58bb12c7d42b885f90d1e352b3634d3040829a2d983b531df",
+    "daily_policy_comparison.csv": "272194e03965610a5f834f9b2af52db0bb2058aac5299667aa5392af2bc389e4",
+    "matched_validation.csv": "42d25b3a29d11c7e313d4e839695776ae9df535150e1e8f66244ff6e5edbeafc",
+    "post_run_checks.json": "f8d346f1bd31def8b62ca1e27def0859368901e25a676e7546c6a3c0040359f5",
+    "README.md": "c2ca731b3d89df6a53ad99c807fcad92f0e5ce3f289f700ada7c0ff2ce17e8f6",
+    "route_cost_sensitivity.csv": "861fd0b5dc748927f2204ea77b10f8cc9c2b356df85c85d40fa7d873afe602b3",
+    "run_manifest.json": "cfde2476dbbb001c8349a10f926f152c1822197dbbda8362b3b620c8145cc9b0",
+    "station_pair_costs.csv": "b317c0327d4f4d0f446333b60ce50a9ecf04b02273ea83eefd5186272ee21907",
+    "validation_by_origin_group.csv": "91babffbae6327e400e042bf9a4577821280be19cd003e69c8f868a22e1b06d8"
+  }
+}

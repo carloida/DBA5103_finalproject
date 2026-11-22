@@ -38,16 +38,29 @@ class Result:
     station_hour: pd.DataFrame
 
 
+def relocation_cost_matrix(distance, handling, km_cost, avg_load, unit_costs=None):
+    """USD per relocated bike; optional pair costs include time-based driving labor."""
+    if avg_load <= 0:
+        raise ValueError('avg_load must be positive')
+    costs=(handling+km_cost*np.asarray(distance,dtype=float)/avg_load
+           if unit_costs is None else np.asarray(unit_costs,dtype=float))
+    if costs.shape != np.asarray(distance).shape or not np.isfinite(costs).all() or (costs<0).any():
+        raise ValueError('Unit cost matrix must match distances and be finite/nonnegative')
+    return costs
+
+
 def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
                      returns, distance, *, fixed=60.0, handling=1.0,
                      km_cost=.30, avg_load=15.0, throughput=15.0,
                      max_trucks=1, member_value=.88, casual_value=4.5,
                      failed_return_penalty=.88, time_limit=30.0,
-                     no_rebalancing=False, max_neighbors=5) -> Result:
+                     no_rebalancing=False, max_neighbors=5, unit_costs=None,
+                     end_stock_at_least_opening=False, objective_mode='contribution',
+                     redistribution_budget=None) -> Result:
     """Solve one daily/partial-day horizon. Arrays: station x hour, USD/km inputs.
 
     b and served quantities are continuous because estimated demand is fractional.
-    x and trucks are integer. FCFS uses proportional rider splitting and the exact
+    x and trucks are integer. Aggregate service uses proportional rider splitting and the exact
     min(available post-transfer stock, total pickup demand) linearization.
     Returns enter AFTER customer pickups in the hour; their failure is also
     linearized exactly, rather than left to the financial objective to decide.
@@ -61,6 +74,13 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
         if not np.all(np.isfinite(a)) or np.any(a < 0): raise ValueError('Inputs must be finite and nonnegative')
     if np.any(opening > caps + 1e-8): raise ValueError('Opening bikes exceed station capacity')
     d = pickups_sub + pickups_cas
+    costs=relocation_cost_matrix(distance,handling,km_cost,avg_load,unit_costs)
+    if objective_mode not in ('contribution','min_failed_requests'):
+        raise ValueError('Unknown objective')
+    if objective_mode=='min_failed_requests' and redistribution_budget is None:
+        raise ValueError('Service objective requires an explicit redistribution budget')
+    if redistribution_budget is not None and redistribution_budget<0:
+        raise ValueError('Budget must be nonnegative')
     # Restrict each origin to nearby destinations to make the full-day MILP
     # tractable for a group project. This is NOT the unrestricted 34x33 graph.
     k = min(n-1, max(1,int(max_neighbors)))
@@ -80,22 +100,22 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
         return idx
     for t in range(hours):
         for i,j in arcs:
-            cost = handling + km_cost*distance[i,j]/avg_load
+            cost = costs[i,j] if objective_mode=='contribution' else 0.
             var(('x',i,j,t),ub=0 if no_rebalancing else throughput*max_trucks,
                 integer=1,cost=cost)
     for t in range(hours+1):
         for i in range(n):
-            var(('b',i,t),lb=opening[i] if t==0 else 0,
+            var(('b',i,t),lb=opening[i] if t==0 or (t==hours and end_stock_at_least_opening) else 0,
                 ub=opening[i] if t==0 else caps[i])
     for t in range(hours):
         for i in range(n):
             value_per_served = (member_value*pickups_sub[i,t] + casual_value*pickups_cas[i,t]) / d[i,t] if d[i,t]>0 else 0
             var(('q',i,t),ub=caps[i])     # Stock after morning redistribution
-            var(('s',i,t),ub=d[i,t],cost=-value_per_served)
-            var(('o',i,t),ub=returns[i,t],cost=failed_return_penalty)
+            var(('s',i,t),ub=d[i,t],cost=-value_per_served if objective_mode=='contribution' else -1.)
+            var(('o',i,t),ub=returns[i,t],cost=failed_return_penalty if objective_mode=='contribution' else 1.)
             var(('z',i,t),ub=1,integer=1) # pickup stockout indicator
             var(('v',i,t),ub=1,integer=1) # return overflow indicator
-    var(('y',),ub=0 if no_rebalancing else max_trucks,integer=1,cost=fixed)
+    var(('y',),ub=0 if no_rebalancing else max_trucks,integer=1,cost=fixed if objective_mode=='contribution' else 0.)
 
     rows,cols,vals,lbs,ubs = [],[],[],[],[]
     def constraint(coef, lb=-np.inf, ub=np.inf):
@@ -104,6 +124,12 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
             if abs(v)>1e-12:
                 rows.append(row);cols.append(ix[k]);vals.append(float(v))
         lbs.append(float(lb));ubs.append(float(ub))
+
+    # Every activated truck must be used; essential for the service-only objective.
+    constraint({('y',):1,**{('x',i,j,t):-1 for t in range(hours) for i,j in arcs}},ub=0)
+    if redistribution_budget is not None:
+        constraint({('y',):fixed,**{('x',i,j,t):float(costs[i,j])
+                   for t in range(hours) for i,j in arcs}},ub=redistribution_budget)
 
     for t in range(hours):
         throughput_row={('y',):-throughput}
@@ -120,7 +146,7 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
             constraint(coef,lb=0,ub=0)
             # Cannot load more bikes than available at the start of the hour.
             constraint({('b',i,t):-1,**{('x',i,j,t):1 for j in arcs_by_i[i]}},ub=0)
-            # FCFS served = min(post-transfer stock, attempted pickups), proportional by class.
+            # Work-conserving aggregate service, proportional by class; not event-level FCFS.
             # s<=q; s<=D is already encoded in the variable upper bound.
             constraint({('s',i,t):1,('q',i,t):-1},ub=0)
             m=float(caps[i]+d[i,t]+1)
@@ -155,7 +181,7 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
         for i,j in arcs:
                 value=X[ix['x',i,j,t]]
                 if value>1e-5:
-                    cost=handling+km_cost*distance[i,j]/avg_load
+                    cost=costs[i,j]
                     records.append({'hour':t,'from_station_id':ids[i],'to_station_id':ids[j],
                                     'bikes':round(float(value),5),'unit_cost_usd':round(float(cost),4)})
                     total_moves += value;move_cost += value*cost
@@ -177,7 +203,10 @@ def solve_allocation(station_ids, caps, opening, pickups_sub, pickups_cas,
                            'return_demand':float(returns[i,t]),
                            'closing_stock':float(X[ix['b',i,t+1]])})
     trucks=float(X[ix[('y',)]]);fixed_cost=fixed*trucks
-    info.update({'trucks_used':trucks,'bikes_moved':round(total_moves,5),
+    info.update({'objective_mode':objective_mode,'redistribution_budget_usd':redistribution_budget,
+                 'unit_cost_matrix_override':unit_costs is not None,
+                 'end_stock_at_least_opening':end_stock_at_least_opening,
+                 'trucks_used':trucks,'bikes_moved':round(total_moves,5),
                  'demand_pickups':round(total_demand,5),'served_pickups':round(total_served,5),
                  'unmet_pickups':round(total_demand-total_served,5),
                  'attempted_returns':round(total_ret,5),'failed_returns':round(total_failed,5),

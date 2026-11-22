@@ -1,3 +1,4 @@
+# Legacy PR #1 entry point; current integrated costs/demand use run_integrated_pipeline.py.
 #!/usr/bin/env python3
 r"""DBA5103 multi-day policies, cost sensitivity, throughput and routing audit.
 

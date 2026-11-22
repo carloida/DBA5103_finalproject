@@ -1,6 +1,6 @@
 # Case B Hybrid predecessor and historical demand
 
-> **Integration update:** PR #2 now supplies the complete core and reproduces the validation tables on this temporary branch. The missing-core findings below describe the earlier audit snapshot. See the [current integration review](../INTEGRATION_REVIEW_2026-11-22.md) for resolved items, updated costs and new model results.
+> **Release update:** historical is the team-confirmed base; hybrid is sensitivity. The complete PR #2 producer reproduces both outputs, and the reviewed model plus completed report results are published. Pending/missing-core findings below are dated development history. Use the [current pipeline](../SF_Bikeshare_Project_Pipeline_Report.md) for the agreed setup.
 
 Prepared 22 November 2026 for the DBA5103 SF bike redistribution project.
 

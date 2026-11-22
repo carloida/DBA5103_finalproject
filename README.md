@@ -1,32 +1,28 @@
 # DBA5103: SF Bike Share redistribution
 
-Joohee's completed 14-day, penalty, budget and diversion results have also been imported unchanged: [handoff review and downloads](docs/JOOHEE_HANDOFF_2026-11-22.md). They retain their earlier cost scenario and are separate from the updated-cost integration experiments.
+**Published setup (22 November): historical demand is the base, hybrid is sensitivity, and observed trips are the lower-demand comparison.** The complete demand producer, allocation/policy code and Joohee's completed report results are integrated. Trips served during outages are subtracted once in both demand estimates. Frozen V3 observations are unchanged.
 
-> **Temporary integration branch:** main and PRs #1/#2 remain unmerged. The complete demand producer, updated metric costs, allocation model and conditional route repricing are integrated here. Start with the [executed integration review](docs/INTEGRATION_REVIEW_2026-11-22.md) and [reproduction guide](docs/INTEGRATION_METHODS_2026-11-22.md). Earlier missing-core and pilot-cost statements below are dated main-branch snapshots, resolved or superseded for this branch.
+Start with the **[complete project pipeline](docs/SF_Bikeshare_Project_Pipeline_Report.md)** for assumptions, owners, commands and downloads. The **[report reconciliation](docs/REPORT_RECONCILIATION_2026-11-22.md)** lists numerical and interpretation corrections for Carlo's manual final edit; Google Docs were not edited.
 
-This project studies where and when to move bikes between stations so that the extra trips served justify the moving cost. It follows the problem discussed at our meeting and recorded by Joohee:
+```bash
+python -m pip install -r requirements-integration.txt
+python sf_bikeshare/run_project_pipeline.py
+```
 
-> Given estimated demand at each station and time, how many bikes should we move, where should they go, and when should we move them to earn the highest additional operating contribution, within station and truck limits?
+The default verifies supplied files and results without rerunning experiments. Explicit rebuild options write to a separate destination.
 
-**Status (22 November):** main V3, its minute-data supplement and five separate robustness packages are published and preserved. Historical and hybrid demand scenarios have been compared locally; detailed reports, compact evidence and downloadable provisional demand outputs are published below. Historical rates are the proposed base, with final team selection and a complete demand producer still pending. Four-date model checks use provisional costs and unverified routes; they do not establish final financial gains or completed robustness testing. The focused V3 EDA figure is still planned. Shared Google Docs were read only; Carlo will upload information manually.
+## Current files
 
-## Start here
+- [Historical base and hybrid sensitivity CSVs](output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md): 57,120 rows ? 31 columns each; latest Fu Yan code reproduces the published snapshots.
+- [Frozen V3](output/sf_bikeshare/model_inputs_v3/README.md) and [minute status/trip supplement](output/sf_bikeshare/demand_estimation_inputs_v3/README.md).
+- [Demand validation](output/sf_bikeshare/demand_case_comparison_2026-11-22/README.md): matched fully observed reconstruction windows, not true-unmet-demand ground truth.
+- [Completed 14-day historical/hybrid/observed policy results](output/sf_bikeshare/optimization_14days_2026-11-22/README.md).
+- [Penalty, budget and diversion experiments](output/sf_bikeshare/extra_experiments_2026-11-22/README.md), with [Joohee handoff checks](docs/JOOHEE_HANDOFF_2026-11-22.md).
+- [Separate updated-cost experiments](docs/INTEGRATION_REVIEW_2026-11-22.md): these use a different cost matrix and conditional route repricing. The report's supplied runs retain USD60/day, USD1/bike and USD0.30/km. Keep the scenarios labelled.
+- [Five city/time robustness datasets](output/sf_bikeshare/robustness_testing/README.md): observed inputs prepared; these five have not been optimized here.
+- [Project status and responsibilities](docs/PROJECT_STATUS.md), [data preparation report](docs/SF_Bikeshare_Consolidated_Data_Preparation_Report.md), [dataset iterations](docs/SF_Bikeshare_Dataset_Iterations.md) and [data sources](docs/DATA_SOURCES.md).
 
-- **[Download both demand outputs](output/sf_bikeshare/demand_estimation_cases_2026-11-22/README.md)**: full historical and Fu Yan v2 hybrid station-hour tables, each with 57,120 rows and 31 columns, as plain CSV or smaller CSV.gz. Provisional output snapshots for separate model runs; observed V3 is unchanged and producer-code handoff remains pending.
-- **[Demand estimation case comparison](docs/SF_Bikeshare_Demand_Estimation_Case_Comparison.md)** (22 November): separate detailed reports for [Case A Historical](docs/supporting/SF_Bikeshare_Demand_Case_A_Historical.md) and [Case B Hybrid](docs/supporting/SF_Bikeshare_Demand_Case_B_Hybrid.md), including formulas, reusable Section 3.4 text, matched validation, lecture/research references and release requirements. [Compact evidence tables](output/sf_bikeshare/demand_case_comparison_2026-11-22/README.md) support the reports; unmerged model code is not released here.
-- **[Minute status and trip supplement for V3 demand estimation](output/sf_bikeshare/demand_estimation_inputs_v3/README.md)** (21 November): same 34 stations and 70-day model window, with short preceding context and status anchors. Compressed minute observations for Fu Yan's estimator; all 18 checks passed. Frozen V3 files are unchanged; estimated demand remains pending reconciliation.
-- **[20 November model-input handoff](docs/supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md)**: confirmed data rules, provisional metric cost benchmarks, accounting corrections and outstanding inputs before locking the full model configuration.
-- **[Carlo's Section 3 draft and data-cleaning appendix](docs/SF_Bikeshare_Consolidated_Data_Preparation_Report.md)**: scoped to the shared data/demand section, with Fu Yan's estimation subsection pending. [Reference and feature review](docs/supporting/SF_Bikeshare_Reference_and_Feature_Review_2026-11-19.md) records the checks and remaining assumptions.
-- **[Project pipeline report](docs/SF_Bikeshare_Project_Pipeline_Report.md)** ([PDF](output/pdf/SF_Bikeshare_Project_Pipeline_Report.pdf)) and **[portrait workflow poster](output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png)**: team responsibilities, two-stage modeling, evaluation and report-writing plan.
-- **[Robustness testing datasets](output/sf_bikeshare/robustness_testing/README.md)**: five separate observed-data cases, explicitly for robustness testing; same 51 hourly features and 21 core schemas as V3. All 325 build checks and 90 export readbacks passed. Experiments and results remain pending.
-- **[V3 enriched model-input handoff](output/sf_bikeshare/model_inputs_v3/README.md)** and **[V1-V5 dataset progression](docs/SF_Bikeshare_Dataset_Iterations.md)**: new inputs, teammate requirements, verification and remaining decisions.
-- **[SF subset](output/sf_bikeshare/subset_assessment/candidate_observed_station_hours.parquet)** and [station details](output/sf_bikeshare/subset_assessment/candidate_stations.csv).
-- **[Subset guide and field definitions](output/sf_bikeshare/subset_assessment/README.md)**: contents, splits, limitations and loading instructions.
-- **[Earlier subset poster](output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png)**: processing steps, file size and pattern comparisons.
-- [Initial project report](docs/SF_Bikeshare_Initial_Report.md).
-- [Cost-formula revision and references](docs/SF_Bikeshare_Cost_Formula_Revision.md).
-- [Project status, responsibilities and next steps](docs/PROJECT_STATUS.md).
-- [Data sources and publishing policy](docs/DATA_SOURCES.md).
+The older case reports, pipeline PDF and posters are dated development snapshots. Their pending handoff/selection statements are superseded by the current pipeline. The supplied historical results show USD202 additional **Stage 1 modeled contribution**, not verified profit or certified executable truck dispatches. The draft's routing and diversion claims need the qualifications in the reconciliation note.
 
 ## Shared dataset
 
@@ -87,11 +83,11 @@ Use training dates to estimate profiles and select priorities. Validation dates 
 
 ## Demand, cost and optimization work
 
-Completed trips are served requests, not all attempted demand. Fu Yan will estimate missed requests during empty/full periods using matching available-time exposure and explicit assumptions. Zero exposure needs a pooled fallback. The [cost revision](docs/SF_Bikeshare_Cost_Formula_Revision.md) covers vehicle activation, crew/vehicle time, fuel, mileage and fees, with sources and remaining gaps. Actual relocation expenses and customer payments are absent from the data.
+Completed trips are served requests, not all attempted demand. Fu Yan's complete producer estimates missed requests using available-time exposure, historical profiles and explicit pooled/unresolved support handling. Historical is the agreed base; hybrid is sensitivity. The [cost revision](docs/SF_Bikeshare_Cost_Formula_Revision.md) covers vehicle activation, crew/vehicle time, fuel, mileage and fees, with sources and remaining gaps. Actual relocation expenses and customer payments are absent from the data.
 
 Compare **no rebalancing, a simple rule and an optimized plan** under identical starting inventory, demand scenarios, capacities and operating assumptions. Report service, bikes moved, cost and additional contribution. Historical inventories reflect existing operations and cannot automatically serve as a no-rebalancing baseline. Advanced machine learning is optional; reliable inputs and stress tests are still needed.
 
-V3 now provides observed opening stocks, capacity diagnostics, boundary/OD flows and current road distances. Remaining decisions include effective versus physical capacity, travel/transfer and within-hour timing, depot/vehicle configuration, external-flow failure rules and suitable financial assumptions. Hourly mean inventory is not opening stock. Only five measurable-rain days occur in the eight training weeks, limiting detailed rain estimates. Bicycle/dock capital purchases are outside the operational scope.
+V3 now provides observed opening stocks, capacity diagnostics, boundary/OD flows and current road distances. The current pipeline records dock_count capacity, midnight initialization, transfers/pickups/returns ordering, open routing and external-flow rules. Cost scope and routing evidence remain report limitations. Hourly mean inventory is not opening stock. Only five measurable-rain days occur in the eight training weeks, limiting detailed rain estimates. Bicycle/dock capital purchases are outside the operational scope.
 
 ## Original EDA preserved
 

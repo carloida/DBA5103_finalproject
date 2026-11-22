@@ -395,7 +395,7 @@ def main():
     p.add_argument('--stations',default=str(base/'station.csv'))
     p.add_argument('--opening',default=str(base/'opening_inventory_daily.csv'))
     p.add_argument('--distances',default=str(base/'station_distances.csv'))
-    p.add_argument('--demand',default=str(root/'demand_estimation'/'estimated_demand_station_hour.csv'))
+    p.add_argument('--demand',default=str(root/'demand_estimation_cases_2026-11-22'/'historical_demand_station_hour.csv.gz'))
     p.add_argument('--optimized-transfers',default=str(root/'optimization'/'pilot_optimized_transfers.csv'))
     p.add_argument('--optimized-station-hour',default=str(root/'optimization'/'pilot_optimized_station_hour.csv'))
     p.add_argument('--out',default=str(root/'optimization'/'hj_policy_comparison'))

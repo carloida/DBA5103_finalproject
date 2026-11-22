@@ -27,12 +27,13 @@
       "sha256": "d5a83d90135750c4e93f531c445fa7646bbd39e745ce5d8cd123212a0c8c20d2"
     },
     "README.md": {
-      "bytes": 3945,
-      "sha256": "0390168531440f4958c2f81a40ae20f11597e72b259eb530395526b7adffcc8e"
+      "bytes": 4051,
+      "sha256": "ac14abf0d184bfe1cbbbf41ce13b78aed9572ae9ba9b9c3c4c51dff7148d04d6"
     },
     "validation_by_origin_group.csv": {
       "bytes": 9480,
       "sha256": "35ec51f2a12f8ece9178985ebaf3d059ec01cd4f9a5d08a7cd5094084dffc284"
     }
-  }
+  },
+  "release_note": "Complete producer published; historical base and hybrid sensitivity confirmed; numerical evidence tables unchanged."
 }

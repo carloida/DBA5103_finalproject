@@ -1,4 +1,4 @@
-# Legacy PR #1 entry point; current integrated costs/demand use run_integrated_pipeline.py.
+# Report-scenario runner; the updated-cost extension uses run_integrated_pipeline.py.
 #!/usr/bin/env python3
 r"""DBA5103 multi-day policies, cost sensitivity, throughput and routing audit.
 
@@ -234,7 +234,7 @@ def main():
     p.add_argument('--stations',default=str(base/'station.csv'))
     p.add_argument('--opening',default=str(base/'opening_inventory_daily.csv'))
     p.add_argument('--distances',default=str(base/'station_distances.csv'))
-    p.add_argument('--demand',default=str(root/'demand_estimation/estimated_demand_station_hour.csv'))
+    p.add_argument('--demand',default=str(root/'demand_estimation_cases_2026-11-22/historical_demand_station_hour.csv.gz'))
     p.add_argument('--out',default=str(root/'optimization/multiday'))
     args=p.parse_args()
     if args.self_test:

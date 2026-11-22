@@ -1,8 +1,8 @@
 # Downloadable historical and hybrid demand outputs
 
-Prepared 22 November 2026. These are the two audited **demand-estimation output snapshots**, ready to inspect or load into separate provisional optimization runs. They share the same station-hour interface but contain different estimated-demand values.
+Prepared 22 November 2026. These are the two audited **demand-estimation output snapshots**, ready to inspect or load into separate optimization cases. They share the same station-hour interface but contain different estimated-demand values.
 
-**Status: provisional cases; final team selection and complete producer handoff remain pending.** These estimates supplement frozen observed V3. They are not new observed trips, final financial results, or optimization transfer plans. Publishing the output snapshots does not complete the missing v2 core-module handoff.
+**Status: team-confirmed historical base and hybrid sensitivity.** Fu Yan's latest complete producer reproduces both snapshots, including served-trip subtraction and corrected validation. These are estimated request inputs, not new observed trips, financial results or transfer plans. See the [published pipeline](../../../docs/SF_Bikeshare_Project_Pipeline_Report.md).
 
 ## Downloads
 
@@ -55,4 +55,4 @@ The source fingerprints match the previously audited files. Both outputs passed 
 
 The [manifest](manifest.json) records source and published hashes, byte sizes, columns, totals and checks. Record line endings were normalized to LF where necessary; parsed values are unchanged. Gzip copies use a fixed timestamp for stable packaging.
 
-These files are frozen output snapshots for the two reviewed main-case methods. The historical trial reused an audited episode table; Fu Yan's supplied hybrid wrapper still needs its revised core module. Source-code reproducibility, corrected validation, final case choice, cost calibration, route checks and the full robustness study remain separate tasks. No producer or unmerged optimization code is included here.
+These frozen snapshots are reproduced by the published complete producer. Joohee's historical/hybrid/observed policy results use these inputs. Route certification, cost interpretation and the five additional city/time model experiments remain separate from demand-input reconciliation.

@@ -1,5 +1,7 @@
 # Temporary demand cost and model integration
 
+> **Dated experiment:** the original temporary-branch status below records when these checks were run. The complete project pipeline is now published with historical base and hybrid sensitivity. This updated-cost experiment remains separate from Joohee's unchanged report-cost results. See the [current pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
+
 This branch integrates the latest Fu Yan demand producer from PR #2 with the model/evaluator source from PR #1. Main and the upstream PRs remain unmerged. The original PR #1 generated demand, duplicate nested CSV and old result tables were not imported as current results.
 
 The active pipeline is:

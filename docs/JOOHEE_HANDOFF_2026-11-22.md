@@ -1,8 +1,8 @@
 # Joohee's completed results handoff
 
-Imported from the shared [github_upload_joohee Drive folder](https://drive.google.com/drive/folders/1Z8_gtGBwahZIVfOtBsJiadQGGWYPvZZS) into the temporary integration branch. All 13 supplied files are preserved byte-for-byte in their requested repository paths. No optimization or diversion experiment was rerun, no existing result set was overwritten, and Google Docs were not edited. Main and PRs #1/#2 remain unmerged.
+Imported from the shared [github_upload_joohee Drive folder](https://drive.google.com/drive/folders/1Z8_gtGBwahZIVfOtBsJiadQGGWYPvZZS) into the temporary integration branch. All 13 supplied files are preserved byte-for-byte in their requested repository paths. No optimization or diversion experiment was rerun, no existing result set was overwritten, and Google Docs were not edited. This dated handoff records the import checks; the current release status is in the [project pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
-The supplied report setup is historical base, hybrid sensitivity and observed trips as a lower-demand comparison. Importing these files does not make a new demand-case decision for Carlo.
+The supplied report setup is historical base, hybrid sensitivity and observed trips as a lower-demand comparison. The subsequent team chat confirmed this setup for the published pipeline.
 
 ## Code and dependencies
 

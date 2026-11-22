@@ -1,5 +1,7 @@
 # Temporary integration review and executed results
 
+> **Dated experiment:** the original temporary-branch status below records when these checks were run. The complete project pipeline is now published with historical base and hybrid sensitivity. This updated-cost experiment remains separate from Joohee's unchanged report-cost results. See the [current pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
+
 This is the isolated integration branch, not a merge into main. It combines Fu Yan PR #2 and Hong Jin PR #1 source, the updated cost inputs and the existing observed data. See [methods, formulas and reproduction](INTEGRATION_METHODS_2026-11-22.md).
 
 **Main finding:** demand reproduction is resolved, but the positive Stage 1 gains do not survive the tested Stage 2 route repricing assumptions on the conditionally priced subset. Cost/route-aware model refinement remains material; this branch does not establish profitable dispatches.

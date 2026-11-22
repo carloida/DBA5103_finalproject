@@ -1,51 +1,26 @@
-# Project status - 18 November 2026
+# Project status ? 22 November 2026
 
-**20 November update:** see the [dated handoff](supporting/SF_Bikeshare_Model_Input_Handoff_2026-11-20.md) for Carlo's confirmed `dock_count` base rule, midnight-only daily initialization, provisional rental/fuel inputs and remaining demand/model checks. The data releases are unchanged. The 18 November snapshot below is retained as history where its pending statuses have since evolved.
+The team confirmed historical demand as the base and hybrid as sensitivity. Joohee confirmed that the report uses the published historical/hybrid CSVs, plus observed trips as a lower-demand comparison. Both estimated cases subtract trips already served during outages. See the [complete pipeline](SF_Bikeshare_Project_Pipeline_Report.md).
 
-Following the 16 November meeting, the modeling work focuses on SF Bay Area Bike Share. The earlier Citi Bike EDA remains as background. Joohee approved the 34-station, 10-week, hourly scope in the comments supplied on 18 November. Vehicle, demand, revenue and timing assumptions still require agreement. The repository provides the V3 scoped exports and supporting documentation; the full databases stay local. Shared Google Docs were read only and Carlo will upload information there manually.
+## Completed and published
 
-## Completed
+- Carlo's frozen V3 observations, 34 SF stations ? 70 days ? 24 recorded slots, with metric inputs and the minute supplement.
+- Fu Yan's complete historical/hybrid producer, support fallback tests and matched validation; both outputs reproduce the published snapshots.
+- Hong Jin's allocation model, rule policy, independent replay and conditional route-check source. Earlier generated own-hour demand/results from PR #1 are superseded and excluded from the current report inputs.
+- Joohee's unchanged 14-day historical, hybrid and observed policy tables; penalty, budget, fixed-schedule repricing, selected first-day reoptimizations and diversion outputs. No experiments were rerun for her file upload.
+- A separate updated-cost integration experiment, clearly labelled apart from the report scenario.
+- Five additional city/time observed-data packages, prepared for possible robustness work. They are not completed model experiments.
 
-- [Pipeline report](SF_Bikeshare_Project_Pipeline_Report.md) and [9:16 portrait poster](../output/sf_bikeshare/pipeline/SF_Bikeshare_Project_Pipeline_Poster.png), covering responsibilities, Stage 1/2, fair comparisons, robustness and the writing plan.
-- [Five separate robustness cases](../output/sf_bikeshare/robustness_testing/README.md): San Jose alongside the main dates, plus both cities in June-August 2014 and April-June 2015. Total 194,880 added station-hours; exact V3 core schemas, metric units, 325 passed build checks and 90 export readbacks. This is observed-data preparation, not completed policy testing. Main V3 remains unchanged.
-- Original Citi Bike notebook, code, charts, audit tables and findings retained.
-- Full SF audit/EDA: 669,959 trips, 70 stations, 71,984,434 status snapshots and 3,665 weather location-days; saved notebook, 14 chart panels and reports.
-- Candidate: 34 SF stations, 9 February-19 April 2015, 57,120 station-hours in a roughly 0.247 MB Parquet file.
-- V3 enriched local database and scoped CSV/GZIP handoff: rider splits, opening stocks, capacity audit, OD/boundary/transit tables, current directed road matrix, historical tariff evidence and separate revenue-allocation scenarios. All V3 working physical measurements and the local cost formula now use metric units. 21 database tables; 43 reconciliation checks and 18 export row-count readbacks passed. Original database and V2 Parquet preserved.
-- All 2,380 midnight opening stocks are fresh; 67 have effective/static capacity mismatches. All 34 stations have some capacity discrepancy. The 34 stale hourly openings coincide with the March DST transition and remain flagged/NULL.
-- [Dataset progression and teammate-response table](SF_Bikeshare_Dataset_Iterations.md) and [V3 handoff guide](../output/sf_bikeshare/model_inputs_v3/README.md).
-- History-length, hourly-pattern, station-priority, coverage and outlier checks.
-- Updated poster, initial report and cited cost-formula proposal.
-- Raw Citi Bike CSV and complete cleaned trip copy removed from current repository files. Full SF sources and local database are excluded; Git history remains intact.
+## Owners and remaining work
 
-## Objective
+| Owner | Remaining work |
+| --- | --- |
+| Carlo | Manual final report edit, repository/data consistency and corrected conclusion wording |
+| Fu Yan | Ensure Section 3 demand wording matches the published historical base, served-trip subtraction, support rules and validation scope |
+| Jason | Ensure cost-source discussion identifies the executed approximate USD0.30/km scenario and distinguishes allocated trip values from cash |
+| Joohee | Check formulation/assumptions against code; qualify route, service-allocation, diversion and perfect-information claims |
+| Hong Jin | Check reported solver gaps, the USD0.50 penalty result and which exact route-audit artifacts support the draft |
 
-Choose how many bikes to move, where and when, to maximize additional trip contribution minus additional redistribution cost relative to no rebalancing, under bike conservation, inventory, dock, timing and truck limits. Bicycle/dock purchases are outside the operational scope.
+The base result table reconciles, but the report is not yet fully reconciled. [Required corrections](REPORT_RECONCILIATION_2026-11-22.md) include ?USD24.79 at penalty USD0.50, nonuniform cost-scenario percentages, missing route evidence and causal overinterpretation of the diversion ratio. The original source/results remain unchanged.
 
-## Roles and dependencies
-
-| Person | Responsibility | Needs |
-| --- | --- | --- |
-| Carlo | Scope, EDA, quality checks, data handoff and consistency edit | Input format/model requirements from Fu Yan, Joohee and Hong Jin |
-| Fu Yan | Demand estimation and scenarios | Observed flows and valid exposure from Carlo |
-| Jason | Cost/revenue evidence and literature | Vehicle scenario and accounting scope, with Carlo/Fu Yan |
-| Joohee | Mathematical formulation and method | Agreed data definitions, demand and cost assumptions |
-| Hong Jin | Implementation, baselines and results | Agreed data, demand, parameters and formulation |
-
-## Still required
-
-1. Scope confirmed by Joohee; agree boundary-flow failure rules, within-hour ordering, operating horizon and depot. The pilot does not establish that other periods are redundant.
-2. Finish focused subset EDA. The prepared cases retain eight training weeks and two retrospective evaluation weeks; agree the final protocol, freeze estimator/policy settings and resolve unusable opening-stock rules before policy evaluation. These dates are not sealed holdouts.
-3. Fit/validate demand correction, including uncertainty and zero-exposure handling.
-4. Resolve capacity interpretation and flagged DST/long-trip timing cases; propagate inventory and accepted-trip returns consistently. Opening stocks and OD/boundary/transit inputs are now extracted.
-5. Finalize vehicle, staffing, handling and incremental trip-value inputs. Historical tariffs and Jason's allocated-revenue scenarios are recorded separately; allocations are not measured marginal receipts. Current road estimates are not historical truck logs.
-6. Compare no moves, a simple rule and optimization using identical information/initial states.
-7. Test demand, costs, capacity, rain/extremes and break-even conditions.
-
-No optimized plan, measured recovered demand or profit gain is established. Current validation dates have already been examined and are exploratory, not a sealed final test.
-
-## Timeline from the supplied minutes
-
-Data/EDA target: 17 November. Demand/model review: 18 November. Coding: tentatively 19-20 November. Consolidation: 21 November. Submission: 22 November; resolve issues before Carlo's evening travel.
-
-See the [initial report](SF_Bikeshare_Initial_Report.md), [cost revision](SF_Bikeshare_Cost_Formula_Revision.md), [subset guide](../output/sf_bikeshare/subset_assessment/README.md) and [poster](../output/sf_bikeshare/whatsapp/SF_Bikeshare_Subset_Poster.png).
+No Google Doc was edited. No full cross-city/time robustness study or verified cash-profit result is claimed. The latest pipeline Markdown supersedes the earlier planning PDF/poster.

@@ -1,113 +1,118 @@
-# Bike Share Project Pipeline and Robustness Plan
+# Published project pipeline
 
-Prepared by Carlo | 18 November 2026
+Updated 22 November 2026. The team confirmed **historical demand as base**, **hybrid as sensitivity**, and **observed trips as a lower-demand comparison**. Both estimated-demand cases subtract trips already served during outages. Fu Yan's latest code reproduces the published outputs; the former missing-core handoff is resolved.
 
-## Project pipeline and current status
+## Pipeline and owners
 
-We can formally begin report writing now. The observed-data scope and a reproducible data handoff are available. We should write the background, literature, data preparation and planned methodology while the team finalizes demand, operating assumptions and formulation. Results and financial conclusions must follow actual model runs.
+```mermaid
+flowchart LR
+  A[Frozen V3 observations and minute supplement] --> B[Historical demand base]
+  A --> C[Hybrid sensitivity and observed comparison]
+  B --> D[Daily Stage 1 allocation MILP]
+  C --> D
+  D --> E[Policy replay and service/cost comparisons]
+  D --> F[Conditional pickup-delivery route checks]
+  E --> G[Penalty, budget and cost sensitivity]
+  F --> H[Report results and limitations]
+  G --> H
+```
 
-### Purpose and operational question
-
-Our main case remains 34 San Francisco stations over 9 February-19 April 2015, at hourly resolution. We ask where, when and how many bikes to redistribute to improve modeled service relative to no redistribution, within inventory, dock, timing and vehicle limits. Economic contribution is conditional on an explicitly agreed trip-value interpretation; allocated membership revenue is not automatically marginal cash revenue.
-
-### Working sequence and responsibility
-
-| Step | Work and output | Lead |
+| Stage | Owner | Deliverable and status |
 | --- | --- | --- |
-| 1 | Prepare and audit observations. Main V3 plus five robustness cases; quality flags and metric units. | Carlo |
-| 2 | Estimate attempted demand. Pool matched counts/exposure; validate fallbacks and uncertainty. | Fu Yan with Carlo |
-| 3 | Agree parameters and assumptions. Trip-value interpretation, vehicle inputs, costs and operating rules. | Jason with Joo Hee |
-| 4 | Define the allocation model. Inventory, bike conservation, dock bounds, transfer time and activation. | Joo Hee |
-| 5 | Implement and compare policies. Start small, then compare no moves, a rule and optimized allocation. | Hong Jin with Joo Hee |
-| 6 | Check routes and estimated costs. Onboard load, handling/travel time, depot rules and cost reconciliation. | Hong Jin with Joo Hee |
-| 7 | Evaluate robustness. Repeat the same method across cities/periods and selected scenarios. | Team |
-| 8 | Interpret and finalize the paper. Explain service/cost trade-offs, failures, limitations and recommendations. | Carlo and section owners |
+| Ingestion, cleaning and features | Carlo | Frozen V3, 34 SF stations, 70 days, metric units; minute supplement and audited opening stock |
+| Demand estimation and reconstruction validation | Fu Yan, reviewed with Carlo | Complete producer; historical and hybrid station-hour CSVs, episode audits, rates and matched validation |
+| Cost and allocated trip-value evidence | Jason | Sources and assumptions; executed report scenario distinguished from updated-cost extension |
+| Time-expanded formulation | Joohee | 24-hour daily MILP, base contribution objective, return penalties and budget alternative |
+| Implementation, rule baseline and replay | Hong Jin, Joohee | Model/evaluator code and completed 14-day historical/hybrid/observed comparisons |
+| Penalty, budget and diversion experiments | Joohee | Completed supplied outputs, imported unchanged; descriptive diversion check |
+| Routing extension and sensitivity interpretation | Hong Jin, Joohee | Conditional route checker available; exact report-schedule audit files were not in the handoff |
+| Data/repository handoff and final consistency edit | Carlo | Published pipeline, checks, result links and manual report corrections |
 
-Demand estimation, parameter research and formulation (steps 2-4) can progress together using the fixed data schema. Hong Jin can begin small sanity instances before all empirical inputs are final. Do not present illustrative runs as observed performance.
+The [handoff review](JOOHEE_HANDOFF_2026-11-22.md) describes Joohee's completed files. The [report reconciliation](REPORT_RECONCILIATION_2026-11-22.md) lists corrections before final submission. Google Docs remain untouched.
 
-## Robustness design and separate datasets
+## Inputs and fixed assumptions
 
-Five additional subsets have been prepared in a separate robustness_testing folder. With the unchanged main V3 case, they form two cities by three non-overlapping calendar windows. Every case is ten weeks long: eight weeks for estimation and two labeled validation for retrospective evaluation. Earlier EDA has examined the broader source, so these are not sealed holdouts.
+| Item | Agreed implementation |
+| --- | --- |
+| Scope | 34 SF stations, 9 February?19 April 2015; 57,120 station-hours |
+| Training / evaluation | 9 February?5 April / 6?19 April; evaluation dates were explored during development |
+| Minute status | Carry the left snapshot to the next only for valid positive gaps of at most 90 seconds; longer gaps are unknown |
+| Historical rates | Training available-period events divided by summed available exposure, by station, clock hour, weekday/weekend and rider; pool day types if exposure is insufficient; unsupported rates remain missing |
+| Episode adjustment | Expected arrivals minus served events, clipped at zero once per episode, then allocated by expected hourly arrivals and added to observed counts |
+| Hybrid | Preceding 30-minute rate with at least 20 available minutes for the first 60 elapsed minutes; historical rates afterwards or when predecessor support is inadequate |
+| Validation | Fully valid/available hidden windows entirely in evaluation dates; same targets per method; actual unmet requests are unobserved |
+| Opening inventory | Observed midnight stock; latest preceding snapshot selected before validity/freshness checks; no hourly reset to historical stocks |
+| Capacity | station.csv dock_count; lower-capacity interpretation remains sensitivity rather than a silently changed base |
+| Decisions | Integer transfers and truck count; continuous expected inventory/service; binary min/max linearization variables |
+| Network | Five nearest directed destinations per origin: 170 transfer arcs, not every pair |
+| Within-hour order | Transfers, then pickups, then fixed returns; same-hour arrivals; within-hour availability is approximate |
+| Rider service | Proportional rider allocation within each station-hour; not event-level FCFS |
+| Boundary / returns | Outside-bound pickups can be lost; attempted returns can fail at full docks; returns are not linked to accepted departures |
+| Vehicle | One available truck, 15 bikes/hour throughput, average load 15; route capacity 25 is a separate assumption |
+| Billing / end stock | USD60 per activated truck-day; no mandatory end-stock target in base |
+| Trip values / penalty | Member USD0.88, casual USD4.50; allocations, not marginal receipts. Base failed-return penalty USD0.88 |
+| DST | Recorded local-hour slots and flags retained; timestamps are not repaired |
+| Route | Open start at first pickup, free initial approach, pickup-before-delivery, handling/setup and inter-hour position continuity; no depot, worker shift or event-level station-inventory certificate |
 
-| Case | City | Inclusive dates | Rows |
-| --- | --- | --- | --- |
-| D0 main | SF | 9 Feb-19 Apr 2015 | 57,120 |
-| R1 | San Jose | 9 Feb-19 Apr 2015 | 26,880 |
-| R2 | SF | 2 Jun-10 Aug 2014 | 57,120 |
-| R3 | San Jose | 2 Jun-10 Aug 2014 | 26,880 |
-| R4 | SF | 20 Apr-28 Jun 2015 | 57,120 |
-| R5 | San Jose | 20 Apr-28 Jun 2015 | 26,880 |
+For episode e, rider r and affected hour t, with expected arrivals E and recorded served events S:
 
-### What is held consistent
+$$
+M_{er}=\max(0,\sum_t E_{etr}-S_{er}),\qquad
+\widehat D_{itr}=O_{itr}+\sum_e M_{er}\frac{E_{etr}}{\sum_{t'} E_{et'r}}.
+$$
 
-All five additions match the 51-column V3 hourly schema and all 21 core table schemas, including names, order and SQL types. Their station, day, OD, boundary, transit and distance tables retain the same meanings. Physical units are metric and currency is USD. SF has 34 stations and San Jose 16; natural row counts differ without changing duration or inventing observations.
+Zero expected totals allocate no additional demand; unsupported required rates are flagged rather than replaced by zero. Historical rates change with clock hours, even inside long episodes.
 
-### Build evidence and remaining data rules
+## Executed report cost versus updated-cost extension
 
-Each added case passed 65 checks and 18 export row-count readbacks: 325 checks and 90 readbacks overall. The original database was read-only and V3 was preserved. Current San Jose road estimates were fetched once and cached; the SF road cache was reused. These are driving proxies, not historical truck logs.
+The completed report runs retain:
 
-Each additional SF window has four unusable midnight stocks, retained as NULL with flags; one affects the later window's evaluation period. San Jose midnight stocks are fresh throughout. Agree the same initialization fallback or complete-day exclusion rule before policy results are inspected. Capacity and long-trip diagnostics remain visible.
+$$
+C_1=60y+\sum_{ijt}(1.00+0.30d_{ij}/15)x_{ijt}.
+$$
 
-### What the design can establish
+Distance is road kilometres and money is USD. The USD0.30/km coefficient is an approximate scenario, not demonstrated complete driving-labour reimbursement. Handling is approximately one minute per load and one per unload at the adopted loaded wage. Average load, throughput and onboard capacity have separate meanings.
 
-Compare location effects within common dates and period effects within each city. The cases share dates, stations and source history, so they are dependent. Six cases is our practical design choice, not a universal minimum or proof of general validity. Demand intensity differs substantially across cities; little benefit from rebalancing can be a valid result.
+The separate [updated-cost configuration](../sf_bikeshare/integration_cost_config.json) uses USD0.985667/bike handling plus pair-specific vehicle and driving-time labour. Its [executed results](INTEGRATION_REVIEW_2026-11-22.md) are a separate extension and must not be substituted for the report's USD202 result. Stage 2 reprices the same redistribution operation; never add Stage 1 and Stage 2 as two expenses. An incomplete route receives no invented full-day route cost.
 
-## Model construction and fair evaluation
+## Published datasets and results
 
-### Stage 1 allocation
+- [Frozen V3](../output/sf_bikeshare/model_inputs_v3/README.md) and [minute supplement](../output/sf_bikeshare/demand_estimation_inputs_v3/README.md).
+- [Historical base CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/historical_demand_station_hour.csv.gz) and [hybrid sensitivity CSV](../output/sf_bikeshare/demand_estimation_cases_2026-11-22/estimated_demand_station_hour_hybrid.csv.gz), both 57,120 ? 31. Pandas reads gzip directly.
+- [Matched demand validation](../output/sf_bikeshare/demand_case_comparison_2026-11-22/matched_validation.csv).
+- [Completed 14-day policy and cost results](../output/sf_bikeshare/optimization_14days_2026-11-22/README.md).
+- [Completed penalty, budget and diversion outputs](../output/sf_bikeshare/extra_experiments_2026-11-22/README.md).
+- [Separate updated-cost experiments](../output/sf_bikeshare/integration_review_2026-11-22/README.md).
 
-Joo Hee defines an integer model on station-time nodes. It chooses relocations while conserving bikes, bounding station stock and docks, linking accepted customer trips to later arrivals/in-transit stock, respecting transfer timing and activating truck resources. Opening stock is a dated initial condition, not an hourly reset to the historical inventory path.
+The observed comparison supplies no outage correction; it is not a third fitted demand estimator. Each case uses the same observed station/distance/opening inputs. Historical adds 2,330.775 pickups and 688.136 returns; hybrid adds 4,346.924 and 1,326.521 over the 70-day observations.
 
-The proposed allocation cost is activation plus bikes moved times handling and allocated distance cost: C1 = sum(F z) + sum[(h + k d / average_load) x]. Here h is USD per relocated bike including load/unload, k is variable USD per truck-km, and d is km. Average load is positive and distinct from onboard capacity and hourly throughput. The activation billing period must be defined.
+## Run and verify
 
-### Stage 2 route checks
+From the repository root:
 
-Route the proposed movements and verify visit feasibility, onboard load, handling/setup/travel time, depot legs and end conditions. Evaluate C2 = F z + (W + V) H + P G + M D + A for consistent activated vehicle periods. Fuel litres may be approximated by G = D q / 100 with q in litres/100 km. Include each cost once; compare C2 with C1 rather than adding both as separate expenses.
+```bash
+python -m pip install -r requirements-integration.txt
+python sf_bikeshare/run_project_pipeline.py
+```
 
-An infeasible route requires revised movements and reevaluation, or an explicit failure report. A TSP visit order alone is insufficient. Both costs remain estimates, and sequential optimization does not establish joint global optimality.
+The default checks hashes, schemas, demand totals, supplied accounting and recorded solver/replay diagnostics. **It does not rerun experiments or overwrite published files.** The supplied completed results are already downloadable.
 
-### Common comparison protocol
+Only when an explicit rebuild is wanted:
 
-Evaluate no redistribution, a resource-matched rule and optimized allocation on the same city-day starting stocks, in-transit bikes, request scenarios and operating limits. Moves use forecasts and information available before requests occur. Solving with the full realized future is a perfect-information benchmark, not normal operational performance. Unavailable external pickups/returns need explicit rules.
+```bash
+python sf_bikeshare/run_project_pipeline.py --build-demand --output-dir tmp/rebuild_demand
+python sf_bikeshare/run_project_pipeline.py --build-demand --run-models --output-dir tmp/rebuild_models
+python sf_bikeshare/run_project_pipeline.py --run-extra-experiments --output-dir tmp/rebuild_extras
+```
 
-Up to 14 evaluation city-days per case gives 84 city-days and 252 policy-day evaluations for three policies before exclusions, cost/demand scenarios or stochastic replications. Use paired policy differences and preserve day/week dependence. If simulations or heuristics are stochastic, choose repetitions from a variability pilot and use common scenarios/seeds where appropriate.
+Use a new/empty destination. Published output folders are protected. Model rebuilds run the three policies for historical, hybrid and observed demand on all 14 dates, with route checks and fixed-schedule cost repricing. Extra rebuilds run the documented 14-day penalty/budget experiments. Finite-time MIP incumbents can vary; inspect statuses, gaps and replay errors rather than expecting identical dispatches. The diversion output remains the supplied result; its original script writes its fixed output path and should not be run casually over published files.
 
-After the base comparisons, test agreed low/base/high costs and rider values, demand stress factors and truck/handling resources. These are explicit scenario choices. Start with a small experiment budget and selected adverse combinations rather than every possible factor combination.
+Demand-only and integration-invariant tests remain available as documented in [the methods guide](INTEGRATION_METHODS_2026-11-22.md). Full raw-source ingestion is documented in the [V3 handoff](../output/sf_bikeshare/model_inputs_v3/README.md); the raw databases are intentionally local.
 
-### Results to report
+## Robustness scope and report completion
 
-Report additional served trips, unmet estimated requests, bikes moved, km and operating hours, estimated redistribution cost, conditional contribution, executable-route share, solve time, solver status and gaps. Normalize across city sizes and report failures. Neither stockouts nor observed trips alone measure attempted demand, and allocated fares do not establish actual profit.
+Demand scenarios, cost repricing, selected cost/throughput reoptimizations, penalties and budget experiments are completed. The [five additional city/time packages](../output/sf_bikeshare/robustness_testing/README.md) are prepared observations only. They have not been passed through demand estimation and policy optimization here; their scope/availability inputs and missing-opening rules require separate handling.
 
-## Report writing and completion gates
+The current draft's main numerical results match the supplied historical case. Final editing must reconcile the USD0.50-penalty row, cost-scenario percentages, route evidence and the interpretation of proportional service, demand bias and diversion. Lectures support the time-expanded flow, mixed-integer constraints, conditional DP route search and scenario re-solving; they do not prove estimator truth or real operational profit. See [lecture alignment](INTEGRATION_METHODS_2026-11-22.md#mathematical-model-and-lecture-alignment).
 
-Yes, start formal writing now. A finished data handoff is a foundation for the paper; it does not require waiting for every experiment. Keep factual completed work separate from the methodology proposed and results still pending. There is no basis to promise that no further correction will ever be needed, but the main observed-data package can serve as the reference release.
-
-| Paper section | Owner | Write now or finalize later |
-| --- | --- | --- |
-| 1 Introduction | Jason | Write the problem, motivation and observed evidence now. |
-| 2 Literature | Jason | Write now; connect references to the actual model. |
-| 3 Data and demand | Carlo + Fu Yan | Data/scope/QA now; complete demand method and validation after fitting. |
-| 4 Formulation | Joo Hee | Draft now; finalize after inventory, timing, boundary and vehicle rules agree. |
-| 5 Solution method | Joo Hee + Hong Jin | Outline now; report the solver, size, runtime and gaps actually used. |
-| 6 Results | Hong Jin | Finalize only from reproducible baseline and optimization runs. |
-| 7 Robustness and limits | Joo Hee + Hong Jin + Fu Yan | Write the protocol/known limits now; add measured robustness outcomes later. |
-| 8 Conclusion | Carlo + Hong Jin | Finalize recommendations after results and sensitivity are available. |
-| Appendix and edit | All code owners; Carlo edits | Maintain data/model code, input register, citations and consistent notation. |
-
-### Decisions needed before empirical claims
-
-Fu Yan must validate the demand estimator and zero-exposure fallback. Jason/Joo Hee must agree the trip-value interpretation and numerical vehicle/cost scenarios. Joo Hee/Hong Jin must agree within-hour order, lead times, effective capacity, external-flow failures, depot/starting load, activation periods and terminal conditions. Case gasoline values are unselected; historical tariff/allocation tables remain benchmarks requiring date and geography review.
-
-The provided 10-13-page team outline fits the guideline's indicative 8-14 narrative pages; depth and clarity matter more than length. This brief is a coordination report, not the finished term paper. Shared Google Docs remain untouched; Carlo will relay the material manually.
-
-### Evidence and reproducibility
-
-Course basis: project guideline pp. 1-4; Lecture 4 pp. 24-26 (sensitivity); Lecture 6 pp. 44-45 and 58 (time-expanded repositioning and scenario evaluation); Lecture 7 fixed-charge and routing constraints. Page references are PDF positions.
-
-[Optimization benchmarking guidance](https://arxiv.org/html/2007.03488v2)
-
-[Good Laboratory Practice for Optimization Research](https://www.graham-kendall.com/papers/ketal2016.pdf)
-
-[Chronological forecasting evaluation](https://otexts.com/fpp3/toolbox.html#time-series-cross-validation)
-
-[GitHub data and scripts](https://github.com/carloida/DBA5103_finalproject)
+The earlier pipeline PDF and poster are dated planning artifacts; this Markdown pipeline is the current implementation reference.

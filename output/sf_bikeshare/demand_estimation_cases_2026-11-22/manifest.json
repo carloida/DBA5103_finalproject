@@ -1,13 +1,13 @@
 {
   "prepared_on": "2026-11-22",
-  "status": "PROVISIONAL_DEMAND_OUTPUT_SNAPSHOTS_NOT_FINAL_TEAM_SELECTION",
+  "status": "TEAM_CONFIRMED_HISTORICAL_BASE_HYBRID_SENSITIVITY",
   "purpose": "Downloadable outputs from historical and hybrid demand estimation; inputs to separate optimization runs",
   "observation_scope": "34 SF stations; [2015-02-09,2015-04-20)",
   "training": "[2015-02-09,2015-04-06)",
   "validation": "[2015-04-06,2015-04-20)",
   "original_observed_v3_unchanged": true,
-  "producer_code_included": false,
-  "producer_handoff_status": "Case A trial reused audited episodes; Case B revised core module still missing",
+  "producer_code_included": true,
+  "producer_handoff_status": "Complete PR #2 core published; both demand snapshots and matched validation reproduced",
   "units": {
     "demand": "expected trips/bikes",
     "exposure": "seconds",
@@ -145,5 +145,6 @@
         }
       }
     }
-  }
+  },
+  "team_agreement": "22 November 2026 supplied chat: historical base, hybrid sensitivity, observed-only lower-demand comparison"
 }

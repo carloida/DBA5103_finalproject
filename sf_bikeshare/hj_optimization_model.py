@@ -9,7 +9,7 @@ perfect-information benchmark, not a live forecast.
 Windows CMD examples (run from repository root with .venv active):
 
   python sf_bikeshare\hj_optimization_model.py --self-test
-  python sf_bikeshare\hj_optimization_model.py --date 2015-04-06 --hours 3 --demand output\sf_bikeshare\demand_estimation\estimated_demand_station_hour.csv
+  python sf_bikeshare\hj_optimization_model.py --date 2015-04-06 --hours 3
 
 To run all 24 hours, use --hours 24. Start with a modest time limit and examine
 solver status/gap; a feasible incumbent is NOT necessarily proven optimal.
@@ -290,7 +290,7 @@ def main():
     p.add_argument('--stations',default=str(inputs/'station.csv'))
     p.add_argument('--opening',default=str(inputs/'opening_inventory_daily.csv'))
     p.add_argument('--distances',default=str(inputs/'station_distances.csv'))
-    p.add_argument('--demand',default=str(root/'demand_estimation'/'estimated_demand_station_hour.csv'))
+    p.add_argument('--demand',default=str(root/'demand_estimation_cases_2026-11-22'/'historical_demand_station_hour.csv.gz'))
     p.add_argument('--out',default=str(root/'optimization'/'pilot'))
     p.add_argument('--fixed',type=float,default=60.0)
     p.add_argument('--handling',type=float,default=1.0)

@@ -1,0 +1,184 @@
+{
+  "status": "PASS_STATIC_AND_TABLE_CHECKS_NO_EXPERIMENT_RERUN",
+  "source_folder": "https://drive.google.com/drive/folders/1Z8_gtGBwahZIVfOtBsJiadQGGWYPvZZS",
+  "files": [
+    {
+      "path": "sf_bikeshare/jh_diversion_check.py",
+      "size": 5302,
+      "drive_id": "107-3bCzivUez_gBmKvwwU7CulZtRcAgH",
+      "drive_url": "https://drive.google.com/file/d/107-3bCzivUez_gBmKvwwU7CulZtRcAgH/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.693Z",
+      "mime_type": "text/x-python",
+      "sha256": "33f09d3a77ecb1fb493f022ebbeffe9ea4305f70ebd982263906d1eea5542f7f",
+      "line_endings": "LF"
+    },
+    {
+      "path": "sf_bikeshare/jh_run_experiments.py",
+      "size": 3787,
+      "drive_id": "1uqs26oNPBlLjobKKbGjsrLFLwhQUymvx",
+      "drive_url": "https://drive.google.com/file/d/1uqs26oNPBlLjobKKbGjsrLFLwhQUymvx/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.627Z",
+      "mime_type": "text/x-python",
+      "sha256": "071dcbddcf0902dd7025a16a83bdc723fb0afb486adc8c17b06d6a39c3732f53",
+      "line_endings": "LF"
+    },
+    {
+      "path": "sf_bikeshare/jh_lost_trips_model.py",
+      "size": 17336,
+      "drive_id": "1NkXoVuKCAJiAjP7cWq86CFKLuS48vqP8",
+      "drive_url": "https://drive.google.com/file/d/1NkXoVuKCAJiAjP7cWq86CFKLuS48vqP8/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.542Z",
+      "mime_type": "text/x-python",
+      "sha256": "c9b58d36a935d1d336612ca8033bcec571c6ff99ed65eed81e8035cff123bed5",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/reoptimization_sensitivity.csv",
+      "size": 579,
+      "drive_id": "12H3wdMF3xpC7-nc3yw2Ux3wmgL4zwe5C",
+      "drive_url": "https://drive.google.com/file/d/12H3wdMF3xpC7-nc3yw2Ux3wmgL4zwe5C/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.185Z",
+      "mime_type": "text/csv",
+      "sha256": "2b1452db0b5561b63179d472cb90e5924f50bf3d223847308caf8d116e5e5efc",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/hybrid_daily_policy_comparison.csv",
+      "size": 10742,
+      "drive_id": "193Ktgs1ydsgHQ2VERRuxhd8XPUaSp0Kw",
+      "drive_url": "https://drive.google.com/file/d/193Ktgs1ydsgHQ2VERRuxhd8XPUaSp0Kw/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.111Z",
+      "mime_type": "text/csv",
+      "sha256": "3e0ec3eaa0118a478d99f1c137447ef8dead35dc969c6d2e1e05472322610ff2",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/break_even_fixed_schedule.csv",
+      "size": 1451,
+      "drive_id": "1ny3jYUHx3itV7syZ2cxtpOIxdxZLT3HO",
+      "drive_url": "https://drive.google.com/file/d/1ny3jYUHx3itV7syZ2cxtpOIxdxZLT3HO/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.045Z",
+      "mime_type": "text/csv",
+      "sha256": "83561c44a137f3cf8c997bf56ddefa4ee6b2855a7e7b0ccf5580d58b0e137a3d",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/observed_daily_policy_comparison.csv",
+      "size": 9754,
+      "drive_id": "17Xoan2D-meQwqDLbyWyi3gT4bjOfi1u4",
+      "drive_url": "https://drive.google.com/file/d/17Xoan2D-meQwqDLbyWyi3gT4bjOfi1u4/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.979Z",
+      "mime_type": "text/csv",
+      "sha256": "0f77901128b7999a3488a06291f49799c5e57b42f2836a92bdf0f3a7803cd7a2",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/historical_daily_policy_comparison.csv",
+      "size": 10800,
+      "drive_id": "1dTdmRzWi00jet1vAWpdzsRnyTLn3Kf17",
+      "drive_url": "https://drive.google.com/file/d/1dTdmRzWi00jet1vAWpdzsRnyTLn3Kf17/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.909Z",
+      "mime_type": "text/csv",
+      "sha256": "989daf69f7e7dd32e780c190cc3c2745dfe356acf913c17f9efe1d8eb2e7926f",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/optimization_14days_2026-11-22/fixed_schedule_cost_sensitivity.csv",
+      "size": 13209,
+      "drive_id": "1amByOxb745K0wbluhVoeaoHldqodavCq",
+      "drive_url": "https://drive.google.com/file/d/1amByOxb745K0wbluhVoeaoHldqodavCq/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:44.844Z",
+      "mime_type": "text/csv",
+      "sha256": "cb350a396e29c317ed30372f1fb2525b5969750b2549921b35fbced88c7628ad",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/extra_experiments_2026-11-22/penalty_sensitivity.csv",
+      "size": 62072,
+      "drive_id": "1ULMb4QaO_E04klkTHEBmnJe6XNGjEmZc",
+      "drive_url": "https://drive.google.com/file/d/1ULMb4QaO_E04klkTHEBmnJe6XNGjEmZc/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.529Z",
+      "mime_type": "text/csv",
+      "sha256": "bb0b6b79d8d4937f8164d9790894ddbd6046867a32573fb5e2a3f1b4c314db07",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/extra_experiments_2026-11-22/README.md",
+      "size": 1197,
+      "drive_id": "1-rOKxwK-ncMEBAFqcjsTSN6RKSOHuoX8",
+      "drive_url": "https://docs.google.com/document/d/1-rOKxwK-ncMEBAFqcjsTSN6RKSOHuoX8/edit?usp=drivesdk&ouid=101023626686216524838&rtpof=true&sd=true",
+      "modified_time": "2026-11-22T10:34:45.464Z",
+      "mime_type": "text/markdown",
+      "sha256": "bb5d2855896de5242190059bb3866e5d237753a6ff819b7be02ba602634513cd",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/extra_experiments_2026-11-22/lost_trip_budget.csv",
+      "size": 22006,
+      "drive_id": "1wq1i4A1crqvNeH9817I_vjKwS1_chghR",
+      "drive_url": "https://drive.google.com/file/d/1wq1i4A1crqvNeH9817I_vjKwS1_chghR/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.398Z",
+      "mime_type": "text/csv",
+      "sha256": "63917e88c222a5a436106d82ed23a19e479e76454e70f5a47a89a57994a9013b",
+      "line_endings": "LF"
+    },
+    {
+      "path": "output/sf_bikeshare/extra_experiments_2026-11-22/diversion_episodes.csv",
+      "size": 51353,
+      "drive_id": "1mDsr38dZf1PDeyDkIfRtM5ud_VLwYzKE",
+      "drive_url": "https://drive.google.com/file/d/1mDsr38dZf1PDeyDkIfRtM5ud_VLwYzKE/view?usp=drivesdk",
+      "modified_time": "2026-11-22T10:34:45.300Z",
+      "mime_type": "text/csv",
+      "sha256": "faa87e722cad32a57fa72d07a2eac3652232700a0805acac59f3e666f3d2f1ca",
+      "line_endings": "LF"
+    }
+  ],
+  "daily_results": [
+    {
+      "case": "historical",
+      "rows": 42,
+      "dates": 14,
+      "demand_totals_match": true,
+      "replay_error_max": 4.576374001974415e-13,
+      "solver_gap_max": 0.0080945288691551
+    },
+    {
+      "case": "hybrid",
+      "rows": 42,
+      "dates": 14,
+      "demand_totals_match": true,
+      "replay_error_max": 4.009878105115661e-07,
+      "solver_gap_max": 0.0097107139947419
+    },
+    {
+      "case": "observed",
+      "rows": 42,
+      "dates": 14,
+      "demand_totals_match": true,
+      "replay_error_max": 1.176836406102666e-13,
+      "solver_gap_max": 0.0085391669689159
+    }
+  ],
+  "penalty_rows": 252,
+  "budget_rows": 84,
+  "diversion_rows": 945,
+  "diversion_paired_rows": 916,
+  "checks": [
+    "13 supplied sizes and SHA-256 preserved",
+    "3 Python scripts parse; model/evaluator imports pass",
+    "42 unique rows per daily case, 14 dates and 3 policies",
+    "Daily demand totals match published case inputs and observed V3 inputs",
+    "Contribution and service accounting reconcile",
+    "Recorded daily optimized status 0; gaps <= 1%; replay errors < 1e-4",
+    "Budget costs within recorded daily limits; penalty charges reconcile",
+    "Missing break-even values coincide with zero-move days",
+    "Fixed-schedule repricing distinguished from four first-date reoptimizations"
+  ],
+  "limitations": [
+    "No optimization or diversion experiment rerun; inspected solver/replay records are not independent reproductions.",
+    "Supplied F=60, h=1, k=0.30, Lbar=15 differ from updated-cost integration scenario.",
+    "Route flags are false; no route certificate supplied in this folder.",
+    "Lost-trip objective includes 0.001 times redistribution cost, not strict lexicographic optimization.",
+    "Diversion comparison is descriptive; placebo non-fullness does not establish complete validity/availability; episode resampling may ignore dependence."
+  ]
+}

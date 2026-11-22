@@ -1,5 +1,7 @@
 # DBA5103: SF Bike Share redistribution
 
+Joohee's completed 14-day, penalty, budget and diversion results have also been imported unchanged: [handoff review and downloads](docs/JOOHEE_HANDOFF_2026-11-22.md). They retain their earlier cost scenario and are separate from the updated-cost integration experiments.
+
 > **Temporary integration branch:** main and PRs #1/#2 remain unmerged. The complete demand producer, updated metric costs, allocation model and conditional route repricing are integrated here. Start with the [executed integration review](docs/INTEGRATION_REVIEW_2026-11-22.md) and [reproduction guide](docs/INTEGRATION_METHODS_2026-11-22.md). Earlier missing-core and pilot-cost statements below are dated main-branch snapshots, resolved or superseded for this branch.
 
 This project studies where and when to move bikes between stations so that the extra trips served justify the moving cost. It follows the problem discussed at our meeting and recorded by Joohee:
